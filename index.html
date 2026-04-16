@@ -36,6 +36,19 @@
     </script>
 <style>
         :root {
+            --bg-start: #f8fafc;
+            --bg-end: #e2e8f0;
+            --primary-color: #4C6B4B;
+            --primary-hover-color: #6D916B;
+            --accent-color: #C69749;
+            --accent-hover-color: #A37A3B;
+            --text-color: #334155;
+            --soft-text-color: #64748b;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --card-bg: rgba(255, 255, 255, 0.6);
+            --card-hover-bg: rgba(255, 255, 255, 0.9);
+        }
+        .dark {
             --bg-start: #0f172a;
             --bg-end: #1e293b;
             --primary-color: #4C6B4B;
@@ -95,11 +108,12 @@
     </style>
 </head>
 <body class="w-full flex flex-col relative bg-[var(--bg-start)] text-[var(--text-color)]">
+<canvas id="bgCanvas" class="fixed inset-0 w-full h-full z-0 pointer-events-none opacity-40"></canvas>
 
 <!-- TopAppBar -->
-<header class="h-[72px] flex-shrink-0 w-full border-b border-white/10 bg-[#0f172a]/80 backdrop-blur-xl sticky top-0 z-50 flex justify-between items-center px-4 md:px-[25px]">
+<header class="h-[72px] flex-shrink-0 w-full border-b border-[var(--border-color)] bg-[var(--card-bg)] backdrop-blur-xl sticky top-0 z-50 flex justify-between items-center px-4 md:px-[25px]">
 <div class="flex items-center gap-3">
-<img class="w-10 h-10 rounded-full object-cover border border-[var(--primary-color)] p-0.5 bg-[#0f172a]" src="./assets/images/KPIM-Duc-Nguyen.png"/>
+<img class="w-10 h-10 rounded-full object-cover border border-[var(--primary-color)] p-0.5 bg-[var(--bg-start)]" src="./assets/images/KPIM-Duc-Nguyen.png"/>
 <span class="text-xl font-bold tracking-tight text-[var(--text-color)] hidden xl:flex items-center gap-2 font-['Inter'] t-lang" data-en="E-Profile" data-vi="Hồ sơ Điện tử">
     E-Profile
 </span>
@@ -130,8 +144,8 @@
 </nav>
 
 <div class="flex items-center gap-4">
-    <button id="lang-toggle-btn" class="font-bold text-sm text-[var(--soft-text-color)] hover:text-[var(--accent-color)] transition-colors cursor-pointer">VI</button>
-    <span class="material-symbols-outlined text-[var(--soft-text-color)] hover:text-[var(--accent-color)] transition-colors cursor-pointer">dark_mode</span>
+    <button id="lang-toggle-btn" class="font-bold text-sm text-[var(--soft-text-color)] hover:text-[var(--accent-color)] transition-colors cursor-pointer w-6 text-center">VI</button>
+    <span id="theme-toggle-btn" class="material-symbols-outlined text-[var(--soft-text-color)] hover:text-[var(--accent-color)] transition-colors cursor-pointer">dark_mode</span>
     <span class="material-symbols-outlined text-[var(--soft-text-color)] hover:text-[var(--accent-color)] transition-colors cursor-pointer">more_vert</span>
 </div>
 </header>
@@ -146,7 +160,7 @@
     <section class="glass-panel p-5 flex flex-col items-center text-center gap-3 justify-start relative group flex-shrink-0">
         <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[var(--accent-color)] to-transparent"></div>
         <div class="relative w-full flex justify-center mt-2 mb-1">
-            <div class="w-24 h-24 rounded-full border-2 border-[var(--primary-color)] p-1 relative z-10 bg-[#0f172a]">
+            <div class="w-24 h-24 rounded-full border-2 border-[var(--primary-color)] p-1 relative z-10 bg-[var(--bg-start)]">
                 <img class="w-full h-full rounded-full object-cover" src="./assets/images/KPIM-Duc-Nguyen.png"/>
             </div>
             <div class="absolute inset-0 bg-[var(--primary-color)]/20 blur-2xl rounded-full transform scale-110 m-auto w-24 h-24"></div>
@@ -172,6 +186,14 @@
             <span class="px-3 py-1 rounded-full bg-[var(--card-bg)] border border-[var(--border-color)] text-[10px] sm:text-[11px] font-medium text-[var(--soft-text-color)] flex items-center gap-1">
                 <span class="material-symbols-outlined text-[13px] text-[var(--accent-color)]">psychology</span> 
                 <span class="t-lang" data-en="Data &amp; AI Mentor" data-vi="Cố vấn Dữ liệu & AI">Data &amp; AI Mentor</span>
+            </span>
+            <span class="px-3 py-1 rounded-full bg-[var(--card-bg)] border border-[var(--border-color)] text-[10px] sm:text-[11px] font-medium text-[var(--soft-text-color)] flex items-center gap-1">
+                <span class="material-symbols-outlined text-[13px] text-[var(--accent-color)]">account_tree</span> 
+                <span class="t-lang" data-en="Project Manager" data-vi="Quản Lý Dự Án (PM)">Quản Lý Dự Án (PM)</span>
+            </span>
+            <span class="px-3 py-1 rounded-full bg-[var(--card-bg)] border border-[var(--border-color)] text-[10px] sm:text-[11px] font-medium text-[var(--soft-text-color)] flex items-center gap-1">
+                <span class="material-symbols-outlined text-[13px] text-[var(--accent-color)]">record_voice_over</span> 
+                <span class="t-lang" data-en="Public Speaker" data-vi="Diễn Giả">Diễn Giả</span>
             </span>
         </div>
 
@@ -332,11 +354,11 @@
             </div>
             <span class="px-2 py-0.5 bg-[var(--primary-color)]/20 text-[var(--primary-color)] text-[10px] font-bold rounded">LIVE</span>
         </div>
-        <div class="aspect-video rounded-lg overflow-hidden bg-slate-900 mb-1 border border-[var(--border-color)] relative">
+        <div class="aspect-video rounded-lg overflow-hidden bg-[var(--bg-end)] mb-1 border border-[var(--border-color)] relative">
             <img class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" src="./assets/images/images.png"/>
             <div class="absolute inset-0 flex items-center justify-center">
                 <a href="https://app.powerbi.com/view?r=eyJrIjoiYmY4ODMyOWMtOTRkNC00MDEwLWEyYzItYzEzYmI5NWM4ZmVkIiwidCI6IjQxYWI0MmE5LTM4MWItNDhjZi04YTg1LTcyMDQ2NDkyMjk3NiIsImMiOjEwfQ%3D%3D" target="_blank">
-                    <button class="bg-[#0f172a]/80 backdrop-blur-md border border-[var(--border-color)] px-5 py-2 rounded-full text-xs font-bold flex items-center gap-2 hover:bg-[var(--accent-color)] hover:text-white transition-all text-white shadow-lg">
+                    <button class="bg-[var(--card-bg)] backdrop-blur-md border border-[var(--border-color)] px-5 py-2 rounded-full text-xs font-bold flex items-center gap-2 hover:bg-[var(--accent-color)] hover:text-white transition-all text-[var(--text-color)] hover:text-white shadow-lg">
                         <span class="material-symbols-outlined text-xs">open_in_new</span> <span class="t-lang" data-en="View Dashboard" data-vi="Xem Bảng điều khiển">View Dashboard</span>
                     </button>
                 </a>
@@ -353,7 +375,7 @@
         </div>
         <div class="bg-[var(--card-bg)] p-3 rounded-lg border border-[var(--border-color)] hover:border-[var(--accent-color)]/30 transition-colors flex flex-col justify-between">
             <div class="flex items-center gap-3 mb-2">
-                <div class="w-7 h-7 rounded-full overflow-hidden bg-slate-800 border border-[var(--border-color)] flex-shrink-0">
+                <div class="w-7 h-7 rounded-full overflow-hidden bg-[var(--bg-end)] border border-[var(--border-color)] flex-shrink-0">
                     <img class="w-full h-full object-cover" src="./assets/images/KPIM-Duc-Nguyen.png"/>
                 </div>
                 <div class="min-w-0">
@@ -362,7 +384,7 @@
                 </div>
             </div>
             <p class="text-[9px] text-[var(--text-color)] leading-tight mb-3 line-clamp-2 t-lang" data-en="Transforming data into actionable insights." data-vi="Chia sẻ những góc nhìn chuyên sâu về quản trị sức khỏe doanh nghiệp bằng dữ liệu...">Transforming data into actionable insights.</p>
-            <a href="https://www.youtube.com/@PowerBIHeroVn" target="_blank" class="block rounded overflow-hidden bg-slate-900 border border-[var(--border-color)] mb-2 relative group cursor-pointer h-[75px]">
+            <a href="https://www.youtube.com/@PowerBIHeroVn" target="_blank" class="block rounded overflow-hidden bg-[var(--bg-end)] border border-[var(--border-color)] mb-2 relative group cursor-pointer h-[75px]">
                 <img class="w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-500" src="./assets/images/YUDfOxaukVqadyOypK7D3g8VuJfmpk.png"/>
                 <div class="absolute inset-0 flex items-center justify-center">
                     <span class="material-symbols-outlined text-[var(--accent-color)] text-4xl drop-shadow-[0_0_8px_rgba(198,151,73,0.8)]" style="font-variation-settings: 'FILL' 1;">play_circle</span>
@@ -484,7 +506,7 @@
         </div>
         <div class="flex flex-col gap-2 mt-2">
             <a href="https://compaclass.com/course/37c90656-6ef4-45f6-a767-bb00e1ee5342" target="_blank" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[var(--card-hover-bg)] transition-colors group cursor-pointer border border-transparent hover:border-[var(--border-color)] flex-shrink-0">
-                <div class="w-14 h-9 overflow-hidden bg-gray-800 flex-shrink-0 rounded-sm">
+                <div class="w-14 h-9 overflow-hidden bg-[var(--bg-end)] flex-shrink-0 rounded-sm">
                     <img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="./assets/images/powerbi_coban_compaclass.jpg"/>
                 </div>
                 <div class="flex flex-col flex-grow min-w-0">
@@ -496,7 +518,7 @@
             </a>
             
             <a href="https://compaclass.com/learn/course/data-analytics-fundamental-v2/overview" target="_blank" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[var(--card-hover-bg)] transition-colors group cursor-pointer border border-transparent hover:border-[var(--border-color)] flex-shrink-0">
-                <div class="w-14 h-9 overflow-hidden bg-gray-800 flex-shrink-0 rounded-sm">
+                <div class="w-14 h-9 overflow-hidden bg-[var(--bg-end)] flex-shrink-0 rounded-sm">
                     <img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="./assets/images/data-analytics-fundamental.webp"/>
                 </div>
                 <div class="flex flex-col flex-grow min-w-0">
@@ -508,7 +530,7 @@
             </a>
 
             <a href="https://compaclass.com/vn/learn/course/ung-dung-ai-trong-cong-viec-va-phan-tich-du-lieu-1/overview" target="_blank" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[var(--card-hover-bg)] transition-colors group cursor-pointer border border-transparent hover:border-[var(--border-color)] flex-shrink-0">
-                <div class="w-14 h-9 overflow-hidden bg-gray-800 flex-shrink-0 rounded-sm">
+                <div class="w-14 h-9 overflow-hidden bg-[var(--bg-end)] flex-shrink-0 rounded-sm">
                     <img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="./assets/images/ai-data-analytics.webp"/>
                 </div>
                 <div class="flex flex-col flex-grow min-w-0">
@@ -520,7 +542,7 @@
             </a>
 
             <a href="https://compaclass.com/vn/learn/course/hr-analytics-3/overview" target="_blank" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[var(--card-hover-bg)] transition-colors group cursor-pointer border border-transparent hover:border-[var(--border-color)] flex-shrink-0">
-                <div class="w-14 h-9 overflow-hidden bg-gray-800 flex-shrink-0 rounded-sm">
+                <div class="w-14 h-9 overflow-hidden bg-[var(--bg-end)] flex-shrink-0 rounded-sm">
                     <img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="./assets/images/hr-analytics.webp"/>
                 </div>
                 <div class="flex flex-col flex-grow min-w-0">
@@ -532,7 +554,7 @@
             </a>
 
             <a href="https://compaclass.com/vn/learn/course/ai-automation-trong-hr-2/overview" target="_blank" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[var(--card-hover-bg)] transition-colors group cursor-pointer border border-transparent hover:border-[var(--border-color)] flex-shrink-0">
-                <div class="w-14 h-9 overflow-hidden bg-gray-800 flex-shrink-0 rounded-sm">
+                <div class="w-14 h-9 overflow-hidden bg-[var(--bg-end)] flex-shrink-0 rounded-sm">
                     <img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="./assets/images/ai-hr-automation.webp"/>
                 </div>
                 <div class="flex flex-col flex-grow min-w-0">
@@ -544,7 +566,7 @@
             </a>
 
             <a href="https://compaclass.com/vn/learn/course/khoa-hoc-microsoft-fabric-co-ban-1/overview" target="_blank" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[var(--card-hover-bg)] transition-colors group cursor-pointer border border-transparent hover:border-[var(--border-color)] flex-shrink-0">
-                <div class="w-14 h-9 overflow-hidden bg-gray-800 flex-shrink-0 rounded-sm">
+                <div class="w-14 h-9 overflow-hidden bg-[var(--bg-end)] flex-shrink-0 rounded-sm">
                     <img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="./assets/images/ms-fabric-basic.webp"/>
                 </div>
                 <div class="flex flex-col flex-grow min-w-0">
@@ -556,7 +578,7 @@
             </a>
 
             <a href="https://compaclass.com/vn/learn/course/phan-tich-du-lieu-voi-excel-v1/overview" target="_blank" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[var(--card-hover-bg)] transition-colors group cursor-pointer border border-transparent hover:border-[var(--border-color)] flex-shrink-0">
-                <div class="w-14 h-9 overflow-hidden bg-gray-800 flex-shrink-0 rounded-sm">
+                <div class="w-14 h-9 overflow-hidden bg-[var(--bg-end)] flex-shrink-0 rounded-sm">
                     <img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="./assets/images/excel-data-analytics.webp"/>
                 </div>
                 <div class="flex flex-col flex-grow min-w-0">
@@ -574,7 +596,7 @@
 </main>
 
 <!-- BottomNavBar for Mobile -->
-<nav class="md:hidden fixed bottom-0 left-0 w-full z-100 bg-[#0f172a]/95 backdrop-blur-xl border-t border-[var(--border-color)] flex justify-around items-center px-4 pb-6 pt-3 shadow-[0_-8px_32px_rgba(0,0,0,0.3)]">
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-100 bg-[var(--card-bg)] backdrop-blur-xl border-t border-[var(--border-color)] flex justify-around items-center px-4 pb-6 pt-3 shadow-[0_-8px_32px_rgba(0,0,0,0.3)]">
 <a class="flex flex-col items-center justify-center text-[var(--soft-text-color)] hover:text-[var(--primary-color)] transition-all" href="#">
 <span class="material-symbols-outlined">work</span>
 <span class="text-[10px] font-semibold uppercase tracking-widest font-['Inter'] mt-1 t-lang" data-en="Experience" data-vi="Kinh nghiệm">Experience</span>
@@ -600,27 +622,105 @@
 <script>
     // i18n Translation Logic
     const langToggleBtn = document.getElementById('lang-toggle-btn');
-    let currentLang = 'en';
+    let currentLang = 'vi'; // Default language
+
+    function applyTranslation(lang) {
+        document.querySelectorAll('.t-lang').forEach(el => {
+            const translation = el.getAttribute(`data-${lang}`);
+            if (translation) el.innerHTML = translation;
+        });
+    }
+
+    // Apply default language immediately on load
+    applyTranslation(currentLang);
 
     langToggleBtn.addEventListener('click', () => {
-        // Toggle language state
         currentLang = currentLang === 'en' ? 'vi' : 'en';
-        langToggleBtn.innerText = currentLang === 'en' ? 'VI' : 'EN';
-        
-        // Find all elements with the 't-lang' class
-        const translatableElements = document.querySelectorAll('.t-lang');
-        
-        translatableElements.forEach(el => {
-            const translation = el.getAttribute(`data-${currentLang}`);
-            if (translation) {
-                // If it contains child elements (like icons), we only want to translate the text node.
-                // A safe way is to replace only the pure text content if there's no HTML, 
-                // OR replace the innerHTML outright if there are structural elements.
-                // In our case, t-lang is applied specifically to leaf nodes or spans wrapper around text.
-                el.innerHTML = translation;
-            }
-        });
+        langToggleBtn.innerText = currentLang === 'en' ? 'EN' : 'VI';
+        applyTranslation(currentLang);
     });
+
+    // Theme Toggle Logic
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const htmlEl = document.documentElement;
+
+    themeToggleBtn.addEventListener('click', () => {
+        htmlEl.classList.toggle('dark');
+        const isDark = htmlEl.classList.contains('dark');
+        themeToggleBtn.innerText = isDark ? 'dark_mode' : 'light_mode';
+    });
+
+    // --- Canvas Animated Background (Neural Network) ---
+    const canvas = document.getElementById('bgCanvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+    
+    // Golden accent color
+    const RGB_COLOR = '198, 151, 73';
+
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        initParticles();
+    }
+
+    function initParticles() {
+        particles = [];
+        const particleCount = Math.min(width * height / 15000, 80); // Responsive count
+        for (let i = 0; i < particleCount; i++) {
+            particles.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: (Math.random() - 0.5) * 0.4,
+                size: Math.random() * 1.5 + 0.5,
+                opacity: Math.random() * 0.4 + 0.1
+            });
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+        
+        // Draw particles
+        particles.forEach(p => {
+            p.x += p.vx;
+            p.y += p.vy;
+            
+            // Bounce off edges
+            if (p.x < 0 || p.x > width) p.vx *= -1;
+            if (p.y < 0 || p.y > height) p.vy *= -1;
+            
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${RGB_COLOR}, ${p.opacity})`;
+            ctx.fill();
+        });
+        
+        // Draw connections (subtle neural net effect)
+        ctx.strokeStyle = `rgba(${RGB_COLOR}, 0.08)`;
+        ctx.lineWidth = 0.5;
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                
+                if (dist < 120) {
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+        requestAnimationFrame(animate);
+    }
+    
+    window.addEventListener('resize', resize);
+    resize();
+    animate();
 </script>
 </body>
 </html>

@@ -1,9 +1,9 @@
-﻿const CACHE_NAME = 'nqd-portfolio-v2';
+const CACHE_NAME = 'nqd-portfolio-v3';
 const ASSETS = [
   './',
   './index.html',
-  './theme.css',
-  './theme.js',
+  './assets/css/theme.css',
+  './assets/js/theme.js',
   './manifest.json'
 ];
 

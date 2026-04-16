@@ -1,468 +1,626 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html class="dark" lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta
-    name="description"
-    content="E-portfolio of lecturer Nguyen Quang Duc, bringing together experience, courses, dashboards, blog, media channels and deployment recommendations in one place."
-  >
-  <meta name="theme-color" content="#24463c">
-  <title>E-Portfolio | Nguyen Quang Duc</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,500,0,0"
-    rel="stylesheet"
-  >
-  <link rel="stylesheet" href="assets/css/theme.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>E-Portfolio | Professional Identity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#0f172a",
+                        "card-bg": "rgba(255, 255, 255, 0.04)",
+                        "card-hover-bg": "rgba(255, 255, 255, 0.08)",
+                        "primary": "#4C6B4B",
+                        "primary-light": "#6D916B",
+                        "accent-gold": "#C69749",
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        :root {
+            --bg-start: #0f172a;
+            --bg-end: #1e293b;
+            --primary-color: #4C6B4B;
+            --primary-hover-color: #6D916B;
+            --accent-color: #C69749;
+            --accent-hover-color: #A37A3B;
+            --text-color: #E0E0E0;
+            --soft-text-color: #B0B0B0;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --card-hover-bg: rgba(255, 255, 255, 0.08);
+        }
+        body {
+            background: linear-gradient(to bottom right, var(--bg-start), var(--bg-end));
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        @media (min-width: 768px) {
+            html, body {
+                height: 100vh;
+                overflow: hidden !important;
+            }
+        }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.02); border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: var(--accent-color); }
+
+        .glass-panel {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            border-radius: 1.25rem;
+        }
+        .glass-panel:hover {
+             border-color: rgba(255, 255, 255, 0.15);
+             background: var(--card-hover-bg);
+             transition: all 0.3s ease;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
-<body>
-  <div class="page-shell">
-    <header class="site-header">
-      <a class="brand" href="#profile">
-        <span class="brand-mark">NQD</span>
-        <span class="brand-copy">
-          <span class="eyebrow">Lecturer E-Portfolio</span>
-          <span class="brand-name">Nguyen Quang Duc</span>
-        </span>
-      </a>
+<body class="w-full flex flex-col relative bg-[var(--bg-start)] text-[var(--text-color)]">
 
-      <nav class="site-nav" aria-label="Primary navigation">
-        <a href="#profile">Profile</a>
-        <a href="#experience">Experience</a>
-        <a href="#ecosystem">Ecosystem</a>
-        <a href="#integrations">Integrations</a>
-        <a href="#deployment">Deployment</a>
-      </nav>
+<!-- TopAppBar -->
+<header class="h-[72px] flex-shrink-0 w-full border-b border-white/10 bg-[#0f172a]/80 backdrop-blur-xl sticky top-0 z-50 flex justify-between items-center px-4 md:px-[25px]">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover border border-[var(--primary-color)] p-0.5 bg-[#0f172a]" src="./assets/images/KPIM-Duc-Nguyen.png"/>
+<span class="text-xl font-bold tracking-tight text-[var(--text-color)] hidden xl:flex items-center gap-2 font-['Inter'] t-lang" data-en="E-Profile" data-vi="Hồ sơ Điện tử">
+    E-Profile
+</span>
+</div>
 
-      <a class="nav-cta" href="https://forms.office.com/r/UfYJgH2f2W" target="_blank" rel="noreferrer">
-        Book a Call
-      </a>
-    </header>
+<!-- Desktop Top Navigation Buttons -->
+<nav class="hidden md:flex items-center gap-6 lg:gap-10 absolute left-1/2 transform -translate-x-1/2 h-full">
+    <a href="#" class="flex items-center gap-1.5 text-[var(--accent-color)] font-bold transition-all border-b-2 border-[var(--accent-color)] h-full">
+      <span class="material-symbols-outlined text-[1.2rem]">person</span>
+      <span class="text-sm t-lang" data-en="My Profile" data-vi="Hồ sơ">My Profile</span>
+    </a>
+    <a href="#" class="flex items-center gap-1.5 text-[var(--soft-text-color)] hover:text-[var(--primary-light)] font-medium transition-all h-full border-b-2 border-transparent">
+      <span class="material-symbols-outlined text-[1.2rem]">work</span>
+      <span class="text-sm t-lang" data-en="Experience" data-vi="Kinh nghiệm">Experience</span>
+    </a>
+    <a href="https://compaclass.com" target="_blank" class="flex items-center gap-1.5 text-[var(--soft-text-color)] hover:text-[var(--primary-light)] font-medium transition-all h-full border-b-2 border-transparent">
+      <span class="material-symbols-outlined text-[1.2rem]">school</span>
+      <span class="text-sm t-lang" data-en="LMS" data-vi="Học tập">LMS</span>
+    </a>
+    <a href="https://www.youtube.com/@PowerBIHeroVn" target="_blank" class="flex items-center gap-1.5 text-[var(--soft-text-color)] hover:text-[var(--primary-light)] font-medium transition-all h-full border-b-2 border-transparent">
+      <span class="material-symbols-outlined text-[1.2rem]">subscriptions</span>
+      <span class="text-sm t-lang" data-en="Social" data-vi="Xã hội">Social</span>
+    </a>
+    <a href="https://forms.office.com/r/UfYJgH2f2W" target="_blank" class="flex items-center gap-1.5 text-[var(--soft-text-color)] hover:text-[var(--primary-light)] font-medium transition-all h-full border-b-2 border-transparent">
+      <span class="material-symbols-outlined text-[1.2rem]">bolt</span>
+      <span class="text-sm t-lang" data-en="Actions" data-vi="Tương tác">Actions</span>
+    </a>
+</nav>
 
-    <main>
-      <section class="hero reveal" id="profile">
-        <div class="hero-copy">
-          <p class="section-kicker">A personalized portfolio beyond LinkedIn</p>
-          <h1>
-            One digital home for
-            <span>profile, learning content, dashboards and social channels</span>
-            of a modern lecturer.
-          </h1>
-          <p class="hero-lead">
-            This site is designed as a knowledge hub, not just a business card. It presents professional experience,
-            courses, public dashboards, blog articles, community links, YouTube presence and practical advice on how to
-            expand the portfolio into a broader digital ecosystem.
-          </p>
+<div class="flex items-center gap-4">
+    <button id="lang-toggle-btn" class="font-bold text-sm text-[var(--soft-text-color)] hover:text-[var(--accent-color)] transition-colors cursor-pointer">VI</button>
+    <span class="material-symbols-outlined text-[var(--soft-text-color)] hover:text-[var(--accent-color)] transition-colors cursor-pointer">dark_mode</span>
+    <span class="material-symbols-outlined text-[var(--soft-text-color)] hover:text-[var(--accent-color)] transition-colors cursor-pointer">more_vert</span>
+</div>
+</header>
 
-          <div class="hero-actions">
-            <a class="button button-primary" href="#ecosystem">Explore the Ecosystem</a>
-            <a class="button button-secondary" href="https://compaclass.com" target="_blank" rel="noreferrer">
-              Open LMS
-            </a>
-            <button class="button button-ghost" type="button" data-copy="duc.nguyen@kpim.vn">
-              Copy Email
-            </button>
-          </div>
-
-          <ul class="stat-grid">
-            <li>
-              <strong>10+</strong>
-              <span>Years across data analytics, training and digital capability building.</span>
-            </li>
-            <li>
-              <strong>5</strong>
-              <span>Flagship courses already available to route learners into the LMS.</span>
-            </li>
-            <li>
-              <strong>6+</strong>
-              <span>Content touchpoints including dashboards, blog, profile, social and AI assistant.</span>
-            </li>
-            <li>
-              <strong>1</strong>
-              <span>Single website to unify professional identity, teaching assets and content distribution.</span>
-            </li>
-          </ul>
-        </div>
-
-        <aside class="hero-panel">
-          <div class="profile-card">
-            <div class="profile-card__header">
-              <img
-                class="profile-avatar"
-                src="assets/images/KPIM-Duc-Nguyen.png"
-                alt="Portrait of Nguyen Quang Duc"
-              >
-              <div>
-                <p class="mini-label">Data Analytics Â· Corporate Training Â· AI Mentor</p>
-                <h2>Nguyen Quang Duc</h2>
-                <p class="profile-title">Founder COMPA, Co-founder KPIM, Corporate Trainer</p>
-              </div>
+<main class="md:flex-grow w-full px-4 md:px-[25px] pt-4 md:pt-[20px] pb-24 md:pb-[20px] md:overflow-hidden flex flex-col items-center min-h-0">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-5 w-full max-w-[1600px] md:h-full md:flex-grow md:overflow-hidden min-h-0">
+    
+<!-- Left Column: Identity & CTAs -->
+<div class="md:col-span-4 flex flex-col gap-5 md:overflow-y-auto md:pr-2 custom-scrollbar md:h-full min-h-0">
+    
+    <!-- Hero Section -->
+    <section class="glass-panel p-5 flex flex-col items-center text-center gap-3 justify-start relative group flex-shrink-0">
+        <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[var(--accent-color)] to-transparent"></div>
+        <div class="relative w-full flex justify-center mt-2 mb-1">
+            <div class="w-24 h-24 rounded-full border-2 border-[var(--primary-color)] p-1 relative z-10 bg-[#0f172a]">
+                <img class="w-full h-full rounded-full object-cover" src="./assets/images/KPIM-Duc-Nguyen.png"/>
             </div>
-
-            <div class="badge-row">
-              <span>Power BI</span>
-              <span>Excel</span>
-              <span>Python</span>
-              <span>AI Workflow</span>
-            </div>
-
-            <dl class="profile-meta">
-              <div>
-                <dt>Email</dt>
-                <dd><a href="mailto:duc.nguyen@kpim.vn">duc.nguyen@kpim.vn</a></dd>
-              </div>
-              <div>
-                <dt>Phone</dt>
-                <dd><a href="tel:+84932215555">0932 215 555</a></dd>
-              </div>
-              <div>
-                <dt>Organizations</dt>
-                <dd>
-                  <a href="https://kpim.vn" target="_blank" rel="noreferrer">KPIM</a>
-                  <span class="separator">/</span>
-                  <a href="https://compaclass.com" target="_blank" rel="noreferrer">COMPA Class</a>
-                </dd>
-              </div>
-              <div>
-                <dt>Focus</dt>
-                <dd>Enterprise learning, data capability building and practical analytics adoption.</dd>
-              </div>
-            </dl>
-
-            <div class="profile-actions">
-              <a
-                class="button button-primary button-small"
-                href="https://kpimvn.sharepoint.com/:b:/s/KPIMAcademy/IQCe-HYNv1TRR62ApqO8ouT6AfV9O3bi90EugC9Vcxrpd_4?e=RHx4RZ"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Lecturer Profile PDF
-              </a>
-              <a
-                class="button button-secondary button-small"
-                href="https://forms.office.com/r/UfYJgH2f2W"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Contact Form
-              </a>
-            </div>
-
-            <div class="social-row">
-              <a href="https://www.linkedin.com/in/tobi-nguyen/" target="_blank" rel="noreferrer">LinkedIn</a>
-              <a href="https://www.facebook.com/TobiNguyenData/" target="_blank" rel="noreferrer">Facebook</a>
-              <a href="https://www.youtube.com/@PowerBIHeroVn" target="_blank" rel="noreferrer">YouTube</a>
-            </div>
-          </div>
-        </aside>
-      </section>
-
-      <section class="section reveal" id="experience">
-        <div class="section-heading">
-          <p class="section-kicker">Structured professional story</p>
-          <h2>This should work as a knowledge profile, not only as an online CV</h2>
-          <p>
-            The value of the page is not just self introduction. It is the ability to collect teaching assets,
-            professional credibility and action paths in one flow, so visitors can move from curiosity to trust to action.
-          </p>
+            <div class="absolute inset-0 bg-[var(--primary-color)]/20 blur-2xl rounded-full transform scale-110 m-auto w-24 h-24"></div>
+        </div>
+        <div class="space-y-0.5">
+            <h1 class="text-2xl font-bold text-[var(--text-color)] tracking-tight">Nguyễn Quang Đức</h1>
+            <p class="text-[var(--accent-color)] font-medium text-sm t-lang" data-en="Data Analytics Expert" data-vi="Chuyên gia Phân tích Dữ liệu">Data Analytics Expert</p>
+        </div>
+        
+        <div class="flex flex-wrap justify-center gap-1.5 w-full mt-1">
+            <span class="px-3 py-1 rounded-full bg-[var(--card-bg)] border border-[var(--border-color)] text-[10px] sm:text-[11px] font-medium text-[var(--soft-text-color)] flex items-center gap-1">
+                <span class="material-symbols-outlined text-[13px] text-[var(--accent-color)]">corporate_fare</span> 
+                <span class="t-lang" data-en="Founder COMPA" data-vi="Sáng lập COMPA">Founder COMPA</span>
+            </span>
+            <span class="px-3 py-1 rounded-full bg-[var(--card-bg)] border border-[var(--border-color)] text-[10px] sm:text-[11px] font-medium text-[var(--soft-text-color)] flex items-center gap-1">
+                <span class="material-symbols-outlined text-[13px] text-[var(--accent-color)]">groups</span> 
+                <span class="t-lang" data-en="Co-founder KPIM" data-vi="Đồng sáng lập KPIM">Co-founder KPIM</span>
+            </span>
+            <span class="px-3 py-1 rounded-full bg-[var(--card-bg)] border border-[var(--border-color)] text-[10px] sm:text-[11px] font-medium text-[var(--soft-text-color)] flex items-center gap-1">
+                <span class="material-symbols-outlined text-[13px] text-[var(--accent-color)]">person_apron</span> 
+                <span class="t-lang" data-en="Corporate Trainer" data-vi="Giảng viên Doanh nghiệp">Corporate Trainer</span>
+            </span>
+            <span class="px-3 py-1 rounded-full bg-[var(--card-bg)] border border-[var(--border-color)] text-[10px] sm:text-[11px] font-medium text-[var(--soft-text-color)] flex items-center gap-1">
+                <span class="material-symbols-outlined text-[13px] text-[var(--accent-color)]">psychology</span> 
+                <span class="t-lang" data-en="Data &amp; AI Mentor" data-vi="Cố vấn Dữ liệu & AI">Data &amp; AI Mentor</span>
+            </span>
         </div>
 
-        <div class="split-grid">
-          <article class="card">
-            <div class="card-heading">
-              <span class="material-symbols-outlined">target</span>
-              <h3>Core content blocks</h3>
-            </div>
-            <ul class="feature-list">
-              <li>A strong opening statement that defines teaching focus and expertise.</li>
-              <li>A clean experience timeline with business, training and real project exposure.</li>
-              <li>A hub that routes users to LMS, dashboards, blog, video, profile PDF and social channels.</li>
-              <li>An integration layer so the site can aggregate assets from multiple external systems.</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <div class="card-heading">
-              <span class="material-symbols-outlined">work_history</span>
-              <h3>Career timeline</h3>
-            </div>
-            <div class="timeline">
-              <div class="timeline-item">
-                <p class="timeline-time">Present Â· Vietnam</p>
-                <h4>COMPA, JSC</h4>
-                <p>Co-founder &amp; CEO</p>
-              </div>
-              <div class="timeline-item">
-                <p class="timeline-time">Present Â· Vietnam</p>
-                <h4>KPIM, JSC</h4>
-                <p>Co-founder &amp; CEO</p>
-              </div>
-              <div class="timeline-item">
-                <p class="timeline-time">2016 â€“ 2020 Â· USA</p>
-                <h4>YPTC, LLC</h4>
-                <p>DVG Manager</p>
-              </div>
-              <div class="timeline-item">
-                <p class="timeline-time">2015 Â· Singapore / Vietnam</p>
-                <h4>Lazada</h4>
-                <p>Analyst</p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section reveal" id="ecosystem">
-        <div class="section-heading">
-          <p class="section-kicker">Digital ecosystem</p>
-          <h2>One page that routes to the full portfolio of content and learning assets</h2>
-          <p>
-            This is the section that differentiates the website from a standard social profile. The visitor should be able
-            to move directly into content, products, teaching materials and community spaces.
-          </p>
-        </div>
-
-        <div class="ecosystem-grid">
-          <a
-            class="ecosystem-card ecosystem-card--feature"
-            href="https://app.powerbi.com/view?r=eyJrIjoiYmY4ODMyOWMtOTRkNC00MDEwLWEyYzItYzEzYmI5NWM4ZmVkIiwidCI6IjQxYWI0MmE5LTM4MWItNDhjZi04YTg1LTcyMDQ2NDkyMjk3NiIsImMiOjEwfQ%3D%3D"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span class="mini-label">Dashboard portfolio</span>
-            <h3>Public Power BI reports</h3>
-            <p>The most convincing way to show analytical thinking, reporting quality and business storytelling.</p>
-            <span class="card-link">Open dashboard</span>
-          </a>
-
-          <a class="ecosystem-card" href="https://compaclass.com/blog" target="_blank" rel="noreferrer">
-            <span class="mini-label">Blog</span>
-            <h3>Articles and case studies</h3>
-            <p>Useful for long-form insights, teaching notes and domain opinions.</p>
-            <span class="card-link">Visit blog</span>
-          </a>
-
-          <a class="ecosystem-card" href="https://compaclass.com" target="_blank" rel="noreferrer">
-            <span class="mini-label">LMS</span>
-            <h3>Courses and learning paths</h3>
-            <p>Route visitors directly to course pages, enrollment entry points and structured learning journeys.</p>
-            <span class="card-link">Open LMS</span>
-          </a>
-
-          <a
-            class="ecosystem-card"
-            href="https://chatgpt.com/g/g-68c3c734d148819184c20b1e658ac81d-kpim-data-coach"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span class="mini-label">AI assistant</span>
-            <h3>Knowledge coach</h3>
-            <p>A fast entry point for FAQ, study guidance and content navigation.</p>
-            <span class="card-link">Open AI coach</span>
-          </a>
-
-          <a
-            class="ecosystem-card"
-            href="https://www.facebook.com/groups/powerbivietnam"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span class="mini-label">Community</span>
-            <h3>Professional network</h3>
-            <p>Shows that the teaching brand is active, public and connected to a real audience.</p>
-            <span class="card-link">Open community</span>
-          </a>
-
-          <a class="ecosystem-card" href="https://www.youtube.com/@PowerBIHeroVn" target="_blank" rel="noreferrer">
-            <span class="mini-label">Media</span>
-            <h3>YouTube channel</h3>
-            <p>Lets visitors choose video as a separate consumption mode from articles and dashboards.</p>
-            <span class="card-link">Visit YouTube</span>
-          </a>
-        </div>
-
-        <article class="card course-section">
-          <div class="card-heading">
-            <span class="material-symbols-outlined">library_books</span>
-            <h3>Featured courses</h3>
-          </div>
-          <div class="course-grid">
-            <a class="course-card" href="https://compaclass.com/vn/learn/course/power-bi-co-ban/overview" target="_blank" rel="noreferrer">
-              <span class="course-status">Active</span>
-              <h4>Power BI Co Ban</h4>
-              <p>18h Â· Basic</p>
-            </a>
-            <a class="course-card" href="https://compaclass.com/vn/learn/course/ung-dung-ai-trong-cong-viec-va-phan-tich-du-lieu-1/overview" target="_blank" rel="noreferrer">
-              <span class="course-status">Featured</span>
-              <h4>Data Analytics with AI</h4>
-              <p>24h Â· Intermediate</p>
-            </a>
-            <a class="course-card" href="https://compaclass.com/learn/course/data-analytics-fundamental-v2/overview" target="_blank" rel="noreferrer">
-              <span class="course-status">Foundation</span>
-              <h4>Data Analytics Fundamental</h4>
-              <p>24h Â· Beginner</p>
-            </a>
-            <a class="course-card" href="https://compaclass.com/learn/course/hr-analytics-2/overview" target="_blank" rel="noreferrer">
-              <span class="course-status">Applied</span>
-              <h4>HR Analytics Course</h4>
-              <p>18h Â· Beginner</p>
-            </a>
-            <a class="course-card" href="https://compaclass.com/vn/learn/course/phan-tich-du-lieu-voi-excel-v1/activity/noi-dung-khoa-phan-tich-du-lieu-voi-excel-pSrEl" target="_blank" rel="noreferrer">
-              <span class="course-status">Tooling</span>
-              <h4>Data Analytics with Excel</h4>
-              <p>20h Â· Advanced</p>
-            </a>
-          </div>
-        </article>
-      </section>
-
-      <section class="section reveal" id="integrations">
-        <div class="section-heading">
-          <p class="section-kicker">Feature expansion</p>
-          <h2>Buttons should behave like integration modules, not just a plain list of links</h2>
-          <p>
-            The website should remain the presentation layer. The actual content can come from LMS, Power BI,
-            Facebook, YouTube, SharePoint or a more advanced backend later.
-          </p>
-        </div>
-
-        <div class="integration-layout">
-          <div class="integration-tabs" role="tablist" aria-label="Integration groups">
-            <button class="integration-tab is-active" type="button" role="tab" aria-selected="true" data-panel="dashboards">Dashboard</button>
-            <button class="integration-tab" type="button" role="tab" aria-selected="false" data-panel="lms">LMS</button>
-            <button class="integration-tab" type="button" role="tab" aria-selected="false" data-panel="content">Blog &amp; Facebook</button>
-            <button class="integration-tab" type="button" role="tab" aria-selected="false" data-panel="media">YouTube &amp; Community</button>
-            <button class="integration-tab" type="button" role="tab" aria-selected="false" data-panel="ops">Operations</button>
-          </div>
-
-          <div class="integration-panels">
-            <article class="integration-panel is-active" data-panel="dashboards">
-              <div class="panel-main">
-                <span class="mini-label">High priority</span>
-                <h3>Embedded dashboard showcase</h3>
-                <p>Every report should have a preview image, business context, open report button and case study follow-up.</p>
-                <ul class="feature-list">
-                  <li>Suggested buttons: Live report, Case study, Request demo.</li>
-                  <li>Use public embedding where appropriate, and secure embedding for protected data.</li>
-                  <li>Always keep a fallback preview so the page does not depend fully on external embeds.</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="integration-panel" data-panel="lms" hidden>
-              <div class="panel-main">
-                <span class="mini-label">Learner conversion</span>
-                <h3>LMS as the next step after profile discovery</h3>
-                <p>The LMS should surface active courses, upcoming programs and recommended learning routes for different audiences.</p>
-                <ul class="feature-list">
-                  <li>Suggested buttons: Active courses, Upcoming courses, Learning roadmap, Book advisory.</li>
-                  <li>If the LMS supports API or SSO, summaries can be pulled directly into the homepage.</li>
-                  <li>Separate B2C learner journeys from B2B enterprise training offers.</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="integration-panel" data-panel="content" hidden>
-              <div class="panel-main">
-                <span class="mini-label">Authority building</span>
-                <h3>Blog, public posts and curated knowledge</h3>
-                <p>Do not push a raw social feed to the top of the page. Curate public posts into cleaner editorial cards.</p>
-                <ul class="feature-list">
-                  <li>Suggested buttons: Latest article, Featured post, Case study, Teaching perspective.</li>
-                  <li>Facebook content should have a card-based fallback with title, preview and source link.</li>
-                  <li>RSS or structured data feeds will make content updates easier later.</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="integration-panel" data-panel="media" hidden>
-              <div class="panel-main">
-                <span class="mini-label">Media experience</span>
-                <h3>YouTube and community as separate destinations</h3>
-                <p>Let visitors choose between reading, watching or joining a discussion space based on their preference.</p>
-                <ul class="feature-list">
-                  <li>Suggested buttons: Latest video, Playlist, Live session, Join community.</li>
-                  <li>Keep media embeds selective to protect homepage performance.</li>
-                  <li>Community links strengthen social proof and ongoing engagement.</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="integration-panel" data-panel="ops" hidden>
-              <div class="panel-main">
-                <span class="mini-label">Operations</span>
-                <h3>Booking, profile PDF and support materials</h3>
-                <p>These blocks turn the site into a working tool for partnerships, consulting and training requests.</p>
-                <ul class="feature-list">
-                  <li>Suggested buttons: Book consultation, Lecturer profile, Download catalog, Contact enterprise.</li>
-                  <li>Forms can later connect to CRM, email automation or booking workflows.</li>
-                  <li>At scale, move content management into a CMS or lightweight backend.</li>
-                </ul>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section reveal" id="deployment">
-        <div class="section-heading">
-          <p class="section-kicker">Deployment strategy</p>
-          <h2>Start with a polished web experience, then expand only when the operating model requires it</h2>
-          <p>
-            A mobile app is not the right first step. Web, then PWA, then learner portal, then native app only if necessary.
-          </p>
-        </div>
-
-        <div class="deployment-grid">
-          <article class="deployment-card deployment-card--recommended">
-            <span class="mini-label">Recommended now</span>
-            <h3>Web-first</h3>
-            <p>Best for public profile, SEO, social sharing, dashboards, article discovery and routing into the LMS.</p>
-          </article>
-          <article class="deployment-card">
-            <span class="mini-label">Next step</span>
-            <h3>PWA</h3>
-            <p>Good when you want the site to feel app-like on mobile while still keeping one web codebase.</p>
-          </article>
-          <article class="deployment-card">
-            <span class="mini-label">When login matters</span>
-            <h3>Learning portal</h3>
-            <p>Useful when different users need different dashboards, materials, progress tracking or certificates.</p>
-          </article>
-          <article class="deployment-card">
-            <span class="mini-label">Only if necessary</span>
-            <h3>Native app</h3>
-            <p>Worth it only when retention, push notifications, offline learning or high-frequency interaction become core needs.</p>
-          </article>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div>
-        <p class="footer-title">Nguyen Quang Duc Â· Lecturer E-Portfolio</p>
-        <p class="footer-copy">
-          The website should be the central routing layer of the learning ecosystem. App experiences should be added only when justified by real operating needs.
+        <p class="text-[var(--soft-text-color)] text-[11px] leading-relaxed mt-1 px-2 t-lang" data-en="Transforming data into actionable insights. Passionate about building data cultures and empowering businesses through Data Platform &amp; AI solutions." data-vi="Khơi dậy giá trị dữ liệu thành lợi thế hành động. Đam mê xây dựng văn hóa dữ liệu và trao quyền cho doanh nghiệp bằng giải pháp Nền tảng Dữ liệu & AI.">
+            Transforming data into actionable insights. Passionate about building data cultures and empowering businesses through Data Platform &amp; AI solutions.
         </p>
-      </div>
-      <div class="footer-actions">
-        <a class="button button-secondary button-small" href="mailto:duc.nguyen@kpim.vn">Email</a>
-        <a class="button button-secondary button-small" href="https://www.linkedin.com/in/tobi-nguyen/" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a class="button button-primary button-small" href="https://forms.office.com/r/UfYJgH2f2W" target="_blank" rel="noreferrer">Contact</a>
-      </div>
-      <p class="footer-note">&copy; <span id="current-year"></span> Nguyen Quang Duc</p>
-    </footer>
-  </div>
 
-  <div class="toast" id="toast" role="status" aria-live="polite" hidden>
-    <span class="material-symbols-outlined">check_circle</span>
-    <span id="toast-message">Copied</span>
-  </div>
+        <!-- Detailed Contact Match from Old Version -->
+        <div class="grid grid-cols-2 gap-x-2 gap-y-1 w-full text-xs mt-1 text-left bg-[var(--card-bg)] p-2.5 border border-[var(--border-color)] rounded-lg">
+            
+            <div class="flex flex-col gap-1">
+                <a class="flex items-center gap-1.5 p-1.5 rounded hover:bg-[var(--card-hover-bg)] transition-colors group" href="mailto:duc.nguyen@kpim.vn">
+                    <div class="w-5 h-5 rounded-full bg-transparent flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined text-[var(--soft-text-color)] group-hover:text-[var(--accent-color)] text-[1rem]">mail</span>
+                    </div>
+                    <span class="text-[var(--text-color)] group-hover:text-[var(--primary-light)] transition-colors font-medium truncate">duc.nguyen@kpim.vn</span>
+                </a>
+                <a class="flex items-center gap-1.5 p-1.5 rounded hover:bg-[var(--card-hover-bg)] transition-colors group" href="tel:0932215555">
+                    <div class="w-5 h-5 rounded-full bg-transparent flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined text-[var(--soft-text-color)] group-hover:text-[var(--accent-color)] text-[1rem]">call</span>
+                    </div>
+                    <span class="text-[var(--text-color)] group-hover:text-[var(--primary-light)] transition-colors font-medium">0932215555</span>
+                </a>
+                <a class="flex items-center gap-1.5 p-1.5 rounded hover:bg-[var(--card-hover-bg)] transition-colors group" href="https://kpim.vn" target="_blank">
+                    <div class="w-5 h-5 rounded-full bg-transparent flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined text-[var(--soft-text-color)] group-hover:text-[var(--accent-color)] text-[1rem]">language</span>
+                    </div>
+                    <span class="text-[var(--text-color)] group-hover:text-[var(--primary-light)] transition-colors font-medium">kpim.vn</span>
+                </a>
+            </div>
 
-  <script src="assets/js/theme.js" defer></script>
+            <div class="flex flex-col gap-1 border-l border-white/5 pl-1.5 overflow-hidden">
+                <a class="flex items-center gap-1.5 p-1.5 rounded hover:bg-[var(--card-hover-bg)] transition-colors group" href="https://compaclass.com/" target="_blank">
+                    <div class="w-5 h-5 rounded-full bg-transparent flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined text-[var(--soft-text-color)] group-hover:text-[var(--accent-color)] text-[1rem]">school</span>
+                    </div>
+                    <span class="text-[var(--text-color)] group-hover:text-[var(--primary-light)] transition-colors font-medium truncate">compaclass.com</span>
+                </a>
+                <a class="flex items-center gap-1.5 p-1.5 rounded hover:bg-[var(--card-hover-bg)] transition-colors group" href="#" target="_blank">
+                    <div class="w-5 h-5 rounded-full bg-transparent flex items-center justify-center shrink-0">
+                        <span class="material-symbols-outlined text-[var(--soft-text-color)] group-hover:text-[var(--accent-color)] text-[1rem]">language</span>
+                    </div>
+                    <span class="text-[var(--text-color)] group-hover:text-[var(--primary-light)] transition-colors font-medium truncate">compaacademy.com</span>
+                </a>
+                <a class="flex items-center gap-1.5 p-1.5 rounded hover:bg-[var(--card-hover-bg)] transition-colors group" href="https://github.com/ducnguyen221" target="_blank">
+                    <div class="w-5 h-5 rounded-full bg-transparent flex items-center justify-center shrink-0">
+                        <svg class="w-[1.2rem] h-[1.2rem] text-[var(--soft-text-color)] group-hover:text-[var(--accent-color)] transition-colors" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                    </div>
+                    <span class="text-[var(--text-color)] group-hover:text-[var(--primary-light)] transition-colors font-medium truncate">ducnguyen221</span>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="flex gap-3 w-full mt-1">
+            <a href="https://forms.office.com/r/UfYJgH2f2W" target="_blank" class="flex-1">
+                <button class="w-full py-2.5 rounded-lg bg-[var(--accent-color)] hover:bg-[var(--accent-hover-color)] text-white text-sm font-bold shadow-lg shadow-[var(--accent-color)]/20 hover:shadow-[var(--accent-color)]/40 transition-all flex justify-center items-center gap-1">
+                    <span class="t-lang" data-en="Contact Form" data-vi="Điền Form Liên Hệ">Contact Form</span> 
+                    <span class="material-symbols-outlined text-[1rem]">arrow_outward</span>
+                </button>
+            </a>
+        </div>
+
+        <div class="flex justify-center items-center gap-4 w-full mt-1 pt-3 border-t border-[var(--border-color)]">
+            <a class="text-[var(--soft-text-color)] hover:text-[#1877F2] transition-colors" href="https://www.facebook.com/TobiNguyenData/" target="_blank" title="Facebook">
+                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path></svg>
+            </a>
+            <a class="text-[var(--soft-text-color)] hover:text-[#0A66C2] transition-colors" href="https://www.linkedin.com/in/tobi-nguyen/" target="_blank" title="LinkedIn">
+                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path></svg>
+            </a>
+            <a class="text-[var(--soft-text-color)] hover:text-[#FF0000] transition-colors" href="https://www.youtube.com/@PowerBIHeroVn" target="_blank" title="YouTube">
+                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.254.418-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 12 5 12 5s6.256 0 7.812.418zM9.75 15.02l5.75-3.02-5.75-3.02v6.04z" fill-rule="evenodd"></path></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Smart CTAs swapped from right column to here -->
+    <section class="flex flex-col gap-3 flex-shrink-0 md:flex-grow">
+        <a href="https://chatgpt.com/g/g-68c3c734d148819184c20b1e658ac81d-kpim-data-coach" target="_blank" class="w-full py-4 glass-panel flex items-center px-6 gap-4 hover:bg-[var(--card-hover-bg)] transition-all border-l-4 border-l-[var(--accent-color)] text-left group cursor-pointer block">
+            <span class="material-symbols-outlined text-[var(--accent-color)] group-hover:scale-110 transition-transform">smart_toy</span>
+            <div>
+                <p class="text-[10px] font-semibold text-[var(--soft-text-color)] tracking-wide uppercase t-lang" data-en="AI Assistant" data-vi="Trợ lý AI">AI Assistant</p>
+                <p class="text-xs font-bold text-[var(--text-color)] truncate t-lang" data-en="Talk with Data Coach" data-vi="Trò chuyện với Cố vấn">Talk with Data Coach</p>
+            </div>
+        </a>
+        <a href="https://compaclass.com/blog" target="_blank" class="w-full py-4 glass-panel flex items-center px-6 gap-4 hover:bg-[var(--card-hover-bg)] transition-all border-l-4 border-l-[var(--primary-color)] text-left group cursor-pointer block">
+            <span class="material-symbols-outlined text-[var(--primary-color)] group-hover:scale-110 transition-transform">article</span>
+            <div>
+                <p class="text-[10px] font-semibold text-[var(--soft-text-color)] tracking-wide uppercase t-lang" data-en="Reading Corner" data-vi="Góc Đọc Sách">Reading Corner</p>
+                <p class="text-xs font-bold text-[var(--text-color)] truncate t-lang" data-en="Visit my Blog" data-vi="Đọc Blog của tôi">Visit my Blog</p>
+            </div>
+        </a>
+        <a href="https://www.facebook.com/groups/powerbivietnam" target="_blank" class="w-full py-4 glass-panel flex items-center px-6 gap-4 hover:bg-[var(--card-hover-bg)] transition-all border-l-4 border-l-[var(--accent-color)] text-left group cursor-pointer block">
+            <span class="material-symbols-outlined text-[var(--accent-color)] group-hover:scale-110 transition-transform">groups</span>
+            <div>
+                <p class="text-[10px] font-semibold text-[var(--soft-text-color)] tracking-wide uppercase t-lang" data-en="Professional Network" data-vi="Mạng lưới Chuyên gia">Professional Network</p>
+                <p class="text-xs font-bold text-[var(--text-color)] truncate t-lang" data-en="Join Community" data-vi="Tham gia Cộng đồng">Join Community</p>
+            </div>
+        </a>
+    </section>
+
+</div>
+
+<!-- Middle Column: LMS & Content -->
+<div class="md:col-span-4 lg:col-span-5 flex flex-col gap-5 md:overflow-y-auto md:pr-2 custom-scrollbar md:h-full min-h-0">
+    
+    <!-- Collapsible Skills Box -->
+    <details class="glass-panel w-full rounded-[1.25rem] group flex-shrink-0 cursor-pointer overflow-hidden max-h-screen">
+        <summary class="p-5 font-semibold text-[var(--accent-color)] flex justify-between items-center outline-none list-none marker:hidden cursor-pointer hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+            <div class="flex items-center gap-2 text-[15px]">
+                <span class="material-symbols-outlined text-[var(--accent-color)]">military_tech</span> 
+                <span class="t-lang" data-en="Core Competencies" data-vi="Năng lực Cốt lõi">Core Competencies</span>
+            </div>
+            <span class="material-symbols-outlined text-[var(--soft-text-color)] group-open:rotate-180 transition-transform duration-300">expand_more</span>
+        </summary>
+        <div class="p-5 border-t border-[var(--border-color)] mt-[-10px] animate-[slideDown_0.3s_ease-out]">
+            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 text-[11px] leading-tight">
+                <div class="flex flex-col gap-2">
+                    <p class="font-bold text-[var(--accent-color)] mb-1 uppercase tracking-wider text-[9px] t-lang" data-en="Domain" data-vi="Tư duy Chuyên môn">Domain</p>
+                    <div class="flex items-center gap-1.5"><img src="./assets/images/n-line-illustration-vector.jpg" class="w-5 h-5 rounded"/><span class="truncate">Data Architecture</span></div>
+                    <div class="flex items-center gap-1.5"><img src="./assets/images/8921081.png" class="w-5 h-5 rounded"/><span class="truncate">Data Analytics</span></div>
+                    <div class="flex items-center gap-1.5"><img src="./assets/images/echnology-ai-web-175554843.jpg" class="w-5 h-5 rounded"/><span class="truncate">AI Application</span></div>
+                    <div class="flex items-center gap-1.5"><img src="./assets/images/4661361.png" class="w-5 h-5 rounded"/><span class="truncate">Project Management</span></div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <p class="font-bold text-[var(--accent-color)] mb-1 uppercase tracking-wider text-[9px] t-lang" data-en="Data Tools" data-vi="Công cụ Phân tích">Data Tools</p>
+                    <div class="flex items-center gap-1.5"><img src="./assets/images/-icon-logo-symbol-free-png.png" class="w-5 h-5 rounded"/><span class="truncate">Excel</span></div>
+                    <div class="flex items-center gap-1.5"><img src="./assets/images/sql.jpg" class="w-5 h-5 rounded"/><span class="truncate">SQL</span></div>
+                    <div class="flex items-center gap-1.5"><img src="./assets/images/power-bi-icon.png" class="w-5 h-5 rounded"/><span class="truncate">Power BI</span></div>
+                    <div class="flex items-center gap-1.5"><img src="./assets/images/python_18894.png" class="w-5 h-5 rounded"/><span class="truncate">Python</span></div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <p class="font-bold text-[var(--accent-color)] mb-1 uppercase tracking-wider text-[9px] t-lang" data-en="Automation" data-vi="Trục Tự động hóa">Automation</p>
+                    <div class="flex items-center gap-1.5"><img src="./assets/images/images.png" class="w-5 h-5 rounded"/><span class="truncate">Power Platform</span></div>
+                    <div class="flex items-center gap-1.5"><img src="./assets/images/images.png" class="w-5 h-5 rounded"/><span class="truncate">n8n</span></div>
+                    <div class="flex items-center gap-1.5"><img src="./assets/images/images.png" class="w-5 h-5 rounded"/><span class="truncate">Make</span></div>
+                    <div class="flex items-center gap-1.5"><img src="./assets/images/fabric.png" class="w-5 h-5 rounded"/><span class="truncate">Fabric</span></div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <p class="font-bold text-[var(--accent-color)] mb-1 uppercase tracking-wider text-[9px] t-lang" data-en="GenAI" data-vi="Trí tuệ nhân tạo">GenAI</p>
+                    <div class="flex items-center gap-1.5"><img src="./assets/images/ite-background-free-vector.jpg" class="w-5 h-5 rounded"/><span class="truncate">ChatGPT</span></div>
+                    <div class="flex items-center gap-1.5"><img src="./assets/images/gemini-app-icon-hd.png" class="w-5 h-5 rounded"/><span class="truncate">Gemini</span></div>
+                    <div class="flex items-center gap-1.5"><img src="./assets/images/images.png" class="w-5 h-5 rounded"/><span class="truncate">NotebookLM</span></div>
+                    <div class="flex items-center gap-1.5"><img src="./assets/images/e-ai-studio-social-preview.png" class="w-5 h-5 rounded"/><span class="truncate">AI Studio</span></div>
+                </div>
+            </div>
+        </div>
+    </details>
+
+    <!-- Data Dashboard -->
+    <section class="glass-panel p-5 rounded-[1.25rem] relative overflow-hidden group flex-shrink-0">
+        <div class="flex justify-between items-start mb-3">
+            <div>
+                <h3 class="text-[15px] font-semibold text-[var(--accent-color)] flex items-center gap-2 t-lang" data-en="PowerBI Portfolio" data-vi="Hồ sơ PowerBI">
+                    <span class="material-symbols-outlined text-[var(--accent-color)]">insights</span> PowerBI Portfolio
+                </h3>
+                <p class="text-[10px] text-[var(--soft-text-color)] mt-0.5 t-lang" data-en="Transforming data into actionable insights" data-vi="Mô hình hóa dữ liệu để tìm ra insight">Transforming data into actionable insights</p>
+            </div>
+            <span class="px-2 py-0.5 bg-[var(--primary-color)]/20 text-[var(--primary-color)] text-[10px] font-bold rounded">LIVE</span>
+        </div>
+        <div class="aspect-video rounded-lg overflow-hidden bg-slate-900 mb-1 border border-[var(--border-color)] relative">
+            <img class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" src="./assets/images/images.png"/>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <a href="https://app.powerbi.com/view?r=eyJrIjoiYmY4ODMyOWMtOTRkNC00MDEwLWEyYzItYzEzYmI5NWM4ZmVkIiwidCI6IjQxYWI0MmE5LTM4MWItNDhjZi04YTg1LTcyMDQ2NDkyMjk3NiIsImMiOjEwfQ%3D%3D" target="_blank">
+                    <button class="bg-[#0f172a]/80 backdrop-blur-md border border-[var(--border-color)] px-5 py-2 rounded-full text-xs font-bold flex items-center gap-2 hover:bg-[var(--accent-color)] hover:text-white transition-all text-white shadow-lg">
+                        <span class="material-symbols-outlined text-xs">open_in_new</span> <span class="t-lang" data-en="View Dashboard" data-vi="Xem Bảng điều khiển">View Dashboard</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Feed Mockup -->
+    <section class="glass-panel p-5 relative flex-shrink-0 flex flex-col">
+        <div class="flex items-center justify-between mb-3">
+            <h3 class="text-[15px] font-semibold text-[var(--accent-color)] flex items-center gap-2 t-lang" data-en="Spotlight" data-vi="Tiêu điểm Mạng xã hội">
+                <span class="material-symbols-outlined text-[var(--accent-color)]">social_leaderboard</span> Spotlight
+            </h3>
+        </div>
+        <div class="bg-[var(--card-bg)] p-3 rounded-lg border border-[var(--border-color)] hover:border-[var(--accent-color)]/30 transition-colors flex flex-col justify-between">
+            <div class="flex items-center gap-3 mb-2">
+                <div class="w-7 h-7 rounded-full overflow-hidden bg-slate-800 border border-[var(--border-color)] flex-shrink-0">
+                    <img class="w-full h-full object-cover" src="./assets/images/KPIM-Duc-Nguyen.png"/>
+                </div>
+                <div class="min-w-0">
+                    <h5 class="text-[11px] font-bold text-[var(--text-color)] truncate">Nguyễn Quang Đức</h5>
+                    <p class="text-[8px] text-[var(--soft-text-color)] truncate t-lang" data-en="Data Platform & AI Advisor" data-vi="Cố vấn Vận hành Dữ liệu & AI">Data Platform & AI Advisor</p>
+                </div>
+            </div>
+            <p class="text-[9px] text-[var(--text-color)] leading-tight mb-3 line-clamp-2 t-lang" data-en="Transforming data into actionable insights." data-vi="Chia sẻ những góc nhìn chuyên sâu về quản trị sức khỏe doanh nghiệp bằng dữ liệu...">Transforming data into actionable insights.</p>
+            <a href="https://www.youtube.com/@PowerBIHeroVn" target="_blank" class="block rounded overflow-hidden bg-slate-900 border border-[var(--border-color)] mb-2 relative group cursor-pointer h-[75px]">
+                <img class="w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-500" src="./assets/images/YUDfOxaukVqadyOypK7D3g8VuJfmpk.png"/>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[var(--accent-color)] text-4xl drop-shadow-[0_0_8px_rgba(198,151,73,0.8)]" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+                </div>
+            </a>
+            <div class="flex gap-4">
+                <span class="material-symbols-outlined text-[1rem] text-[var(--soft-text-color)] hover:text-[var(--accent-color)] cursor-pointer transition-colors">thumb_up</span>
+                <span class="material-symbols-outlined text-[1rem] text-[var(--soft-text-color)] hover:text-[var(--accent-color)] cursor-pointer transition-colors">share</span>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- Right Column: Navigation Timeline & Social Spotlight -->
+<div class="md:col-span-4 lg:col-span-3 flex flex-col gap-5 md:overflow-y-auto md:pr-2 custom-scrollbar md:h-full min-h-0">
+    
+    <!-- Career Timeline swapped to right column -->
+    <section class="glass-panel p-5 rounded-[1.25rem] flex flex-col gap-5 relative flex-shrink-0">
+        <h3 class="text-[15px] font-semibold text-[var(--accent-color)] flex items-center gap-2 mb-0">
+            <span class="material-symbols-outlined text-[var(--accent-color)]">work_history</span> 
+            <span class="t-lang" data-en="Career Timeline" data-vi="Hành trình Sự nghiệp">Career Timeline</span>
+        </h3>
+        
+        <div class="grid grid-cols-2 gap-4">
+            <!-- First column (existing 4) -->
+            <div class="relative border-l-2 border-[var(--border-color)] ml-3 pb-1 space-y-6 group">
+                <a href="https://www.facebook.com/compaclass" target="_blank" class="relative pl-5 block">
+                    <div class="absolute -left-[14px] -top-1 flex h-[26px] w-[26px] items-center justify-center rounded-full bg-white border border-[var(--border-color)] shadow z-10 overflow-hidden">
+                        <img alt="COMPA Logo" class="w-full h-full object-cover" src="./assets/images/COMPA-CLASS.jpg"/>
+                    </div>
+                    <div class="flex flex-col items-start text-left mt-[-4px]">
+                        <span class="text-[9px] font-semibold text-[var(--soft-text-color)] tracking-wide uppercase mb-0.5 t-lang" data-en="Present (VN)" data-vi="Hiện Tại (VN)">Present (VN)</span>
+                        <h4 class="text-[12px] xl:text-[13px] font-bold text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors leading-tight truncate w-full">COMPA, JSC</h4>
+                        <p class="text-[9px] xl:text-[10px] text-[var(--accent-color)] font-medium italic mt-0.5 t-lang truncate w-full" data-en="Co-founder & CEO" data-vi="Đồng sáng lập & Điều hành">Co-founder & CEO</p>
+                    </div>
+                </a>
+                
+                <a href="https://www.facebook.com/kpim.vn" target="_blank" class="relative pl-5 block">
+                    <div class="absolute -left-[14px] -top-1 flex h-[26px] w-[26px] items-center justify-center rounded-full bg-white border border-[var(--border-color)] shadow z-10 overflow-hidden">
+                        <img alt="KPIM Logo" class="w-full h-full object-cover" src="./assets/images/Picture3.png"/>
+                    </div>
+                    <div class="flex flex-col items-start text-left mt-[-4px]">
+                        <span class="text-[9px] font-semibold text-[var(--soft-text-color)] tracking-wide uppercase mb-0.5 t-lang" data-en="Present (VN)" data-vi="Hiện Tại (VN)">Present (VN)</span>
+                        <h4 class="text-[12px] xl:text-[13px] font-bold text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors leading-tight truncate w-full">KPIM, JSC</h4>
+                        <p class="text-[9px] xl:text-[10px] text-[var(--accent-color)] font-medium italic mt-0.5 t-lang truncate w-full" data-en="Co-founder & CEO" data-vi="Đồng sáng lập & Điều hành">Co-founder & CEO</p>
+                    </div>
+                </a>
+                
+                <a href="https://www.yptc.com/" target="_blank" class="relative pl-5 block">
+                    <div class="absolute -left-[14px] -top-1 flex h-[26px] w-[26px] items-center justify-center rounded-full bg-white border border-[var(--border-color)] shadow z-10 overflow-hidden">
+                        <img alt="YPTC Logo" class="w-full h-full object-cover" src="./assets/images/YPTC-Logo.png"/>
+                    </div>
+                    <div class="flex flex-col items-start text-left mt-[-4px]">
+                        <span class="text-[9px] font-semibold text-[var(--soft-text-color)] tracking-wide uppercase mb-0.5">2016-2020 (USA)</span>
+                        <h4 class="text-[12px] xl:text-[13px] font-bold text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors leading-tight truncate w-full">YPTC, LLC</h4>
+                        <p class="text-[9px] xl:text-[10px] text-[var(--accent-color)] font-medium italic mt-0.5 t-lang truncate w-full" data-en="DVG Manager" data-vi="Quản lý Phân tích Dữ liệu">DVG Manager</p>
+                    </div>
+                </a>
+                
+                <a href="https://www.lazada.vn/" target="_blank" class="relative pl-5 block">
+                    <div class="absolute -left-[14px] -top-1 flex h-[26px] w-[26px] items-center justify-center rounded-full bg-white border border-[var(--border-color)] shadow z-10 overflow-hidden">
+                        <img alt="Lazada Logo" class="w-full h-full object-cover" src="./assets/images/logo-lazada.png"/>
+                    </div>
+                    <div class="flex flex-col items-start text-left mt-[-4px]">
+                        <span class="text-[9px] font-semibold text-[var(--soft-text-color)] tracking-wide uppercase mb-0.5">2015 (SG, VN)</span>
+                        <h4 class="text-[12px] xl:text-[13px] font-bold text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors leading-tight truncate w-full">LAZADA</h4>
+                        <p class="text-[9px] xl:text-[10px] text-[var(--accent-color)] font-medium italic mt-0.5 t-lang truncate w-full" data-en="Analyst" data-vi="Chuyên viên Số liệu">Analyst</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Second column (NRG, Drexel, Ams) -->
+            <div class="relative border-l-2 border-[var(--border-color)] ml-3 pb-1 space-y-6 group">
+                <a href="https://www.nrg.com/" target="_blank" class="relative pl-5 block">
+                    <div class="absolute -left-[14px] -top-1 flex h-[26px] w-[26px] items-center justify-center rounded-full bg-white border border-[var(--border-color)] shadow z-10 overflow-hidden">
+                        <img alt="NRG Logo" class="w-full h-full object-cover" src="./assets/images/NRG-logo.png"/>
+                    </div>
+                    <div class="flex flex-col items-start text-left mt-[-4px]">
+                        <span class="text-[9px] font-semibold text-[var(--soft-text-color)] tracking-wide uppercase mb-0.5">2014 (USA)</span>
+                        <h4 class="text-[12px] xl:text-[13px] font-bold text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors leading-tight truncate w-full">NRG Energy</h4>
+                        <p class="text-[9px] xl:text-[10px] text-[var(--accent-color)] font-medium italic mt-0.5 t-lang truncate w-full" data-en="Data Analyst" data-vi="Phân tích Dữ liệu">Data Analyst</p>
+                    </div>
+                </a>
+
+                <a href="https://drexel.edu/" target="_blank" class="relative pl-5 block">
+                    <div class="absolute -left-[14px] -top-1 flex h-[26px] w-[26px] items-center justify-center rounded-full bg-white border border-[var(--border-color)] shadow z-10 overflow-hidden">
+                        <img alt="Drexel Logo" class="w-full h-full object-cover" src="./assets/images/drexel-logo.jpg"/>
+                    </div>
+                    <div class="flex flex-col items-start text-left mt-[-4px]">
+                        <span class="text-[9px] font-semibold text-[var(--soft-text-color)] tracking-wide uppercase mb-0.5">2012-2016 (USA)</span>
+                        <h4 class="text-[12px] xl:text-[13px] font-bold text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors leading-tight truncate w-full">Drexel Univ.</h4>
+                        <p class="text-[9px] xl:text-[10px] text-[var(--accent-color)] font-medium italic mt-0.5 t-lang leading-tight w-full" data-en="Honor School / Bachelor" data-vi="Tốt nghiệp Danh dự / Cử nhân">Honor School / Bachelor</p>
+                    </div>
+                </a>
+                
+                <a href="https://hn-ams.edu.vn/" target="_blank" class="relative pl-5 block">
+                    <div class="absolute -left-[14px] -top-1 flex h-[26px] w-[26px] items-center justify-center rounded-full bg-white border border-[var(--border-color)] shadow z-10 overflow-hidden">
+                        <img alt="Hanoi Amsterdam Logo" class="w-full h-full object-cover" src="./assets/images/hnamsterdam-logo.jpg"/>
+                    </div>
+                    <div class="flex flex-col items-start text-left mt-[-4px]">
+                        <span class="text-[9px] font-semibold text-[var(--soft-text-color)] tracking-wide uppercase mb-0.5">2007-2012</span>
+                        <h4 class="text-[12px] xl:text-[13px] font-bold text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors leading-tight truncate w-full">Hanoi Amsterdam</h4>
+                        <p class="text-[9px] xl:text-[10px] text-[var(--accent-color)] font-medium italic mt-0.5 t-lang leading-tight w-full" data-en="Amser" data-vi="Cựu học sinh Ams">Amser</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- LMS & Courses -->
+    <section class="glass-panel p-5 rounded-[1.25rem] flex flex-col gap-3 md:flex-grow">
+        <div class="flex items-center justify-between mb-1">
+            <h3 class="text-[15px] font-semibold text-[var(--accent-color)] flex items-center gap-2">
+                <span class="material-symbols-outlined text-[var(--accent-color)]">model_training</span>
+                <span class="t-lang" data-en="My Training Program" data-vi="Chương trình Đào tạo">My Training Program</span>
+            </h3>
+            <span class="text-[9px] text-[var(--accent-color)] font-bold tracking-widest uppercase hover:text-[var(--accent-hover-color)] transition-colors cursor-pointer t-lang" data-en="View All" data-vi="Xem tất cả">View All</span>
+        </div>
+        <div class="flex flex-col gap-2 mt-2">
+            <a href="https://compaclass.com/course/37c90656-6ef4-45f6-a767-bb00e1ee5342" target="_blank" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[var(--card-hover-bg)] transition-colors group cursor-pointer border border-transparent hover:border-[var(--border-color)] flex-shrink-0">
+                <div class="w-14 h-9 overflow-hidden bg-gray-800 flex-shrink-0 rounded-sm">
+                    <img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="./assets/images/powerbi_coban_compaclass.jpg"/>
+                </div>
+                <div class="flex flex-col flex-grow min-w-0">
+                    <span class="text-[11px] font-bold text-[var(--text-color)] truncate group-hover:text-[var(--primary-light)] transition-colors">Power BI Cơ Bản</span>
+                    <div class="flex items-center gap-3 mt-0.5 text-[var(--soft-text-color)]">
+                        <span class="text-[9px] flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">schedule</span> 12h &bull; <span class="t-lang" data-en="Basic" data-vi="Cơ bản">Cơ bản</span></span>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="https://compaclass.com/learn/course/data-analytics-fundamental-v2/overview" target="_blank" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[var(--card-hover-bg)] transition-colors group cursor-pointer border border-transparent hover:border-[var(--border-color)] flex-shrink-0">
+                <div class="w-14 h-9 overflow-hidden bg-gray-800 flex-shrink-0 rounded-sm">
+                    <img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="./assets/images/data-analytics-fundamental.webp"/>
+                </div>
+                <div class="flex flex-col flex-grow min-w-0">
+                    <span class="text-[11px] font-bold text-[var(--text-color)] truncate group-hover:text-[var(--primary-light)] transition-colors">Data Analytics Fundamental</span>
+                    <div class="flex items-center gap-3 mt-0.5 text-[var(--soft-text-color)]">
+                        <span class="text-[9px] flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">schedule</span> 18h &bull; <span class="t-lang" data-en="Beginner" data-vi="Nhập môn">Nhập môn</span></span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://compaclass.com/vn/learn/course/ung-dung-ai-trong-cong-viec-va-phan-tich-du-lieu-1/overview" target="_blank" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[var(--card-hover-bg)] transition-colors group cursor-pointer border border-transparent hover:border-[var(--border-color)] flex-shrink-0">
+                <div class="w-14 h-9 overflow-hidden bg-gray-800 flex-shrink-0 rounded-sm">
+                    <img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="./assets/images/ai-data-analytics.webp"/>
+                </div>
+                <div class="flex flex-col flex-grow min-w-0">
+                    <span class="text-[11px] font-bold text-[var(--text-color)] truncate group-hover:text-[var(--primary-light)] transition-colors">Ứng dụng AI trong Phân tích Dữ liệu</span>
+                    <div class="flex items-center gap-3 mt-0.5 text-[var(--soft-text-color)]">
+                        <span class="text-[9px] flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">schedule</span> 4h &bull; <span class="t-lang" data-en="Intermediate" data-vi="Trung cấp">Trung cấp</span></span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://compaclass.com/vn/learn/course/hr-analytics-3/overview" target="_blank" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[var(--card-hover-bg)] transition-colors group cursor-pointer border border-transparent hover:border-[var(--border-color)] flex-shrink-0">
+                <div class="w-14 h-9 overflow-hidden bg-gray-800 flex-shrink-0 rounded-sm">
+                    <img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="./assets/images/hr-analytics.webp"/>
+                </div>
+                <div class="flex flex-col flex-grow min-w-0">
+                    <span class="text-[11px] font-bold text-[var(--text-color)] truncate group-hover:text-[var(--primary-light)] transition-colors">Phân tích dữ liệu nhân sự (HR Analytics)</span>
+                    <div class="flex items-center gap-3 mt-0.5 text-[var(--soft-text-color)]">
+                        <span class="text-[9px] flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">schedule</span> 8h &bull; <span class="t-lang" data-en="Advanced" data-vi="Chuyên sâu">Chuyên sâu</span></span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://compaclass.com/vn/learn/course/ai-automation-trong-hr-2/overview" target="_blank" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[var(--card-hover-bg)] transition-colors group cursor-pointer border border-transparent hover:border-[var(--border-color)] flex-shrink-0">
+                <div class="w-14 h-9 overflow-hidden bg-gray-800 flex-shrink-0 rounded-sm">
+                    <img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="./assets/images/ai-hr-automation.webp"/>
+                </div>
+                <div class="flex flex-col flex-grow min-w-0">
+                    <span class="text-[11px] font-bold text-[var(--text-color)] truncate group-hover:text-[var(--primary-light)] transition-colors">Ứng dụng AI & Automation HR</span>
+                    <div class="flex items-center gap-3 mt-0.5 text-[var(--soft-text-color)]">
+                        <span class="text-[9px] flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">schedule</span> 6h &bull; <span class="t-lang" data-en="Advanced" data-vi="Chuyên sâu">Chuyên sâu</span></span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://compaclass.com/vn/learn/course/khoa-hoc-microsoft-fabric-co-ban-1/overview" target="_blank" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[var(--card-hover-bg)] transition-colors group cursor-pointer border border-transparent hover:border-[var(--border-color)] flex-shrink-0">
+                <div class="w-14 h-9 overflow-hidden bg-gray-800 flex-shrink-0 rounded-sm">
+                    <img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="./assets/images/ms-fabric-basic.webp"/>
+                </div>
+                <div class="flex flex-col flex-grow min-w-0">
+                    <span class="text-[11px] font-bold text-[var(--text-color)] truncate group-hover:text-[var(--primary-light)] transition-colors">Microsoft Fabric Cơ Bản</span>
+                    <div class="flex items-center gap-3 mt-0.5 text-[var(--soft-text-color)]">
+                        <span class="text-[9px] flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">schedule</span> 14h &bull; <span class="t-lang" data-en="Intermediate" data-vi="Trung cấp">Trung cấp</span></span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://compaclass.com/vn/learn/course/phan-tich-du-lieu-voi-excel-v1/overview" target="_blank" class="flex items-center gap-3 p-2 rounded-lg hover:bg-[var(--card-hover-bg)] transition-colors group cursor-pointer border border-transparent hover:border-[var(--border-color)] flex-shrink-0">
+                <div class="w-14 h-9 overflow-hidden bg-gray-800 flex-shrink-0 rounded-sm">
+                    <img class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" src="./assets/images/excel-data-analytics.webp"/>
+                </div>
+                <div class="flex flex-col flex-grow min-w-0">
+                    <span class="text-[11px] font-bold text-[var(--text-color)] truncate group-hover:text-[var(--primary-light)] transition-colors">Phân tích dữ liệu với Excel</span>
+                    <div class="flex items-center gap-3 mt-0.5 text-[var(--soft-text-color)]">
+                        <span class="text-[9px] flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">schedule</span> 12h &bull; <span class="t-lang" data-en="Basic" data-vi="Cơ bản">Cơ bản</span></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+</div>
+
+</div>
+</main>
+
+<!-- BottomNavBar for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-100 bg-[#0f172a]/95 backdrop-blur-xl border-t border-[var(--border-color)] flex justify-around items-center px-4 pb-6 pt-3 shadow-[0_-8px_32px_rgba(0,0,0,0.3)]">
+<a class="flex flex-col items-center justify-center text-[var(--soft-text-color)] hover:text-[var(--primary-color)] transition-all" href="#">
+<span class="material-symbols-outlined">work</span>
+<span class="text-[10px] font-semibold uppercase tracking-widest font-['Inter'] mt-1 t-lang" data-en="Experience" data-vi="Kinh nghiệm">Experience</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[var(--soft-text-color)] hover:text-[var(--primary-color)] transition-all" href="https://compaclass.com" target="_blank">
+<span class="material-symbols-outlined">school</span>
+<span class="text-[10px] font-semibold uppercase tracking-widest font-['Inter'] mt-1 t-lang" data-en="LMS" data-vi="Học tập">LMS</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[var(--accent-color)] drop-shadow-[0_0_8px_rgba(198,151,73,0.3)]" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-semibold uppercase tracking-widest font-['Inter'] mt-1 t-lang" data-en="Profile" data-vi="Hồ sơ">Profile</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[var(--soft-text-color)] hover:text-[var(--primary-color)] transition-all" href="https://www.youtube.com/@PowerBIHeroVn" target="_blank">
+<span class="material-symbols-outlined">subscriptions</span>
+<span class="text-[10px] font-semibold uppercase tracking-widest font-['Inter'] mt-1 t-lang" data-en="Social" data-vi="Mạng XH">Social</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[var(--soft-text-color)] hover:text-[var(--primary-color)] transition-all" href="https://forms.office.com/r/UfYJgH2f2W" target="_blank">
+<span class="material-symbols-outlined">bolt</span>
+<span class="text-[10px] font-semibold uppercase tracking-widest font-['Inter'] mt-1 t-lang" data-en="Actions" data-vi="Tương tác">Actions</span>
+</a>
+</nav>
+
+<script>
+    // i18n Translation Logic
+    const langToggleBtn = document.getElementById('lang-toggle-btn');
+    let currentLang = 'en';
+
+    langToggleBtn.addEventListener('click', () => {
+        // Toggle language state
+        currentLang = currentLang === 'en' ? 'vi' : 'en';
+        langToggleBtn.innerText = currentLang === 'en' ? 'VI' : 'EN';
+        
+        // Find all elements with the 't-lang' class
+        const translatableElements = document.querySelectorAll('.t-lang');
+        
+        translatableElements.forEach(el => {
+            const translation = el.getAttribute(`data-${currentLang}`);
+            if (translation) {
+                // If it contains child elements (like icons), we only want to translate the text node.
+                // A safe way is to replace only the pure text content if there's no HTML, 
+                // OR replace the innerHTML outright if there are structural elements.
+                // In our case, t-lang is applied specifically to leaf nodes or spans wrapper around text.
+                el.innerHTML = translation;
+            }
+        });
+    });
+</script>
 </body>
 </html>
-

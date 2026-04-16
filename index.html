@@ -47,6 +47,7 @@
             --border-color: rgba(0, 0, 0, 0.08);
             --card-bg: rgba(255, 255, 255, 0.6);
             --card-hover-bg: rgba(255, 255, 255, 0.9);
+            --shadow-color: rgba(76, 107, 75, 0.12);
         }
         .dark {
             --bg-start: #0f172a;
@@ -60,6 +61,7 @@
             --border-color: rgba(255, 255, 255, 0.1);
             --card-bg: rgba(255, 255, 255, 0.04);
             --card-hover-bg: rgba(255, 255, 255, 0.08);
+            --shadow-color: rgba(0, 0, 0, 0.4);
         }
         body {
             background: linear-gradient(to bottom right, var(--bg-start), var(--bg-end));
@@ -86,7 +88,7 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border-color);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 32px 0 var(--shadow-color);
             border-radius: 1.25rem;
         }
         .glass-panel:hover {
@@ -108,7 +110,7 @@
     </style>
 </head>
 <body class="w-full flex flex-col relative bg-[var(--bg-start)] text-[var(--text-color)]">
-<canvas id="bgCanvas" class="fixed inset-0 w-full h-full z-0 pointer-events-none opacity-40"></canvas>
+<canvas id="bgCanvas" class="fixed inset-0 w-full h-full z-0 pointer-events-none opacity-80"></canvas>
 
 <!-- TopAppBar -->
 <header class="h-[72px] flex-shrink-0 w-full border-b border-[var(--border-color)] bg-[var(--card-bg)] backdrop-blur-xl sticky top-0 z-50 flex justify-between items-center px-4 md:px-[25px]">
@@ -596,7 +598,7 @@
 </main>
 
 <!-- BottomNavBar for Mobile -->
-<nav class="md:hidden fixed bottom-0 left-0 w-full z-100 bg-[var(--card-bg)] backdrop-blur-xl border-t border-[var(--border-color)] flex justify-around items-center px-4 pb-6 pt-3 shadow-[0_-8px_32px_rgba(0,0,0,0.3)]">
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-100 bg-[var(--card-bg)] backdrop-blur-xl border-t border-[var(--border-color)] flex justify-around items-center px-4 pb-6 pt-3 shadow-[0_-8px_32px_var(--shadow-color)]">
 <a class="flex flex-col items-center justify-center text-[var(--soft-text-color)] hover:text-[var(--primary-color)] transition-all" href="#">
 <span class="material-symbols-outlined">work</span>
 <span class="text-[10px] font-semibold uppercase tracking-widest font-['Inter'] mt-1 t-lang" data-en="Experience" data-vi="Kinh nghiệm">Experience</span>
@@ -656,8 +658,10 @@
     let width, height;
     let particles = [];
     
-    // Golden accent color
-    const RGB_COLOR = '198, 151, 73';
+    // Get RGB color dynamically based on theme
+    function getParticleRGB() {
+        return document.documentElement.classList.contains('dark') ? '198, 151, 73' : '76, 107, 75'; // Gold for dark, Green for light
+    }
 
     function resize() {
         width = canvas.width = window.innerWidth;
@@ -667,15 +671,15 @@
 
     function initParticles() {
         particles = [];
-        const particleCount = Math.min(width * height / 15000, 80); // Responsive count
+        const particleCount = Math.min(width * height / 9000, 150); // Increased density
         for (let i = 0; i < particleCount; i++) {
             particles.push({
                 x: Math.random() * width,
                 y: Math.random() * height,
-                vx: (Math.random() - 0.5) * 0.4,
-                vy: (Math.random() - 0.5) * 0.4,
-                size: Math.random() * 1.5 + 0.5,
-                opacity: Math.random() * 0.4 + 0.1
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                size: Math.random() * 2 + 0.8, // Bigger particles
+                opacity: Math.random() * 0.5 + 0.3 // Brighter
             });
         }
     }
@@ -683,6 +687,9 @@
     function animate() {
         ctx.clearRect(0, 0, width, height);
         
+        const rgbColor = getParticleRGB();
+        const connectOpacity = document.documentElement.classList.contains('dark') ? '0.2' : '0.15';
+
         // Draw particles
         particles.forEach(p => {
             p.x += p.vx;
@@ -694,20 +701,20 @@
             
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${RGB_COLOR}, ${p.opacity})`;
+            ctx.fillStyle = `rgba(${rgbColor}, ${p.opacity})`;
             ctx.fill();
         });
         
         // Draw connections (subtle neural net effect)
-        ctx.strokeStyle = `rgba(${RGB_COLOR}, 0.08)`;
-        ctx.lineWidth = 0.5;
+        ctx.strokeStyle = `rgba(${rgbColor}, ${connectOpacity})`;
+        ctx.lineWidth = 0.6;
         for (let i = 0; i < particles.length; i++) {
             for (let j = i + 1; j < particles.length; j++) {
                 const dx = particles[i].x - particles[j].x;
                 const dy = particles[i].y - particles[j].y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
                 
-                if (dist < 120) {
+                if (dist < 130) {
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);

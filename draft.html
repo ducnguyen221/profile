@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Executive Sanctuary | Professional Identity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "rgba(255, 255, 255, 0.12)",
+                        "outline-variant": "rgba(255, 255, 255, 0.08)",
+                        "background": "#0f172a",
+                        "surface-container-low": "rgba(255, 255, 255, 0.04)",
+                        "surface-container-high": "rgba(255, 255, 255, 0.09)",
+                        "on-surface-variant": "#B0B0B0",
+                        "tertiary": "#3A2A3E",
+                        "primary-container": "#6D916B",
+                        "surface-container": "rgba(255, 255, 255, 0.06)",
+                        "outline": "rgba(255, 255, 255, 0.1)",
+                        "on-primary": "#FFFFFF",
+                        "on-background": "#E0E0E0",
+                        "secondary": "#C69749",
+                        "on-surface": "#E0E0E0",
+                        "primary": "#4C6B4B",
+                        "secondary-container": "#A37A3B"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        :root {
+            --bg-start: #0f172a;
+            --bg-end: #1e293b;
+            --primary-color: #4C6B4B;
+            --primary-hover-color: #6D916B;
+            --accent-color: #C69749;
+            --accent-hover-color: #A37A3B;
+            --text-color: #E0E0E0;
+            --soft-text-color: #B0B0B0;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --card-hover-bg: rgba(255, 255, 255, 0.08);
+        }
+        body {
+            background: linear-gradient(to bottom right, var(--bg-start), var(--bg-end));
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            border-radius: 1.25rem;
+        }
+        .glass-panel:hover {
+             border-color: rgba(255, 255, 255, 0.15);
+             background: var(--card-hover-bg);
+             transition: all 0.3s ease;
+        }
+        .light-leak {
+            display: none;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full border-b border-white/10 bg-[#0f172a]/80 backdrop-blur-xl z-50 flex justify-between items-center px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover border border-[var(--primary-color)] p-0.5 bg-[#0f172a]" data-alt="Close-up professional portrait of an executive in a charcoal suit, soft cinematic lighting, blurred office background with warm bokeh" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArEtWwuoscRNk5eGj1Vgqdjrp2979BB2iOBlaX6viyF251Hkh9frZApnPf3XAI0JAJHLXOuSqHgu25uE2Ski2STiYUTwSM_Gre1rV6MCw3qHgjfkw8Fad-HtCSahfyQmmamiYSm2Y64q0F9IepZf4_vc1CCftVIlQ6mPW8HGDLu2ojbVRK60AI-ae5yQVf4ae32nbibQzSfPHKoZSmt1MY0beNPnDNcHhAd3F-Pio4K1GzuQVUMMJgb5CtGDZGf5gOucvCOEwTpK4"/>
+<span class="text-xl font-bold tracking-tight text-[var(--text-color)] flex items-center gap-2 font-['Inter']"><span class="material-symbols-outlined text-[var(--accent-color)]">dashboard</span> My Profile</span>
+</div>
+<div class="flex items-center gap-4"><span class="material-symbols-outlined text-[var(--soft-text-color)] hover:text-[var(--accent-color)] transition-colors cursor-pointer" data-icon="dark_mode">dark_mode</span>
+<span class="material-symbols-outlined text-[var(--soft-text-color)] hover:text-[var(--accent-color)] transition-colors cursor-pointer" data-icon="more_vert">more_vert</span>
+</div>
+</header>
+<main class="pt-24 pb-32 px-4 md:px-8 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Left Column: Identity & Experience -->
+<div class="md:col-span-4 flex flex-col gap-6">
+<!-- Hero Section -->
+<section class="glass-panel p-6 lg:p-8 flex flex-col items-center text-center gap-6 justify-start relative overflow-hidden group">
+<div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[var(--accent-color)] to-transparent"></div>
+<div class="relative w-full flex justify-center mb-2">
+<div class="w-32 h-32 lg:w-40 lg:h-40 rounded-full border-2 border-[var(--primary-color)] p-1 relative z-10 bg-[#0f172a]">
+<img alt="Portrait of Julian Vanguard" class="w-full h-full rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArEtWwuoscRNk5eGj1Vgqdjrp2979BB2iOBlaX6viyF251Hkh9frZApnPf3XAI0JAJHLXOuSqHgu25uE2Ski2STiYUTwSM_Gre1rV6MCw3qHgjfkw8Fad-HtCSahfyQmmamiYSm2Y64q0F9IepZf4_vc1CCftVIlQ6mPW8HGDLu2ojbVRK60AI-ae5yQVf4ae32nbibQzSfPHKoZSmt1MY0beNPnDNcHhAd3F-Pio4K1GzuQVUMMJgb5CtGDZGf5gOucvCOEwTpK4"/>
+</div>
+<div class="absolute inset-0 bg-[var(--primary-color)]/20 blur-2xl rounded-full -z-0 transform scale-110 m-auto w-32 h-32 lg:w-40 lg:h-40"></div>
+</div>
+<div class="space-y-2">
+<h1 class="text-3xl lg:text-4xl font-bold text-[var(--text-color)] tracking-tight">Nguyễn Quang Đức</h1>
+<p class="text-[var(--accent-color)] font-medium text-lg">Data Analytics Expert</p>
+</div>
+<div class="flex flex-wrap justify-center gap-2 w-full max-w-sm">
+<span class="px-3 py-1 rounded-full bg-[var(--card-bg)] border border-[var(--border-color)] text-xs font-medium text-[var(--soft-text-color)]">Strategic Growth</span>
+<span class="px-3 py-1 rounded-full bg-[var(--card-bg)] border border-[var(--border-color)] text-xs font-medium text-[var(--soft-text-color)]">LMS Expert</span>
+<span class="px-3 py-1 rounded-full bg-[var(--card-bg)] border border-[var(--border-color)] text-xs font-medium text-[var(--soft-text-color)]">Verified</span>
+</div>
+<div class="flex gap-4 w-full mt-4">
+<button class="flex-1 py-2.5 rounded-lg bg-[var(--accent-color)] hover:bg-[var(--accent-hover-color)] text-white text-sm font-bold shadow-lg shadow-[var(--accent-color)]/20 hover:shadow-[var(--accent-color)]/40 transition-all flex items-center justify-center gap-2">Connect</button>
+<button class="w-12 h-12 glass-panel flex items-center justify-center rounded-lg hover:bg-[var(--card-hover-bg)] transition-colors border border-[var(--border-color)]">
+<span class="material-symbols-outlined text-[var(--accent-color)]" data-icon="share">share</span>
+</button>
+</div>
+</section>
+<!-- Academic/Teaching Experience -->
+<section class="glass-panel p-5 rounded-[1.25rem] flex flex-col gap-4 relative">
+<h3 class="text-xl font-semibold text-[var(--text-color)] flex items-center gap-2">
+<span class="material-symbols-outlined text-[var(--accent-color)]" data-icon="school">school</span>
+                        Academic Tenure
+                    </h3>
+<div class="space-y-6 mt-2">
+<div class="relative pl-6 border-l border-dashed border-[var(--border-color)] group">
+<div class="absolute -left-[5px] top-1 w-2 h-2 rounded-full bg-[var(--accent-color)]"></div>
+<div class="flex flex-col items-start text-left">
+<span class="text-[10px] font-semibold text-[var(--soft-text-color)] tracking-wide uppercase mb-0.5">2021 — Present</span>
+<h4 class="text-sm font-bold text-[var(--text-color)] group-hover:text-[var(--primary-light)] transition-colors leading-tight">Senior Lecturer</h4>
+<p class="text-[11px] text-[var(--soft-text-color)] font-medium italic mt-0.5">Global Institute of Management</p>
+</div>
+</div>
+<div class="relative pl-6 border-l border-dashed border-[var(--border-color)] group">
+<div class="absolute -left-[5px] top-1 w-2 h-2 rounded-full bg-[var(--primary-color)]"></div>
+<div class="flex flex-col items-start text-left">
+<span class="text-[10px] font-semibold text-[var(--soft-text-color)] tracking-wide uppercase mb-0.5">2018 — 2021</span>
+<h4 class="text-sm font-bold text-[var(--text-color)] group-hover:text-[var(--primary-light)] transition-colors leading-tight">Doctoral Researcher</h4>
+<p class="text-[11px] text-[var(--soft-text-color)] font-medium italic mt-0.5">Oxford Business Laboratory</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Middle Column: LMS & Content -->
+<div class="md:col-span-5 flex flex-col gap-6">
+<!-- Data Dashboard -->
+<section class="glass-panel p-5 rounded-[1.25rem] relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-semibold text-[var(--text-color)] flex items-center gap-2">Strategic Insights</h3>
+<p class="text-xs text-[var(--soft-text-color)] mt-1">Live Market Performance Dashboard</p>
+</div>
+<span class="px-2 py-1 bg-[var(--primary-color)]/20 text-[var(--primary-color)] text-[10px] font-bold rounded">LIVE</span>
+</div>
+<div class="aspect-video rounded-lg overflow-hidden bg-slate-900 mb-2 border border-[var(--border-color)] relative">
+<img class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" data-alt="High-tech data dashboard with glowing neon green and gold charts, dark interface, complex analytics visualization" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA282P3N2TgxgCS3rN1GL4URJfRdTW04QrsU6wIarsz7VTGHa66ZPUWuKVaxdAhOb6ZYmSsWOZsAsb-Y_1I0X8kwSxt8KmL3fDF4sa0Fj0YfS-HaU4atfHXxt_H16ySxcKD7b2_d_89YK-imchExVmLq7uzOVscsxfDK33VnV2kcqBgiihzaBBpidTRhEUdPNm1Q9hWiPgYW2euyREG4Ku1hN1G7TOTx-1c9cYDTXeQ86dU9MoeGCEm7gMRnVsiwo4L4CXf_zkspHY"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<button class="bg-[#0f172a]/80 backdrop-blur-md border border-[var(--border-color)] px-6 py-2 rounded-full text-sm font-bold flex items-center gap-2 hover:bg-[var(--accent-color)] hover:text-white transition-all text-white shadow-lg">
+<span class="material-symbols-outlined text-xs" data-icon="open_in_new">open_in_new</span>
+                                View Live Report
+                            </button>
+</div>
+</div>
+</section>
+<!-- LMS & Courses -->
+<section class="glass-panel p-5 rounded-[1.25rem] flex flex-col gap-4">
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-xl font-semibold text-[var(--text-color)] flex items-center gap-2">Learning Modules</h3>
+<span class="text-xs text-[var(--accent-color)] font-bold tracking-widest uppercase cursor-pointer hover:text-[var(--accent-hover-color)] transition-colors">View All</span>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3 p-3 rounded-lg hover:bg-[var(--card-hover-bg)] transition-colors group cursor-pointer border border-transparent hover:border-[var(--border-color)]">
+<div class="w-16 h-12 overflow-hidden bg-gray-800 flex-shrink-0 rounded-none border border-[var(--border-color)]">
+<img class="w-full h-full object-cover opacity-80" data-alt="Abstract golden geometry on dark green background, corporate luxury education aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATgshso-vrTFOO3_AtDnPqpmyc1t8G318D-qE1q-HnVtyulZ7ExaZsB-y4GDA4wqWXm5QrvmeW6dVqh2n8HTNvytERn1UpXo2-cAQeDTtWXYH8AjDCxRgGUvMwE52MCzYhBe8rHYSelCWVurT0LbrBZZo4yPqpqz6cQVnyGx98qGrHB9MlVI22qBToCLdsB3TuLylGT6C1W_7dP1L04uzhz61TYRitvPl_m3RGkKUmpn5gHnTxUFe_kI77VdnpXoX_BuO02F-0kGM"/>
+</div>
+<div class="flex flex-col flex-grow min-w-0">
+<span class="text-sm font-medium text-[var(--text-color)] truncate group-hover:text-[var(--primary-color)] transition-colors">Executive Communication Masterclass</span>
+<div class="flex items-center gap-3 mt-1 text-[var(--soft-text-color)]">
+<span class="text-[10px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="schedule">schedule</span> 12h
+                                    </span>
+<span class="text-[10px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="groups">groups</span> 1.2k Students
+                                    </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg hover:bg-[var(--card-hover-bg)] transition-colors group cursor-pointer border border-transparent hover:border-[var(--border-color)]">
+<div class="w-16 h-12 overflow-hidden bg-gray-800 flex-shrink-0 rounded-none border border-[var(--border-color)]">
+<img class="w-full h-full object-cover opacity-80" data-alt="Forest canopy seen from below at dusk, deep green tones, minimal professional look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj9fJpvRy6l2QGF6eKZLUOOzWmpEGEwocRJOQ2RH24GALCs2EOEpvTiKgbuF15ayq-QFge2P2jIXCd1c7_NqnxEYQWiBP7rRZVW3WhyAz_UkomzCLjjU6TLaWgD1_mbinvnKYr8GTAkbreFUpsQc-9e3o7yGQtcevQ0WoP7Ar6_eVVZwBRmtA7Yldr61j5x_pK6J338UsmSD0PPHsw_mRQNv9X21yFspaA9QfYScHUTwa3bdX15nAjWMDvZqWxYJpNo2uwIYRl9_o"/>
+</div>
+<div class="flex flex-col flex-grow min-w-0">
+<span class="text-sm font-medium text-[var(--text-color)] truncate group-hover:text-[var(--primary-color)] transition-colors">Digital Ecosystem Architecture</span>
+<div class="flex items-center gap-3 mt-1 text-[var(--soft-text-color)]">
+<span class="text-[10px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="schedule">schedule</span> 8h
+                                    </span>
+<span class="text-[10px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="star">star</span> 4.9 Rating
+                                    </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Video Placeholder -->
+<section class="glass-panel overflow-hidden relative">
+<div class="aspect-video bg-slate-900 relative">
+<img class="w-full h-full object-cover opacity-50" data-alt="A moody, high-end studio setting with Julian Vanguard speaking into a professional microphone, dark forest green lighting in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjZKOv13EU6F17Oban4X6OlvpZcWWG84J7CQ3003GZj8kl6vMQikknhU-3oEO-8KZ7AJ4W8FeAzHNkmqYvAfvz06vp3ApMMxEMq4o0pVYXb6EBWL8fkq_CfCRq2W_E5PhZsIyEclNxI-hwwgxLBQ5I8BMQr81VOVc36alPKN3evoPvrWq7xQ4icnclF5grvU3V1GoDCqzZLbtpgHa9H5aUa_5IukTYnVlM2O7qYlaL3dckEYUDfOxaukVqadyOypK7D3g8VuJfmpk"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-16 h-16 rounded-full bg-[var(--accent-color)]/90 flex items-center justify-center text-white shadow-[0_0_20px_rgba(198,151,73,0.3)] cursor-pointer hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-4 left-4 right-4">
+<h4 class="text-sm font-bold text-white drop-shadow-lg">Featured Keynote: The Future of Remote Executive Leadership</h4>
+</div>
+<div class="absolute inset-0 border-2 border-transparent hover:border-[var(--accent-color)] rounded-[1.25rem] transition-colors duration-300 pointer-events-none"></div>
+</div>
+</section>
+</div>
+<!-- Right Column: Social & Actions -->
+<div class="md:col-span-3 flex flex-col gap-6">
+<!-- Smart CTAs -->
+<section class="flex flex-col gap-3">
+<button class="w-full py-4 glass-panel flex items-center px-6 gap-4 hover:bg-[var(--card-hover-bg)] transition-all border-l-4 border-l-[var(--accent-color)] text-left group">
+<span class="material-symbols-outlined text-[var(--accent-color)] group-hover:scale-110 transition-transform" data-icon="calendar_today">calendar_today</span>
+<div>
+<p class="text-[10px] font-semibold text-[var(--soft-text-color)] tracking-wide uppercase">Available Now</p>
+<p class="text-sm font-bold text-[var(--text-color)]">1:1 Consulting</p>
+</div>
+</button>
+<button class="w-full py-4 glass-panel flex items-center px-6 gap-4 hover:bg-[var(--card-hover-bg)] transition-all border-l-4 border-l-[var(--primary-color)] text-left group">
+<span class="material-symbols-outlined text-[var(--primary-color)] group-hover:scale-110 transition-transform" data-icon="download">download</span>
+<div>
+<p class="text-[10px] font-semibold text-[var(--soft-text-color)] tracking-wide uppercase">Free Access</p>
+<p class="text-sm font-bold text-[var(--text-color)]">Download Resources</p>
+</div>
+</button>
+<button class="w-full py-4 glass-panel flex items-center px-6 gap-4 hover:bg-[var(--card-hover-bg)] transition-all border-l-4 border-l-[var(--accent-color)] text-left group">
+<span class="material-symbols-outlined text-[var(--accent-color)] group-hover:scale-110 transition-transform" data-icon="forum">forum</span>
+<div>
+<p class="text-[10px] font-semibold text-[var(--soft-text-color)] tracking-wide uppercase">Exclusive Circle</p>
+<p class="text-sm font-bold text-[var(--text-color)]">Join Community</p>
+</div>
+</button>
+</section>
+<!-- Social Feed Mockup -->
+<section class="glass-panel p-5 relative">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-xl font-semibold text-[var(--text-color)] flex items-center gap-2">
+<span class="material-symbols-outlined text-[#1877F2]" data-icon="facebook">social_leaderboard</span>
+                            Recent Update
+                        </h3>
+</div>
+<div class="bg-[var(--card-bg)] p-4 rounded-lg border border-[var(--border-color)] hover:border-[var(--accent-color)]/30 transition-colors">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-slate-800 border border-[var(--border-color)]">
+<img class="w-full h-full object-cover" data-alt="Small circle professional headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3RLVJOVrTibgRvx85qILPridNWNwl0ATKzUhjLsakB3-9T1IjK-nDyz6M5xMaice88vkZ6HBLRasvAXEkWR4gS1RXZ8uPOjKvOLooiZQXATrAPTg1_9k_D0nKtHF1XCMpdi0TCT6_F3j8-5f4uuNywnYnJx7yD3BKYGFd3N-zcS-KbHg7Pa0iwqAx6IjGkGgSnJWElRBmg_TbcWgwCOj1dx-xVZmVVBL8ZXJ-GYjIDnyeLw2MWXysCnww1am-Oev1Vki_lkCR-gs"/>
+</div>
+<div>
+<h5 class="text-xs font-bold text-[var(--text-color)]">Julian Vanguard</h5>
+<p class="text-[10px] text-[var(--soft-text-color)]">2 hours ago</p>
+</div>
+</div>
+<p class="text-xs text-[var(--text-color)] leading-relaxed mb-3">Reflecting on our latest cohort's progress. Digital infrastructure is no longer an option, it's the foundation of modern prestige.</p>
+<div class="aspect-[4/3] rounded overflow-hidden bg-slate-900 border border-[var(--border-color)] mb-3 relative group cursor-pointer">
+<img class="w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-500" data-alt="Abstract workspace with glass partitions and soft forest green shadows, moody professional atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRoIfowm1Prprk5fRG0XriYgyqo71HBkUg4V8rSp26fz9i1DPIOhW9B-Bo7kHtEKCF3kDIszX8Fig8tWzC-M8A7GCP8jSehv_4faQ8-TueGtsT9WzrmRMQBFnAfD4-ij5R-U24wq54wIMzX3VeDVfGnpfMNvRqrCuMkKUAjuIIKYvv9iTssshLs-2hcmH6kZxzVPPQxstmbmNPhudDjyJqpHo6RReOe4Y4CnVywIG8ctweucy4BPEgbDFQTmESz-4CWFGEU0VYlps"/>
+<div class="absolute inset-0 border-2 border-transparent group-hover:border-[var(--accent-color)] rounded transition-colors duration-300 pointer-events-none"></div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-sm text-[var(--soft-text-color)] hover:text-[var(--accent-color)] cursor-pointer transition-colors" data-icon="thumb_up">thumb_up</span>
+<span class="material-symbols-outlined text-sm text-[var(--soft-text-color)] hover:text-[var(--accent-color)] cursor-pointer transition-colors" data-icon="comment">comment</span>
+<span class="material-symbols-outlined text-sm text-[var(--soft-text-color)] hover:text-[var(--accent-color)] cursor-pointer transition-colors" data-icon="share">share</span>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-[#0f172a]/90 backdrop-blur-xl border-t border-[var(--border-color)] rounded-t-[20px] flex justify-around items-center px-4 pb-6 pt-3 shadow-[0_-8px_32px_rgba(0,0,0,0.3)]">
+<a class="flex flex-col items-center justify-center text-[var(--soft-text-color)] hover:text-[var(--primary-color)] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+<span class="text-[10px] font-semibold uppercase tracking-widest font-['Inter'] mt-1">Experience</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[var(--soft-text-color)] hover:text-[var(--primary-color)] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="text-[10px] font-semibold uppercase tracking-widest font-['Inter'] mt-1">LMS</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[var(--accent-color)] drop-shadow-[0_0_8px_rgba(198,151,73,0.3)]" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[10px] font-semibold uppercase tracking-widest font-['Inter'] mt-1">Profile</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[var(--soft-text-color)] hover:text-[var(--primary-color)] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="subscriptions">subscriptions</span>
+<span class="text-[10px] font-semibold uppercase tracking-widest font-['Inter'] mt-1">Social</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[var(--soft-text-color)] hover:text-[var(--primary-color)] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+<span class="text-[10px] font-semibold uppercase tracking-widest font-['Inter'] mt-1">Actions</span>
+</a>
+</nav>
+<!-- NavigationDrawer (Hidden by default, used as design anchor) -->
+<div class="fixed inset-y-0 left-0 z-[60] flex flex-col p-8 w-80 bg-[#0f172a]/95 backdrop-blur-2xl rounded-r-[20px] border-r border-[var(--border-color)] shadow-2xl -translate-x-full transition-transform duration-300">
+<div class="mb-12">
+<div class="flex items-center gap-4 mb-6">
+<img class="w-12 h-12 rounded-full border border-[var(--primary-color)]" data-alt="Professional portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC02mfS2u46hDww4yQseJ1Z6IbvDMVV_UwIIEJPXO4pgqYedftAVRcCjd3G85i4o6xNVb2TOrZYHXGKHMPzyqwNyb-o_fGKjT9gooM28LKAI4ZtgqD6lh85r2UWuyOExCYL4HTkGN3XWRZgSLfgOqbM_5j5Rj4iGLpwPbVOmGhEu6evLQOF9WokZFalCqajPJM0pgtxGlzOJ6mnNL6FCSteaIBsmfAeyJFGdsIhZPBBr3kraGxU8MInQUXNxw_2Q9jblBzSCjBFi44"/>
+<div>
+<h4 class="text-[var(--accent-color)] font-bold font-['Inter']">Nguyễn Quang Đức</h4>
+<p class="text-xs text-[var(--soft-text-color)]">Executive Sanctuary</p>
+</div>
+</div>
+<div class="border-b border-[var(--border-color)] border-dashed pb-4 mb-8">
+<span class="text-[10px] font-black text-[var(--accent-color)] tracking-[0.2em]">VERIFIED</span>
+</div>
+<nav class="space-y-6">
+<div class="flex items-center gap-4 text-[var(--text-color)] hover:text-[var(--accent-color)] cursor-pointer transition-colors">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-sm font-['Inter']">Analytics</span>
+</div>
+<div class="flex items-center gap-4 text-[var(--text-color)] hover:text-[var(--accent-color)] cursor-pointer transition-colors">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="text-sm font-['Inter']">Course Catalog</span>
+</div>
+<div class="flex items-center gap-4 text-[var(--text-color)] hover:text-[var(--accent-color)] cursor-pointer transition-colors">
+<span class="material-symbols-outlined" data-icon="video_library">video_library</span>
+<span class="text-sm font-['Inter']">Media Kit</span>
+</div>
+<div class="flex items-center gap-4 text-[var(--text-color)] hover:text-[var(--accent-color)] cursor-pointer transition-colors">
+<span class="material-symbols-outlined" data-icon="sync">sync</span>
+<span class="text-sm font-['Inter']">Contact Sync</span>
+</div>
+</nav>
+</div>
+</div>
+</body></html>

@@ -1,2 +1,2 @@
-// Main JavaScript
+﻿// Main JavaScript
 console.log('eProfile loaded');

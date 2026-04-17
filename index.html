@@ -129,6 +129,30 @@
             transition: all 0.3s ease;
         }
 
+        .core-tool-link {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0;
+            border: none;
+            background: transparent;
+            color: var(--soft-text-color);
+            line-height: 1.2;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .core-tool-link:hover {
+            color: var(--accent-color);
+            transform: translateX(2px);
+        }
+
+        .core-tool-logo {
+            width: 1rem;
+            height: 1rem;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
@@ -420,23 +444,35 @@
                 </section>
 
                 <!-- Smart CTAs swapped from right column to here -->
-                <section class="flex flex-col gap-3 flex-shrink-0 md:flex-grow">
+                <section class="grid grid-cols-2 gap-3 flex-shrink-0 md:flex-grow">
                     <a href="https://forms.office.com/r/UfYJgH2f2W" target="_blank"
-                        class="w-full py-4 glass-panel flex items-center px-6 gap-4 hover:bg-[var(--card-hover-bg)] transition-all border-l-4 border-l-[var(--accent-color)] text-left group cursor-pointer block">
+                        class="order-1 w-full min-h-[92px] py-4 glass-panel flex items-center px-4 lg:px-5 gap-3 hover:bg-[var(--card-hover-bg)] transition-all border-l-4 border-l-[var(--accent-color)] text-left group cursor-pointer block">
                         <span
                             class="material-symbols-outlined text-[var(--accent-color)] group-hover:scale-110 transition-transform">edit_document</span>
-                        <div>
+                        <div class="min-w-0">
                             <p class="text-[10px] font-semibold text-[var(--soft-text-color)] tracking-wide uppercase t-lang"
                                 data-en="Contact" data-vi="Liên Hệ">Contact</p>
                             <p class="text-xs font-bold text-[var(--text-color)] truncate t-lang"
                                 data-en="Fill Contact Form" data-vi="Điền Form Liên Hệ">Fill Contact Form</p>
                         </div>
                     </a>
+                    <a href="https://app.powerbi.com/view?r=eyJrIjoiNTE5NTQyNzUtM2ZjMy00N2MwLTgyOGEtYTc1NzMwYTAzNzVlIiwidCI6IjQxYWI0MmE5LTM4MWItNDhjZi04YTg1LTcyMDQ2NDkyMjk3NiIsImMiOjEwfQ%3D%3D"
+                        target="_blank"
+                        class="order-4 w-full min-h-[92px] py-4 glass-panel flex items-center px-4 lg:px-5 gap-3 hover:bg-[var(--card-hover-bg)] transition-all border-l-4 border-l-[#F2C811] text-left group cursor-pointer block">
+                        <img src="./assets/images/powerbi-logo.svg" alt="Power BI Profile"
+                            class="w-6 h-6 object-contain flex-shrink-0 group-hover:scale-110 transition-transform" />
+                        <div class="min-w-0">
+                            <p class="text-[10px] font-semibold text-[var(--soft-text-color)] tracking-wide uppercase t-lang"
+                                data-en="Power BI" data-vi="Power BI">Power BI</p>
+                            <p class="text-xs font-bold text-[var(--text-color)] truncate t-lang"
+                                data-en="PowerBI Profile" data-vi="PowerBI Profile">PowerBI Profile</p>
+                        </div>
+                    </a>
                     <a href="https://chatgpt.com/g/g-68c3c734d148819184c20b1e658ac81d-kpim-data-coach" target="_blank"
-                        class="w-full py-4 glass-panel flex items-center px-6 gap-4 hover:bg-[var(--card-hover-bg)] transition-all border-l-4 border-l-[var(--primary-color)] text-left group cursor-pointer block">
+                        class="order-3 w-full min-h-[92px] py-4 glass-panel flex items-center px-4 lg:px-5 gap-3 hover:bg-[var(--card-hover-bg)] transition-all border-l-4 border-l-[var(--primary-color)] text-left group cursor-pointer block">
                         <span
                             class="material-symbols-outlined text-[var(--primary-color)] group-hover:scale-110 transition-transform">smart_toy</span>
-                        <div>
+                        <div class="min-w-0">
                             <p class="text-[10px] font-semibold text-[var(--soft-text-color)] tracking-wide uppercase t-lang"
                                 data-en="AI Assistant" data-vi="Trợ lý AI">AI Assistant</p>
                             <p class="text-xs font-bold text-[var(--text-color)] truncate t-lang"
@@ -444,10 +480,10 @@
                         </div>
                     </a>
                     <a href="https://compaclass.com/blog" target="_blank"
-                        class="w-full py-4 glass-panel flex items-center px-6 gap-4 hover:bg-[var(--card-hover-bg)] transition-all border-l-4 border-l-[var(--accent-color)] text-left group cursor-pointer block">
+                        class="order-5 w-full min-h-[92px] py-4 glass-panel flex items-center px-4 lg:px-5 gap-3 hover:bg-[var(--card-hover-bg)] transition-all border-l-4 border-l-[var(--accent-color)] text-left group cursor-pointer block">
                         <span
                             class="material-symbols-outlined text-[var(--accent-color)] group-hover:scale-110 transition-transform">article</span>
-                        <div>
+                        <div class="min-w-0">
                             <p class="text-[10px] font-semibold text-[var(--soft-text-color)] tracking-wide uppercase t-lang"
                                 data-en="Reading Corner" data-vi="Góc Đọc Sách">Reading Corner</p>
                             <p class="text-xs font-bold text-[var(--text-color)] truncate t-lang"
@@ -455,14 +491,26 @@
                         </div>
                     </a>
                     <a href="https://www.facebook.com/groups/powerbivietnam" target="_blank"
-                        class="w-full py-4 glass-panel flex items-center px-6 gap-4 hover:bg-[var(--card-hover-bg)] transition-all border-l-4 border-l-[var(--primary-color)] text-left group cursor-pointer block">
+                        class="order-2 w-full min-h-[92px] py-4 glass-panel flex items-center px-4 lg:px-5 gap-3 hover:bg-[var(--card-hover-bg)] transition-all border-l-4 border-l-[var(--primary-color)] text-left group cursor-pointer block">
                         <span
                             class="material-symbols-outlined text-[var(--primary-color)] group-hover:scale-110 transition-transform">groups</span>
-                        <div>
+                        <div class="min-w-0">
                             <p class="text-[10px] font-semibold text-[var(--soft-text-color)] tracking-wide uppercase t-lang"
                                 data-en="Professional Network" data-vi="Mạng lưới Chuyên gia">Professional Network</p>
                             <p class="text-xs font-bold text-[var(--text-color)] truncate t-lang"
                                 data-en="Join Community" data-vi="Tham gia Cộng đồng">Join Community</p>
+                        </div>
+                    </a>
+                    <a href="https://app.powerbi.com/view?r=eyJrIjoiYmY4ODMyOWMtOTRkNC00MDEwLWEyYzItYzEzYmI5NWM4ZmVkIiwidCI6IjQxYWI0MmE5LTM4MWItNDhjZi04YTg1LTcyMDQ2NDkyMjk3NiIsImMiOjEwfQ%3D%3D"
+                        target="_blank"
+                        class="order-6 w-full min-h-[92px] py-4 glass-panel flex items-center px-4 lg:px-5 gap-3 hover:bg-[var(--card-hover-bg)] transition-all border-l-4 border-l-[#F2C811] text-left group cursor-pointer block">
+                        <img src="./assets/images/powerbi-logo.svg" alt="Power BI Portfolio"
+                            class="w-6 h-6 object-contain flex-shrink-0 group-hover:scale-110 transition-transform" />
+                        <div class="min-w-0">
+                            <p class="text-[10px] font-semibold text-[var(--soft-text-color)] tracking-wide uppercase t-lang"
+                                data-en="Power BI" data-vi="Power BI">Power BI</p>
+                            <p class="text-xs font-bold text-[var(--text-color)] truncate t-lang"
+                                data-en="PowerBI Portfolio" data-vi="PowerBI Portfolio">PowerBI Portfolio</p>
                         </div>
                     </a>
                 </section>
@@ -477,11 +525,8 @@
                 <section class="glass-panel p-5 rounded-[1.25rem] relative flex-shrink-0">
                     <h3 class="text-[15px] font-semibold text-[var(--accent-color)] flex items-center gap-2 mb-4 t-lang"
                         data-en="Experience &amp; Achievements" data-vi="Kinh nghiệm &amp; Thành tích">
-                        <span
-                            class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[var(--accent-color)]/15 border border-[var(--accent-color)]/30 flex-shrink-0">
-                            <span class="material-symbols-outlined text-[18px] text-[var(--accent-color)]"
-                                style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
-                        </span>
+                        <span class="material-symbols-outlined text-[var(--accent-color)]"
+                            style="font-variation-settings: 'FILL' 1;">emoji_events</span>
                         Experience &amp; Achievements
                     </h3>
                     <div class="grid grid-cols-3 gap-2.5">
@@ -561,16 +606,16 @@
                 <!-- Skills Box (Always Open) -->
                 <section class="glass-panel w-full rounded-[1.25rem] group flex-shrink-0 overflow-hidden">
                     <div
-                        class="p-5 font-semibold text-[var(--accent-color)] flex justify-between items-center border-b border-[var(--border-color)]">
+                        class="px-5 py-3 font-semibold text-[var(--accent-color)] flex justify-between items-center border-b border-[var(--border-color)]">
                         <div class="flex items-center gap-2 text-[15px]">
                             <span class="material-symbols-outlined text-[var(--accent-color)]">military_tech</span>
                             <span class="t-lang" data-en="Core Competencies" data-vi="Năng lực Cốt lõi">Core
                                 Competencies</span>
                         </div>
                     </div>
-                    <div class="p-5">
-                        <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 text-[11px] leading-tight">
-                            <div class="flex flex-col gap-2.5">
+                    <div class="px-4 py-4">
+                        <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-x-3 gap-y-3 text-[10px] leading-tight">
+                            <div class="flex flex-col gap-2">
                                 <p class="font-bold text-[var(--accent-color)] mb-1 uppercase tracking-wider text-[9px] t-lang"
                                     data-en="Domain" data-vi="Tư duy Chuyên môn">Domain</p>
                                 <div class="flex items-center gap-1.5 text-[var(--soft-text-color)]"><span
@@ -586,88 +631,77 @@
                                         class="material-symbols-outlined text-[16px]">account_tree</span><span
                                         class="truncate">Project Management</span></div>
                             </div>
-                            <div class="flex flex-col gap-2.5">
+                            <div class="flex flex-col gap-2">
                                 <p class="font-bold text-[var(--accent-color)] mb-1 uppercase tracking-wider text-[9px] t-lang"
                                     data-en="Data Tools" data-vi="Công cụ Phân tích">Data Tools</p>
                                 <a href="https://www.microsoft.com/en-us/microsoft-365/excel" target="_blank"
-                                    class="flex items-center gap-1.5 text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors cursor-pointer group/item">
-                                    <img src="https://cdn.simpleicons.org/microsoftexcel/217346"
-                                        class="w-4 h-4 grayscale opacity-70 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all" /><span
-                                        class="truncate">Excel</span>
+                                    class="core-tool-link">
+                                    <img src="./assets/images/excel-logo.svg" alt="Excel logo" class="core-tool-logo" />
+                                    <span class="truncate">Excel</span>
                                 </a>
-                                <a href="https://www.mysql.com/" target="_blank"
-                                    class="flex items-center gap-1.5 text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors cursor-pointer group/item">
-                                    <img src="https://cdn.simpleicons.org/mysql/4479A1"
-                                        class="w-4 h-4 grayscale opacity-70 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all" /><span
-                                        class="truncate">SQL</span>
+                                <a href="https://www.mysql.com/" target="_blank" class="core-tool-link">
+                                    <img src="./assets/images/mysql-logo.svg" alt="MySQL logo"
+                                        class="core-tool-logo" />
+                                    <span class="truncate">SQL</span>
                                 </a>
-                                <a href="https://powerbi.microsoft.com/" target="_blank"
-                                    class="flex items-center gap-1.5 text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors cursor-pointer group/item">
-                                    <img src="https://cdn.simpleicons.org/powerbi/F2C811"
-                                        class="w-4 h-4 grayscale opacity-70 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all" /><span
-                                        class="truncate">Power BI</span>
+                                <a href="https://powerbi.microsoft.com/" target="_blank" class="core-tool-link">
+                                    <img src="./assets/images/powerbi-logo.svg" alt="Power BI logo"
+                                        class="core-tool-logo" />
+                                    <span class="truncate">Power BI</span>
                                 </a>
-                                <a href="https://www.python.org/" target="_blank"
-                                    class="flex items-center gap-1.5 text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors cursor-pointer group/item">
-                                    <img src="https://cdn.simpleicons.org/python/3776AB"
-                                        class="w-4 h-4 grayscale opacity-70 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all" /><span
-                                        class="truncate">Python</span>
+                                <a href="https://www.python.org/" target="_blank" class="core-tool-link">
+                                    <img src="./assets/images/python-logo.svg" alt="Python logo"
+                                        class="core-tool-logo" />
+                                    <span class="truncate">Python</span>
                                 </a>
                             </div>
-                            <div class="flex flex-col gap-2.5">
+                            <div class="flex flex-col gap-2">
                                 <p class="font-bold text-[var(--accent-color)] mb-1 uppercase tracking-wider text-[9px] t-lang"
                                     data-en="Automation" data-vi="Trục Tự động hóa">Automation</p>
-                                <a href="https://powerplatform.microsoft.com/" target="_blank"
-                                    class="flex items-center gap-1.5 text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors cursor-pointer group/item">
-                                    <img src="https://cdn.simpleicons.org/microsoft/00A4EF"
-                                        class="w-4 h-4 grayscale opacity-70 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all" /><span
-                                        class="truncate">Power Platform</span>
+                                <a href="https://powerplatform.microsoft.com/" target="_blank" class="core-tool-link">
+                                    <img src="./assets/images/power-platform-logo.svg" alt="Power Platform logo"
+                                        class="core-tool-logo" />
+                                    <span class="truncate">Power Platform</span>
                                 </a>
-                                <a href="https://n8n.io/" target="_blank"
-                                    class="flex items-center gap-1.5 text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors cursor-pointer group/item">
-                                    <img src="https://cdn.simpleicons.org/n8n/EA4B71"
-                                        class="w-4 h-4 grayscale opacity-70 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all" /><span
-                                        class="truncate">n8n</span>
+                                <a href="https://n8n.io/" target="_blank" class="core-tool-link">
+                                    <img src="./assets/images/n8n-logo.svg" alt="n8n logo"
+                                        class="core-tool-logo" />
+                                    <span class="truncate">n8n</span>
                                 </a>
-                                <a href="https://www.make.com/" target="_blank"
-                                    class="flex items-center gap-1.5 text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors cursor-pointer group/item">
-                                    <img src="https://cdn.simpleicons.org/make/7136EA"
-                                        class="w-4 h-4 grayscale opacity-70 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all" /><span
-                                        class="truncate">Make</span>
+                                <a href="https://www.make.com/" target="_blank" class="core-tool-link">
+                                    <img src="./assets/images/make-logo.svg" alt="Make logo"
+                                        class="core-tool-logo" />
+                                    <span class="truncate">Make</span>
                                 </a>
                                 <a href="https://www.microsoft.com/en-us/microsoft-fabric" target="_blank"
-                                    class="flex items-center gap-1.5 text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors cursor-pointer group/item">
-                                    <img src="https://cdn.simpleicons.org/microsoft/00A4EF"
-                                        class="w-4 h-4 grayscale opacity-70 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all" /><span
-                                        class="truncate">Fabric</span>
+                                    class="core-tool-link">
+                                    <img src="./assets/images/fabric.png" alt="Microsoft Fabric logo"
+                                        class="core-tool-logo" />
+                                    <span class="truncate">Fabric</span>
                                 </a>
                             </div>
-                            <div class="flex flex-col gap-2.5">
+                            <div class="flex flex-col gap-2">
                                 <p class="font-bold text-[var(--accent-color)] mb-1 uppercase tracking-wider text-[9px] t-lang"
                                     data-en="GenAI" data-vi="Trí tuệ nhân tạo">GenAI</p>
-                                <a href="https://chatgpt.com/" target="_blank"
-                                    class="flex items-center gap-1.5 text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors cursor-pointer group/item">
-                                    <img src="https://cdn.simpleicons.org/openai/10A37F"
-                                        class="w-4 h-4 grayscale opacity-70 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all" /><span
-                                        class="truncate">ChatGPT</span>
+                                <a href="https://chatgpt.com/" target="_blank" class="core-tool-link">
+                                    <img src="./assets/images/chatgpt-logo.svg" alt="ChatGPT logo"
+                                        class="core-tool-logo" />
+                                    <span class="truncate">ChatGPT</span>
                                 </a>
-                                <a href="https://gemini.google.com/" target="_blank"
-                                    class="flex items-center gap-1.5 text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors cursor-pointer group/item">
-                                    <img src="https://cdn.simpleicons.org/googlegemini/8E75B2"
-                                        class="w-4 h-4 grayscale opacity-70 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all" /><span
-                                        class="truncate">Gemini</span>
+                                <a href="https://gemini.google.com/" target="_blank" class="core-tool-link">
+                                    <img src="./assets/images/gemini-logo.svg" alt="Gemini logo"
+                                        class="core-tool-logo" />
+                                    <span class="truncate">Gemini</span>
                                 </a>
-                                <a href="https://notebooklm.google.com/" target="_blank"
-                                    class="flex items-center gap-1.5 text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors cursor-pointer group/item">
-                                    <img src="https://cdn.simpleicons.org/google/4285F4"
-                                        class="w-4 h-4 grayscale opacity-70 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all" /><span
-                                        class="truncate">NotebookLM</span>
+                                <a href="https://notebooklm.google.com/" target="_blank" class="core-tool-link">
+                                    <img src="./assets/images/notebooklm-logo.png" alt="NotebookLM logo"
+                                        class="core-tool-logo" />
+                                    <span class="truncate">NotebookLM</span>
                                 </a>
-                                <a href="https://aistudio.google.com/" target="_blank"
-                                    class="flex items-center gap-1.5 text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors cursor-pointer group/item">
-                                    <img src="https://cdn.simpleicons.org/google/4285F4"
-                                        class="w-4 h-4 grayscale opacity-70 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all" /><span
-                                        class="truncate">AI Studio</span>
+                                <a href="https://aistudio.google.com/" target="_blank" class="core-tool-link">
+                                    <img src="./assets/images/google-ai-studio-logo.svg" alt="Google AI Studio logo"
+                                        class="core-tool-logo" />
+                                    <span class="truncate">AI Studio</span>
                                 </a>
                             </div>
                         </div>
@@ -680,7 +714,7 @@
                         <div>
                             <h3 class="text-[15px] font-semibold text-[var(--accent-color)] flex items-center gap-2 t-lang"
                                 data-en="Social Media Highlights" data-vi="Tiêu điểm mạng xã hội">
-                                <span class="material-symbols-outlined text-[var(--accent-color)]" style="font-variation-settings: 'FILL' 1;">featured_video</span>
+                                <span class="material-symbols-outlined text-[var(--accent-color)]" style="font-variation-settings: 'FILL' 1;">smart_display</span>
                                 Social Media Highlights
                             </h3>
                             <p class="text-[10px] text-[var(--soft-text-color)] mt-0.5 t-lang"
@@ -693,7 +727,7 @@
                     <div id="spotlight-gallery"
                         class="aspect-video rounded-lg overflow-hidden bg-black mb-1 border border-[var(--border-color)] relative">
                         <iframe id="spotlight-iframe" class="w-full h-full"
-                            src="https://www.youtube-nocookie.com/embed/Xb43L_vJsHw?rel=0&modestbranding=1"
+                            src="https://www.youtube-nocookie.com/embed/Xb43L_vJsHw?rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
                             title="Social Media Highlights"
                             frameborder="0"
                             referrerpolicy="strict-origin-when-cross-origin"
@@ -1238,6 +1272,42 @@
             if (e.target === appModal) closeModal();
         });
 
+        function fallbackCopyText(text) {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = text;
+            tempInput.setAttribute('readonly', '');
+            tempInput.style.position = 'fixed';
+            tempInput.style.opacity = '0';
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            tempInput.setSelectionRange(0, tempInput.value.length);
+            const copied = document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            return copied;
+        }
+
+        function copyToClipboard(text, successMessage) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text)
+                    .then(() => alert(successMessage))
+                    .catch(() => {
+                        if (fallbackCopyText(text)) {
+                            alert(successMessage);
+                        }
+                    });
+                return;
+            }
+
+            if (fallbackCopyText(text)) {
+                alert(successMessage);
+            }
+        }
+
+        function shareWithNative(title, url) {
+            if (!navigator.share) return;
+            navigator.share({ title, url }).catch(() => { });
+        }
+
         // 1. Share Feature
         document.getElementById('share-btn').addEventListener('click', () => {
             const url = window.location.href;
@@ -1268,6 +1338,95 @@
                         <span>${copyText}</span>
                     </button>
                     ${nativeShareBtn}
+                </div>
+            </div>
+            `;
+            openModal(title, content);
+        });
+
+        const shareBtn = document.getElementById('share-btn');
+        const shareBtnClone = shareBtn.cloneNode(true);
+        shareBtn.parentNode.replaceChild(shareBtnClone, shareBtn);
+
+        shareBtnClone.addEventListener('click', () => {
+            const url = window.location.href;
+            const pageTitle = document.title;
+            const encodedUrl = encodeURIComponent(url);
+            const encodedTitle = encodeURIComponent(pageTitle);
+            const title = currentLang === 'vi' ? 'Chia s\u1ebb H\u1ed3 s\u01a1' : 'Share Profile';
+            const descText = currentLang === 'vi'
+                ? 'Chia s\u1ebb h\u1ed3 s\u01a1 c\u1ee7a b\u1ea1n v\u1edbi b\u1ea1n b\u00e8 v\u00e0 \u0111\u1ed3ng nghi\u1ec7p.'
+                : 'Share this profile with friends and colleagues.';
+            const copyText = currentLang === 'vi' ? 'Sao ch\u00e9p link' : 'Copy link';
+            const shareText = currentLang === 'vi' ? 'Chia s\u1ebb nhanh' : 'Quick share';
+            const copiedAlert = currentLang === 'vi' ? '\u0110\u00e3 sao ch\u00e9p!' : 'Copied!';
+            const socialTitle = currentLang === 'vi' ? 'Chia s\u1ebb qua m\u1ea1ng x\u00e3 h\u1ed9i' : 'Share on social media';
+            const socialTargets = [
+                {
+                    label: 'Facebook',
+                    icon: 'f',
+                    color: '#1877F2',
+                    href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`
+                },
+                {
+                    label: 'LinkedIn',
+                    icon: 'in',
+                    color: '#0A66C2',
+                    href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`
+                },
+                {
+                    label: 'X',
+                    icon: 'X',
+                    color: '#111827',
+                    href: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`
+                },
+                {
+                    label: 'WhatsApp',
+                    icon: 'WA',
+                    color: '#25D366',
+                    href: `https://api.whatsapp.com/send?text=${encodedTitle}%20${encodedUrl}`
+                },
+                {
+                    label: 'Telegram',
+                    icon: 'TG',
+                    color: '#229ED9',
+                    href: `https://t.me/share/url?url=${encodedUrl}&text=${encodedTitle}`
+                }
+            ];
+            const socialButtons = socialTargets.map(({ label, icon, color, href }) => `
+                <a href="${href}" target="_blank" rel="noopener noreferrer"
+                    class="flex items-center gap-3 rounded-xl border border-[var(--border-color)] bg-[var(--card-bg)] px-4 py-3 hover:bg-[var(--card-hover-bg)] transition-all">
+                    <span class="w-9 h-9 rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0" style="background:${color};">${icon}</span>
+                    <span class="text-sm font-semibold text-[var(--text-color)]">${label}</span>
+                </a>
+            `).join('');
+            const nativeShareBtn = navigator.share ? `
+                <button type="button" onclick="shareWithNative(${JSON.stringify(pageTitle)}, ${JSON.stringify(url)})" class="px-5 py-2.5 rounded-lg bg-[var(--accent-color)] hover:bg-[var(--accent-hover-color)] text-white text-sm font-bold shadow-lg transition-all flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[1.1rem]">share</span>
+                    <span>${shareText}</span>
+                </button>` : '';
+            const content = `
+            <div class="flex flex-col items-center gap-5 w-full">
+                <span class="material-symbols-outlined text-[64px] text-[var(--accent-color)]" style="font-variation-settings: 'FILL' 1;">share</span>
+                <p class="text-sm text-[var(--text-color)] text-center max-w-lg">${descText}</p>
+                <div class="w-full max-w-xl p-3 rounded-xl bg-[var(--bg-end)] border border-[var(--border-color)] flex flex-col sm:flex-row sm:items-center gap-3">
+                    <div class="flex items-center gap-2 flex-1 min-w-0">
+                        <span class="material-symbols-outlined text-[var(--soft-text-color)] text-[18px] flex-shrink-0">link</span>
+                        <span class="text-xs text-[var(--soft-text-color)] break-all">${url}</span>
+                    </div>
+                    <button type="button" onclick="copyToClipboard(${JSON.stringify(url)}, ${JSON.stringify(copiedAlert)})" class="px-4 py-2 rounded-lg bg-[var(--primary-color)] hover:bg-[var(--primary-hover-color)] text-white text-sm font-bold shadow-lg transition-all flex items-center justify-center gap-2 w-full sm:w-auto flex-shrink-0">
+                        <span class="material-symbols-outlined text-[1.1rem]">content_copy</span>
+                        <span>${copyText}</span>
+                    </button>
+                </div>
+                <div class="flex gap-3 flex-wrap justify-center">
+                    ${nativeShareBtn}
+                </div>
+                <div class="w-full max-w-xl flex flex-col gap-3">
+                    <p class="text-xs font-bold uppercase tracking-[0.24em] text-[var(--soft-text-color)] text-center">${socialTitle}</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                        ${socialButtons}
+                    </div>
                 </div>
             </div>
             `;
@@ -1318,8 +1477,33 @@
 
             let idx = 0;
             let timer = null;
+            let player = null;
+            let playerReady = false;
+            let viewerLocked = false;
             const INTERVAL = 10000;
-            const buildUrl = (id) => `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1`;
+            const buildUrl = (id) => `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1&playsinline=1&enablejsapi=1`;
+
+            const loadYouTubeApi = () => new Promise((resolve, reject) => {
+                if (window.YT && typeof window.YT.Player === 'function') {
+                    resolve(window.YT);
+                    return;
+                }
+
+                const previousReady = window.onYouTubeIframeAPIReady;
+                window.onYouTubeIframeAPIReady = () => {
+                    if (typeof previousReady === 'function') previousReady();
+                    resolve(window.YT);
+                };
+
+                if (!document.querySelector('script[data-youtube-iframe-api]')) {
+                    const script = document.createElement('script');
+                    script.src = 'https://www.youtube.com/iframe_api';
+                    script.async = true;
+                    script.dataset.youtubeIframeApi = 'true';
+                    script.onerror = reject;
+                    document.head.appendChild(script);
+                }
+            });
 
             const updateDots = () => {
                 dotsContainer.querySelectorAll('button').forEach((d, i) => {
@@ -1328,39 +1512,89 @@
                 });
             };
 
-            const goTo = (newIdx) => {
-                if (newIdx === idx) return;
-                idx = newIdx;
-                iframe.src = buildUrl(videos[idx]);
-                updateDots();
+            const stop = () => {
+                if (timer) {
+                    clearInterval(timer);
+                    timer = null;
+                }
             };
 
-            const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
             const start = () => {
+                if (viewerLocked) return;
                 stop();
                 timer = setInterval(() => goTo((idx + 1) % videos.length), INTERVAL);
             };
-            const reset = () => start();
+
+            const goTo = (newIdx, options = {}) => {
+                const { restartTimer = false } = options;
+                if (newIdx === idx) return;
+                idx = newIdx;
+                if (playerReady && player && typeof player.cueVideoById === 'function') {
+                    player.cueVideoById(videos[idx]);
+                } else {
+                    iframe.src = buildUrl(videos[idx]);
+                }
+                updateDots();
+                if (restartTimer) start();
+            };
 
             videos.forEach((_, i) => {
                 const dot = document.createElement('button');
                 dot.type = 'button';
                 dot.setAttribute('aria-label', `Go to video ${i + 1}`);
-                dot.addEventListener('click', () => { goTo(i); reset(); });
+                dot.addEventListener('click', () => {
+                    viewerLocked = false;
+                    goTo(i, { restartTimer: true });
+                });
                 dotsContainer.appendChild(dot);
             });
 
             prevBtn.addEventListener('click', () => {
-                goTo((idx - 1 + videos.length) % videos.length);
-                reset();
+                viewerLocked = false;
+                goTo((idx - 1 + videos.length) % videos.length, { restartTimer: true });
             });
             nextBtn.addEventListener('click', () => {
-                goTo((idx + 1) % videos.length);
-                reset();
+                viewerLocked = false;
+                goTo((idx + 1) % videos.length, { restartTimer: true });
             });
 
             updateDots();
             start();
+
+            loadYouTubeApi()
+                .then((YT) => {
+                    if (!YT || typeof YT.Player !== 'function') return;
+
+                    player = new YT.Player('spotlight-iframe', {
+                        events: {
+                            onReady: () => {
+                                playerReady = true;
+                            },
+                            onStateChange: (event) => {
+                                if (!YT.PlayerState) return;
+
+                                if (event.data === YT.PlayerState.PLAYING || event.data === YT.PlayerState.BUFFERING || event.data === YT.PlayerState.PAUSED) {
+                                    viewerLocked = true;
+                                    stop();
+                                    return;
+                                }
+
+                                if (event.data === YT.PlayerState.ENDED) {
+                                    viewerLocked = false;
+                                    goTo((idx + 1) % videos.length, { restartTimer: true });
+                                    return;
+                                }
+
+                                if ((event.data === YT.PlayerState.CUED || event.data === YT.PlayerState.UNSTARTED) && !viewerLocked && !timer) {
+                                    start();
+                                }
+                            }
+                        }
+                    });
+                })
+                .catch(() => {
+                    // Keep fallback rotation based on iframe source changes if the YouTube API is unavailable.
+                });
         })();
     </script>
 </body>

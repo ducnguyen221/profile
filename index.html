@@ -148,7 +148,28 @@
 <div class="flex items-center gap-4">
     <button id="lang-toggle-btn" class="font-bold text-sm text-[var(--soft-text-color)] hover:text-[var(--accent-color)] transition-colors cursor-pointer w-6 text-center">VI</button>
     <span id="theme-toggle-btn" class="material-symbols-outlined text-[var(--soft-text-color)] hover:text-[var(--accent-color)] transition-colors cursor-pointer">dark_mode</span>
-    <span class="material-symbols-outlined text-[var(--soft-text-color)] hover:text-[var(--accent-color)] transition-colors cursor-pointer">more_vert</span>
+    <div class="relative" id="more-menu-container">
+        <span id="more-menu-btn" class="material-symbols-outlined text-[var(--soft-text-color)] hover:text-[var(--accent-color)] transition-colors cursor-pointer block">more_vert</span>
+        <div id="more-menu" class="absolute right-0 top-full mt-4 w-56 glass-panel rounded-xl shadow-2xl border border-[var(--border-color)] hidden flex-col overflow-hidden z-[100] transform origin-top-right transition-all">
+            <button id="share-btn" class="flex items-center gap-3 px-4 py-3 hover:bg-[var(--card-hover-bg)] transition-colors text-left text-sm border-b border-[var(--border-color)]">
+                <span class="material-symbols-outlined text-[var(--accent-color)] text-[1.1rem]">share</span>
+                <span class="text-[var(--text-color)] font-medium t-lang" data-en="Share Profile" data-vi="Chia sẻ Hồ sơ">Share Profile</span>
+            </button>
+            <button id="qr-btn" class="flex items-center gap-3 px-4 py-3 hover:bg-[var(--card-hover-bg)] transition-colors text-left text-sm border-b border-[var(--border-color)]">
+                <span class="material-symbols-outlined text-[var(--primary-color)] text-[1.1rem]">qr_code_2</span>
+                <span class="text-[var(--text-color)] font-medium t-lang" data-en="QR Code" data-vi="Mã QR">QR Code</span>
+            </button>
+            <div class="p-3 flex flex-col gap-2 hover:bg-[var(--card-hover-bg)] transition-colors cursor-pointer" id="bcard-btn">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-[#1877F2] text-[1.1rem]">badge</span>
+                    <span class="text-[var(--text-color)] font-medium text-sm t-lang" data-en="Business Card" data-vi="Danh thiếp">Business Card</span>
+                </div>
+                <div class="w-full h-20 rounded border border-[var(--border-color)] overflow-hidden bg-[var(--bg-end)] pointer-events-none">
+                    <img src="./assets/business-card.jpg" class="w-full h-full object-cover opacity-80" alt="Business Card" onerror="this.src='./assets/images/KPIM-Duc-Nguyen.png'">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </header>
 
@@ -300,48 +321,71 @@
 <!-- Middle Column: LMS & Content -->
 <div class="md:col-span-4 lg:col-span-5 flex flex-col gap-5 md:overflow-y-auto md:pr-2 custom-scrollbar md:h-full min-h-0">
     
-    <!-- Collapsible Skills Box -->
-    <details class="glass-panel w-full rounded-[1.25rem] group flex-shrink-0 cursor-pointer overflow-hidden max-h-screen">
-        <summary class="p-5 font-semibold text-[var(--accent-color)] flex justify-between items-center outline-none list-none marker:hidden cursor-pointer hover:bg-[rgba(255,255,255,0.02)] transition-colors">
+    <!-- Skills Box (Always Open) -->
+    <section class="glass-panel w-full rounded-[1.25rem] group flex-shrink-0 overflow-hidden">
+        <div class="p-5 font-semibold text-[var(--accent-color)] flex justify-between items-center border-b border-[var(--border-color)]">
             <div class="flex items-center gap-2 text-[15px]">
                 <span class="material-symbols-outlined text-[var(--accent-color)]">military_tech</span> 
                 <span class="t-lang" data-en="Core Competencies" data-vi="Năng lực Cốt lõi">Core Competencies</span>
             </div>
-            <span class="material-symbols-outlined text-[var(--soft-text-color)] group-open:rotate-180 transition-transform duration-300">expand_more</span>
-        </summary>
-        <div class="p-5 border-t border-[var(--border-color)] mt-[-10px] animate-[slideDown_0.3s_ease-out]">
+        </div>
+        <div class="p-5">
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 text-[11px] leading-tight">
-                <div class="flex flex-col gap-2">
+                <div class="flex flex-col gap-2.5">
                     <p class="font-bold text-[var(--accent-color)] mb-1 uppercase tracking-wider text-[9px] t-lang" data-en="Domain" data-vi="Tư duy Chuyên môn">Domain</p>
-                    <div class="flex items-center gap-1.5"><img src="./assets/images/n-line-illustration-vector.jpg" class="w-5 h-5 rounded"/><span class="truncate">Data Architecture</span></div>
-                    <div class="flex items-center gap-1.5"><img src="./assets/images/8921081.png" class="w-5 h-5 rounded"/><span class="truncate">Data Analytics</span></div>
-                    <div class="flex items-center gap-1.5"><img src="./assets/images/echnology-ai-web-175554843.jpg" class="w-5 h-5 rounded"/><span class="truncate">AI Application</span></div>
-                    <div class="flex items-center gap-1.5"><img src="./assets/images/4661361.png" class="w-5 h-5 rounded"/><span class="truncate">Project Management</span></div>
+                    <div class="flex items-center gap-1.5 text-[var(--soft-text-color)]"><span class="material-symbols-outlined text-[16px]">architecture</span><span class="truncate">Data Architecture</span></div>
+                    <div class="flex items-center gap-1.5 text-[var(--soft-text-color)]"><span class="material-symbols-outlined text-[16px]">query_stats</span><span class="truncate">Data Analytics</span></div>
+                    <div class="flex items-center gap-1.5 text-[var(--soft-text-color)]"><span class="material-symbols-outlined text-[16px]">memory</span><span class="truncate">AI Application</span></div>
+                    <div class="flex items-center gap-1.5 text-[var(--soft-text-color)]"><span class="material-symbols-outlined text-[16px]">account_tree</span><span class="truncate">Project Management</span></div>
                 </div>
-                <div class="flex flex-col gap-2">
+                <div class="flex flex-col gap-2.5">
                     <p class="font-bold text-[var(--accent-color)] mb-1 uppercase tracking-wider text-[9px] t-lang" data-en="Data Tools" data-vi="Công cụ Phân tích">Data Tools</p>
-                    <div class="flex items-center gap-1.5"><img src="./assets/images/-icon-logo-symbol-free-png.png" class="w-5 h-5 rounded"/><span class="truncate">Excel</span></div>
-                    <div class="flex items-center gap-1.5"><img src="./assets/images/sql.jpg" class="w-5 h-5 rounded"/><span class="truncate">SQL</span></div>
-                    <div class="flex items-center gap-1.5"><img src="./assets/images/power-bi-icon.png" class="w-5 h-5 rounded"/><span class="truncate">Power BI</span></div>
-                    <div class="flex items-center gap-1.5"><img src="./assets/images/python_18894.png" class="w-5 h-5 rounded"/><span class="truncate">Python</span></div>
+                    <a href="https://www.microsoft.com/en-us/microsoft-365/excel" target="_blank" class="flex items-center gap-1.5 text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors cursor-pointer group/item">
+                        <img src="https://cdn.simpleicons.org/microsoftexcel/217346" class="w-4 h-4 grayscale opacity-70 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all"/><span class="truncate">Excel</span>
+                    </a>
+                    <a href="https://www.mysql.com/" target="_blank" class="flex items-center gap-1.5 text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors cursor-pointer group/item">
+                        <img src="https://cdn.simpleicons.org/mysql/4479A1" class="w-4 h-4 grayscale opacity-70 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all"/><span class="truncate">SQL</span>
+                    </a>
+                    <a href="https://powerbi.microsoft.com/" target="_blank" class="flex items-center gap-1.5 text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors cursor-pointer group/item">
+                        <img src="https://cdn.simpleicons.org/powerbi/F2C811" class="w-4 h-4 grayscale opacity-70 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all"/><span class="truncate">Power BI</span>
+                    </a>
+                    <a href="https://www.python.org/" target="_blank" class="flex items-center gap-1.5 text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors cursor-pointer group/item">
+                        <img src="https://cdn.simpleicons.org/python/3776AB" class="w-4 h-4 grayscale opacity-70 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all"/><span class="truncate">Python</span>
+                    </a>
                 </div>
-                <div class="flex flex-col gap-2">
+                <div class="flex flex-col gap-2.5">
                     <p class="font-bold text-[var(--accent-color)] mb-1 uppercase tracking-wider text-[9px] t-lang" data-en="Automation" data-vi="Trục Tự động hóa">Automation</p>
-                    <div class="flex items-center gap-1.5"><img src="./assets/images/images.png" class="w-5 h-5 rounded"/><span class="truncate">Power Platform</span></div>
-                    <div class="flex items-center gap-1.5"><img src="./assets/images/images.png" class="w-5 h-5 rounded"/><span class="truncate">n8n</span></div>
-                    <div class="flex items-center gap-1.5"><img src="./assets/images/images.png" class="w-5 h-5 rounded"/><span class="truncate">Make</span></div>
-                    <div class="flex items-center gap-1.5"><img src="./assets/images/fabric.png" class="w-5 h-5 rounded"/><span class="truncate">Fabric</span></div>
+                    <a href="https://powerplatform.microsoft.com/" target="_blank" class="flex items-center gap-1.5 text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors cursor-pointer group/item">
+                        <img src="https://cdn.simpleicons.org/microsoft/00A4EF" class="w-4 h-4 grayscale opacity-70 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all"/><span class="truncate">Power Platform</span>
+                    </a>
+                    <a href="https://n8n.io/" target="_blank" class="flex items-center gap-1.5 text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors cursor-pointer group/item">
+                        <img src="https://cdn.simpleicons.org/n8n/EA4B71" class="w-4 h-4 grayscale opacity-70 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all"/><span class="truncate">n8n</span>
+                    </a>
+                    <a href="https://www.make.com/" target="_blank" class="flex items-center gap-1.5 text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors cursor-pointer group/item">
+                        <img src="https://cdn.simpleicons.org/make/7136EA" class="w-4 h-4 grayscale opacity-70 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all"/><span class="truncate">Make</span>
+                    </a>
+                    <a href="https://www.microsoft.com/en-us/microsoft-fabric" target="_blank" class="flex items-center gap-1.5 text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors cursor-pointer group/item">
+                        <img src="https://cdn.simpleicons.org/microsoft/00A4EF" class="w-4 h-4 grayscale opacity-70 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all"/><span class="truncate">Fabric</span>
+                    </a>
                 </div>
-                <div class="flex flex-col gap-2">
+                <div class="flex flex-col gap-2.5">
                     <p class="font-bold text-[var(--accent-color)] mb-1 uppercase tracking-wider text-[9px] t-lang" data-en="GenAI" data-vi="Trí tuệ nhân tạo">GenAI</p>
-                    <div class="flex items-center gap-1.5"><img src="./assets/images/ite-background-free-vector.jpg" class="w-5 h-5 rounded"/><span class="truncate">ChatGPT</span></div>
-                    <div class="flex items-center gap-1.5"><img src="./assets/images/gemini-app-icon-hd.png" class="w-5 h-5 rounded"/><span class="truncate">Gemini</span></div>
-                    <div class="flex items-center gap-1.5"><img src="./assets/images/images.png" class="w-5 h-5 rounded"/><span class="truncate">NotebookLM</span></div>
-                    <div class="flex items-center gap-1.5"><img src="./assets/images/e-ai-studio-social-preview.png" class="w-5 h-5 rounded"/><span class="truncate">AI Studio</span></div>
+                    <a href="https://chatgpt.com/" target="_blank" class="flex items-center gap-1.5 text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors cursor-pointer group/item">
+                        <img src="https://cdn.simpleicons.org/openai/10A37F" class="w-4 h-4 grayscale opacity-70 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all"/><span class="truncate">ChatGPT</span>
+                    </a>
+                    <a href="https://gemini.google.com/" target="_blank" class="flex items-center gap-1.5 text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors cursor-pointer group/item">
+                        <img src="https://cdn.simpleicons.org/googlegemini/8E75B2" class="w-4 h-4 grayscale opacity-70 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all"/><span class="truncate">Gemini</span>
+                    </a>
+                    <a href="https://notebooklm.google.com/" target="_blank" class="flex items-center gap-1.5 text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors cursor-pointer group/item">
+                        <img src="https://cdn.simpleicons.org/google/4285F4" class="w-4 h-4 grayscale opacity-70 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all"/><span class="truncate">NotebookLM</span>
+                    </a>
+                    <a href="https://aistudio.google.com/" target="_blank" class="flex items-center gap-1.5 text-[var(--text-color)] hover:text-[var(--primary-light)] transition-colors cursor-pointer group/item">
+                        <img src="https://cdn.simpleicons.org/google/4285F4" class="w-4 h-4 grayscale opacity-70 group-hover/item:grayscale-0 group-hover/item:opacity-100 transition-all"/><span class="truncate">AI Studio</span>
+                    </a>
                 </div>
             </div>
         </div>
-    </details>
+    </section>
 
     <!-- Data Dashboard -->
     <section class="glass-panel p-5 rounded-[1.25rem] relative overflow-hidden group flex-shrink-0">
@@ -619,6 +663,23 @@
 </a>
 </nav>
 
+<!-- Generic App Modal -->
+<div id="app-modal" class="fixed inset-0 z-[999] bg-black/60 backdrop-blur-sm hidden justify-center items-center opacity-0 transition-opacity duration-300">
+    <div class="glass-panel w-[90%] max-w-md max-h-[90vh] flex flex-col rounded-2xl overflow-hidden transform scale-95 transition-transform duration-300" id="modal-content-container">
+        <!-- Header -->
+        <div class="flex justify-between items-center p-4 border-b border-[var(--border-color)]">
+            <h3 id="modal-title" class="font-bold text-[var(--accent-color)] text-lg">Title</h3>
+            <button id="close-modal-btn" class="text-[var(--soft-text-color)] hover:text-[var(--text-color)] transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <!-- Body -->
+        <div id="modal-body" class="p-5 flex flex-col items-center justify-center overflow-y-auto custom-scrollbar">
+            <!-- Dynamic Content -->
+        </div>
+    </div>
+</div>
+
 <script>
     // i18n Translation Logic
     const langToggleBtn = document.getElementById('lang-toggle-btn');
@@ -726,6 +787,113 @@
     window.addEventListener('resize', resize);
     resize();
     animate();
+
+    // --- More Menu & Modal Logic ---
+    const moreMenuBtn = document.getElementById('more-menu-btn');
+    const moreMenuContainer = document.getElementById('more-menu-container');
+    const moreMenu = document.getElementById('more-menu');
+    
+    moreMenuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        moreMenu.classList.toggle('hidden');
+        moreMenu.classList.toggle('flex');
+    });
+    
+    document.addEventListener('click', (e) => {
+        if (!moreMenuContainer.contains(e.target)) {
+            moreMenu.classList.add('hidden');
+            moreMenu.classList.remove('flex');
+        }
+    });
+
+    // Modal Logic
+    const appModal = document.getElementById('app-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalBody = document.getElementById('modal-body');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+    const modalContentContainer = document.getElementById('modal-content-container');
+
+    function openModal(title, contentHtml) {
+        modalTitle.innerHTML = title;
+        modalBody.innerHTML = contentHtml;
+        appModal.classList.remove('hidden');
+        appModal.classList.add('flex');
+        
+        // Trigger animation
+        setTimeout(() => {
+            appModal.classList.remove('opacity-0');
+            modalContentContainer.classList.remove('scale-95');
+        }, 10);
+        
+        // Close menu if open
+        moreMenu.classList.add('hidden');
+        moreMenu.classList.remove('flex');
+    }
+
+    function closeModal() {
+        appModal.classList.add('opacity-0');
+        modalContentContainer.classList.add('scale-95');
+        setTimeout(() => {
+            appModal.classList.add('hidden');
+            appModal.classList.remove('flex');
+            modalBody.innerHTML = '';
+        }, 300);
+    }
+
+    closeModalBtn.addEventListener('click', closeModal);
+    appModal.addEventListener('click', (e) => {
+        if (e.target === appModal) closeModal();
+    });
+
+    // 1. Share Feature
+    document.getElementById('share-btn').addEventListener('click', async () => {
+        const url = window.location.href;
+        const title = document.title;
+        if (navigator.share) {
+            try {
+                await navigator.share({ title: title, url: url });
+            } catch (err) {
+                console.log('Error sharing:', err);
+            }
+        } else {
+            navigator.clipboard.writeText(url).then(() => {
+                alert(currentLang === 'vi' ? 'Đã sao chép đường dẫn!' : 'Link copied to clipboard!');
+            });
+        }
+    });
+
+    // 2. QR Code Feature
+    document.getElementById('qr-btn').addEventListener('click', () => {
+        const url = encodeURIComponent(window.location.href);
+        const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${url}&margin=10`;
+        const title = currentLang === 'vi' ? 'Mã QR Hồ sơ' : 'Profile QR Code';
+        const content = `
+            <div class="bg-white p-2 rounded-xl mb-4 shadow-lg">
+                <img src="${qrUrl}" alt="QR Code" class="w-[200px] h-[200px] object-contain" />
+            </div>
+            <p class="text-xs text-[var(--soft-text-color)] mb-4 text-center break-all px-2">${window.location.href}</p>
+            <button onclick="navigator.clipboard.writeText(window.location.href).then(() => alert(currentLang === 'vi' ? 'Đã sao chép!' : 'Copied!'))" class="px-5 py-2.5 rounded-lg bg-[var(--primary-color)] hover:bg-[var(--primary-hover-color)] text-white text-sm font-bold shadow-lg transition-all flex items-center gap-2">
+                <span class="material-symbols-outlined text-[1.1rem]">content_copy</span>
+                <span class="t-lang" data-en="Copy Link" data-vi="Sao chép Link">${currentLang === 'vi' ? 'Sao chép Link' : 'Copy Link'}</span>
+            </button>
+        `;
+        openModal(title, content);
+    });
+
+    // 3. Business Card Feature
+    document.getElementById('bcard-btn').addEventListener('click', () => {
+        const title = currentLang === 'vi' ? 'Danh thiếp' : 'Business Card';
+        const content = `
+            <div class="w-full max-w-[400px] rounded-xl overflow-hidden border border-[var(--border-color)] shadow-2xl relative bg-[var(--bg-end)]">
+                <img src="./assets/business-card.jpg" alt="Business Card" class="w-full h-auto object-contain" onerror="this.src='./assets/images/KPIM-Duc-Nguyen.png'">
+            </div>
+            <a href="./assets/business-card.jpg" download class="mt-5 px-5 py-2.5 rounded-lg bg-[var(--accent-color)] hover:bg-[var(--accent-hover-color)] text-white text-sm font-bold shadow-lg transition-all flex items-center gap-2">
+                <span class="material-symbols-outlined text-[1.1rem]">download</span>
+                <span class="t-lang" data-en="Download Card" data-vi="Tải Danh thiếp">${currentLang === 'vi' ? 'Tải Danh thiếp' : 'Download Card'}</span>
+            </a>
+        `;
+        openModal(title, content);
+    });
 </script>
 </body>
 </html>

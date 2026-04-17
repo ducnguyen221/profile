@@ -113,6 +113,16 @@
             border-radius: 1.25rem;
         }
 
+        #more-menu {
+            background: rgba(248, 250, 252, 0.97);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .dark #more-menu {
+            background: rgba(30, 41, 59, 0.97);
+        }
+
         .glass-panel:hover {
             border-color: rgba(255, 255, 255, 0.15);
             background: var(--card-hover-bg);
@@ -199,7 +209,7 @@
                 <span id="more-menu-btn"
                     class="material-symbols-outlined text-[var(--soft-text-color)] hover:text-[var(--accent-color)] transition-colors cursor-pointer block">more_vert</span>
                 <div id="more-menu"
-                    class="absolute right-0 top-full mt-4 w-56 glass-panel rounded-xl shadow-2xl border border-[var(--border-color)] hidden flex-col overflow-hidden z-[100] transform origin-top-right transition-all">
+                    class="absolute right-0 top-full mt-4 w-56 glass-panel !rounded-none shadow-2xl border border-[var(--border-color)] hidden flex-col overflow-hidden z-[100] transform origin-top-right transition-all">
                     <button id="share-btn"
                         class="flex items-center gap-3 px-4 py-3 hover:bg-[var(--card-hover-bg)] transition-colors text-left text-sm border-b border-[var(--border-color)]">
                         <span class="material-symbols-outlined text-[var(--accent-color)] text-[1.1rem]">share</span>
@@ -213,19 +223,12 @@
                         <span class="text-[var(--text-color)] font-medium t-lang" data-en="QR Code" data-vi="Mã QR">QR
                             Code</span>
                     </button>
-                    <div class="p-3 flex flex-col gap-2 hover:bg-[var(--card-hover-bg)] transition-colors cursor-pointer"
-                        id="bcard-btn">
-                        <div class="flex items-center gap-3">
-                            <span class="material-symbols-outlined text-[#1877F2] text-[1.1rem]">badge</span>
-                            <span class="text-[var(--text-color)] font-medium text-sm t-lang" data-en="Business Card"
-                                data-vi="Danh thiếp">Business Card</span>
-                        </div>
-                        <div
-                            class="w-full h-20 rounded border border-[var(--border-color)] overflow-hidden bg-[var(--bg-end)] pointer-events-none">
-                            <img src="./assets/images/Business Card.png" class="w-full h-full object-cover opacity-80"
-                                alt="Business Card" onerror="this.src='./assets/images/KPIM-Duc-Nguyen.png'">
-                        </div>
-                    </div>
+                    <button id="bcard-btn"
+                        class="flex items-center gap-3 px-4 py-3 hover:bg-[var(--card-hover-bg)] transition-colors text-left text-sm">
+                        <span class="material-symbols-outlined text-[#1877F2] text-[1.1rem]">badge</span>
+                        <span class="text-[var(--text-color)] font-medium t-lang" data-en="Business Card"
+                            data-vi="Danh thiếp">Business Card</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -474,13 +477,16 @@
                 <section class="glass-panel p-5 rounded-[1.25rem] relative flex-shrink-0">
                     <h3 class="text-[15px] font-semibold text-[var(--accent-color)] flex items-center gap-2 mb-4 t-lang"
                         data-en="Experience &amp; Achievements" data-vi="Kinh nghiệm &amp; Thành tích">
-                        <span class="material-symbols-outlined text-[var(--accent-color)]"
-                            style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+                        <span
+                            class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[var(--accent-color)]/15 border border-[var(--accent-color)]/30 flex-shrink-0">
+                            <span class="material-symbols-outlined text-[18px] text-[var(--accent-color)]"
+                                style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                        </span>
                         Experience &amp; Achievements
                     </h3>
                     <div class="grid grid-cols-3 gap-2.5">
                         <div
-                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded-lg p-2.5 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
+                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2.5 pr-2.5 pl-8 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
                             <div class="flex items-center gap-1.5 mb-1">
                                 <span
                                     class="material-symbols-outlined text-[18px] text-[var(--primary-color)]">database</span>
@@ -488,10 +494,11 @@
                                     class="text-[20px] font-bold text-[var(--accent-color)] leading-none">12</span>
                             </div>
                             <p class="text-[9px] text-[var(--soft-text-color)] leading-tight t-lang"
-                                data-en="Years in data" data-vi="Năm ngành dữ liệu">Năm ngành dữ liệu</p>
+                                data-en="Years of experience in data"
+                                data-vi="Năm kinh nghiệm ngành dữ liệu">Năm kinh nghiệm ngành dữ liệu</p>
                         </div>
                         <div
-                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded-lg p-2.5 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
+                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2.5 pr-2.5 pl-8 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
                             <div class="flex items-center gap-1.5 mb-1">
                                 <span
                                     class="material-symbols-outlined text-[18px] text-[var(--primary-color)]">school</span>
@@ -499,10 +506,11 @@
                                     class="text-[20px] font-bold text-[var(--accent-color)] leading-none">8</span>
                             </div>
                             <p class="text-[9px] text-[var(--soft-text-color)] leading-tight t-lang"
-                                data-en="Years training" data-vi="Năm đào tạo">Năm đào tạo</p>
+                                data-en="Years of training experience"
+                                data-vi="Năm kinh nghiệm đào tạo">Năm kinh nghiệm đào tạo</p>
                         </div>
                         <div
-                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded-lg p-2.5 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
+                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2.5 pr-2.5 pl-8 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
                             <div class="flex items-center gap-1.5 mb-1">
                                 <span
                                     class="material-symbols-outlined text-[18px] text-[var(--primary-color)]">account_tree</span>
@@ -510,21 +518,23 @@
                                     class="text-[20px] font-bold text-[var(--accent-color)] leading-none">6</span>
                             </div>
                             <p class="text-[9px] text-[var(--soft-text-color)] leading-tight t-lang"
-                                data-en="Years PM" data-vi="Năm quản lý DA">Năm quản lý DA</p>
+                                data-en="Years of project management experience"
+                                data-vi="Năm kinh nghiệm quản lý dự án">Năm kinh nghiệm quản lý dự án</p>
                         </div>
                         <div
-                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded-lg p-2.5 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
+                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2.5 pr-2.5 pl-8 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
                             <div class="flex items-center gap-1.5 mb-1">
                                 <span
                                     class="material-symbols-outlined text-[18px] text-[var(--primary-color)]">groups</span>
                                 <span
-                                    class="text-[20px] font-bold text-[var(--accent-color)] leading-none">2332</span>
+                                    class="text-[20px] font-bold text-[var(--accent-color)] leading-none t-lang"
+                                    data-en="2,332" data-vi="2.332">2.332</span>
                             </div>
                             <p class="text-[9px] text-[var(--soft-text-color)] leading-tight t-lang"
                                 data-en="Learners trained" data-vi="Học viên đào tạo">Học viên đào tạo</p>
                         </div>
                         <div
-                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded-lg p-2.5 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
+                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2.5 pr-2.5 pl-8 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
                             <div class="flex items-center gap-1.5 mb-1">
                                 <span
                                     class="material-symbols-outlined text-[18px] text-[var(--primary-color)]">menu_book</span>
@@ -535,7 +545,7 @@
                                 data-en="Courses delivered" data-vi="Khóa học triển khai">Khóa học triển khai</p>
                         </div>
                         <div
-                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded-lg p-2.5 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
+                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2.5 pr-2.5 pl-8 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
                             <div class="flex items-center gap-1.5 mb-1">
                                 <span
                                     class="material-symbols-outlined text-[18px] text-[var(--primary-color)]">workspaces</span>
@@ -1046,7 +1056,7 @@
     <!-- Generic App Modal -->
     <div id="app-modal"
         class="fixed inset-0 z-[999] bg-black/60 backdrop-blur-sm hidden justify-center items-center opacity-0 transition-opacity duration-300">
-        <div class="glass-panel w-[90%] max-w-md max-h-[90vh] flex flex-col rounded-2xl overflow-hidden transform scale-95 transition-transform duration-300"
+        <div class="glass-panel w-[90%] max-w-4xl max-h-[90vh] flex flex-col rounded-2xl overflow-hidden transform scale-95 transition-transform duration-300"
             id="modal-content-container">
             <!-- Header -->
             <div class="flex justify-between items-center p-4 border-b border-[var(--border-color)]">
@@ -1229,29 +1239,48 @@
         });
 
         // 1. Share Feature
-        document.getElementById('share-btn').addEventListener('click', async () => {
+        document.getElementById('share-btn').addEventListener('click', () => {
             const url = window.location.href;
-            const title = document.title;
-            if (navigator.share) {
-                try {
-                    await navigator.share({ title: title, url: url });
-                } catch (err) {
-                    console.log('Error sharing:', err);
-                }
-            } else {
-                navigator.clipboard.writeText(url).then(() => {
-                    alert(currentLang === 'vi' ? 'Đã sao chép đường dẫn!' : 'Link copied to clipboard!');
-                });
-            }
+            const pageTitle = document.title;
+            const title = currentLang === 'vi' ? 'Chia sẻ Hồ sơ' : 'Share Profile';
+            const descText = currentLang === 'vi'
+                ? 'Chia sẻ hồ sơ của bạn với bạn bè và đồng nghiệp.'
+                : 'Share this profile with friends and colleagues.';
+            const copyText = currentLang === 'vi' ? 'Sao chép Link' : 'Copy Link';
+            const shareText = currentLang === 'vi' ? 'Chia sẻ' : 'Share';
+            const copiedAlert = currentLang === 'vi' ? 'Đã sao chép!' : 'Copied!';
+            const nativeShareBtn = navigator.share ? `
+                <button onclick="navigator.share({ title: ${JSON.stringify(pageTitle)}, url: ${JSON.stringify(url)} }).catch(() => {})" class="px-5 py-2.5 rounded-lg bg-[var(--accent-color)] hover:bg-[var(--accent-hover-color)] text-white text-sm font-bold shadow-lg transition-all flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[1.1rem]">share</span>
+                    <span>${shareText}</span>
+                </button>` : '';
+            const content = `
+            <div class="flex flex-col items-center gap-4 w-full">
+                <span class="material-symbols-outlined text-[64px] text-[var(--accent-color)]" style="font-variation-settings: 'FILL' 1;">share</span>
+                <p class="text-sm text-[var(--text-color)] text-center">${descText}</p>
+                <div class="w-full max-w-xl p-3 rounded-lg bg-[var(--bg-end)] border border-[var(--border-color)] flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[var(--soft-text-color)] text-[18px] flex-shrink-0">link</span>
+                    <span class="text-xs text-[var(--soft-text-color)] break-all">${url}</span>
+                </div>
+                <div class="flex gap-3 flex-wrap justify-center">
+                    <button onclick="navigator.clipboard.writeText(${JSON.stringify(url)}).then(() => alert(${JSON.stringify(copiedAlert)}))" class="px-5 py-2.5 rounded-lg bg-[var(--primary-color)] hover:bg-[var(--primary-hover-color)] text-white text-sm font-bold shadow-lg transition-all flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[1.1rem]">content_copy</span>
+                        <span>${copyText}</span>
+                    </button>
+                    ${nativeShareBtn}
+                </div>
+            </div>
+            `;
+            openModal(title, content);
         });
 
         // 2. QR Code Feature
         document.getElementById('qr-btn').addEventListener('click', () => {
             const url = encodeURIComponent(window.location.href);
-            const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${url}&margin=10`;
+            const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${url}&margin=10`;
             const title = currentLang === 'vi' ? 'Mã QR Hồ sơ' : 'Profile QR Code';
             const content = `
-            <img src="${qrUrl}" alt="QR Code" class="w-[200px] h-[200px] object-contain mb-4 shadow-lg" />
+            <img src="${qrUrl}" alt="QR Code" class="w-[400px] h-[400px] max-w-full object-contain mb-4 shadow-lg" />
             <p class="text-xs text-[var(--soft-text-color)] mb-4 text-center break-all px-2">${window.location.href}</p>
             <button onclick="navigator.clipboard.writeText(window.location.href).then(() => alert(currentLang === 'vi' ? 'Đã sao chép!' : 'Copied!'))" class="px-5 py-2.5 rounded-lg bg-[var(--primary-color)] hover:bg-[var(--primary-hover-color)] text-white text-sm font-bold shadow-lg transition-all flex items-center gap-2">
                 <span class="material-symbols-outlined text-[1.1rem]">content_copy</span>

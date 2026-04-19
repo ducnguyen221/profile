@@ -81,25 +81,8 @@
 
             html,
             body {
-                height: 100dvh;
+                height: 100vh;
                 overflow: hidden !important;
-            }
-
-            body.desktop-fit-mode #dashboard-stage {
-                overflow: hidden !important;
-            }
-
-            body.desktop-fit-mode #dashboard-frame {
-                height: auto !important;
-                overflow: visible !important;
-                transform-origin: top center;
-                will-change: transform;
-                margin-inline: auto;
-            }
-
-            body.desktop-fit-mode .dashboard-column {
-                height: auto !important;
-                overflow: visible !important;
             }
         }
 
@@ -275,14 +258,14 @@
         </div>
     </header>
 
-    <main id="dashboard-stage"
+    <main
         class="md:flex-grow w-full px-4 md:px-[25px] pt-4 md:pt-[20px] pb-24 md:pb-[20px] md:overflow-hidden flex flex-col items-center min-h-0">
-        <div id="dashboard-frame"
+        <div
             class="grid grid-cols-1 md:grid-cols-12 gap-5 w-full max-w-[1600px] md:h-full md:flex-grow md:overflow-hidden min-h-0">
 
             <!-- Left Column: Identity & CTAs -->
             <div
-                class="dashboard-column md:col-span-4 flex flex-col gap-5 md:overflow-y-auto md:pr-2 custom-scrollbar md:h-full min-h-0">
+                class="md:col-span-4 flex flex-col gap-5 md:overflow-y-auto md:pr-2 custom-scrollbar md:h-full min-h-0">
 
                 <!-- Hero Section -->
                 <section
@@ -536,7 +519,7 @@
 
             <!-- Middle Column: LMS & Content -->
             <div
-                class="dashboard-column md:col-span-4 lg:col-span-5 flex flex-col gap-5 md:overflow-y-auto md:pr-2 custom-scrollbar md:h-full min-h-0">
+                class="md:col-span-4 lg:col-span-5 flex flex-col gap-5 md:overflow-y-auto md:pr-2 custom-scrollbar md:h-full min-h-0">
 
                 <!-- Experience & Achievements -->
                 <section class="glass-panel p-5 rounded-[1.25rem] relative flex-shrink-0">
@@ -767,7 +750,7 @@
 
             <!-- Right Column: Navigation Timeline & Social Spotlight -->
             <div
-                class="dashboard-column md:col-span-4 lg:col-span-3 flex flex-col gap-5 md:overflow-y-auto md:pr-2 custom-scrollbar md:h-full min-h-0">
+                class="md:col-span-4 lg:col-span-3 flex flex-col gap-5 md:overflow-y-auto md:pr-2 custom-scrollbar md:h-full min-h-0">
 
                 <!-- Career Timeline swapped to right column -->
                 <section class="glass-panel p-5 rounded-[1.25rem] flex flex-col gap-5 relative flex-shrink-0">
@@ -1125,55 +1108,6 @@
     </div>
 
     <script>
-        const dashboardStage = document.getElementById('dashboard-stage');
-        const dashboardFrame = document.getElementById('dashboard-frame');
-        const dashboardColumns = Array.from(document.querySelectorAll('.dashboard-column'));
-        let dashboardFitFrameId = null;
-
-        function resetDashboardFit() {
-            document.body.classList.remove('desktop-fit-mode');
-            if (!dashboardFrame) return;
-            dashboardFrame.style.transform = '';
-        }
-
-        function fitDashboardLayout() {
-            if (!dashboardStage || !dashboardFrame) return;
-
-            const isDesktop = window.matchMedia('(min-width: 768px)').matches;
-            if (!isDesktop) {
-                resetDashboardFit();
-                return;
-            }
-
-            document.body.classList.add('desktop-fit-mode');
-            dashboardFrame.style.transform = 'scale(1)';
-
-            const stageWidth = dashboardStage.clientWidth;
-            const stageHeight = dashboardStage.clientHeight;
-            if (!stageWidth || !stageHeight) return;
-
-            const contentWidth = dashboardFrame.scrollWidth;
-            const columnHeights = dashboardColumns.map((column) => column.scrollHeight);
-            const contentHeight = Math.max(dashboardFrame.scrollHeight, ...columnHeights);
-
-            const widthScale = stageWidth / contentWidth;
-            const heightScale = stageHeight / contentHeight;
-            const scale = Math.min(1, widthScale, heightScale);
-
-            dashboardFrame.style.transform = `scale(${scale})`;
-        }
-
-        function scheduleDashboardFit() {
-            if (dashboardFitFrameId) {
-                cancelAnimationFrame(dashboardFitFrameId);
-            }
-
-            dashboardFitFrameId = requestAnimationFrame(() => {
-                dashboardFitFrameId = null;
-                fitDashboardLayout();
-            });
-        }
-
         // i18n Translation Logic
         const langToggleBtn = document.getElementById('lang-toggle-btn');
         let currentLang = 'vi'; // Default language
@@ -1183,7 +1117,6 @@
                 const translation = el.getAttribute(`data-${lang}`);
                 if (translation) el.innerHTML = translation;
             });
-            scheduleDashboardFit();
         }
 
         // Apply default language immediately on load
@@ -1203,28 +1136,7 @@
             htmlEl.classList.toggle('dark');
             const isDark = htmlEl.classList.contains('dark');
             themeToggleBtn.innerText = isDark ? 'dark_mode' : 'light_mode';
-            scheduleDashboardFit();
         });
-
-        window.addEventListener('load', scheduleDashboardFit);
-        window.addEventListener('resize', scheduleDashboardFit);
-
-        if (window.visualViewport) {
-            window.visualViewport.addEventListener('resize', scheduleDashboardFit);
-        }
-
-        if (document.fonts && document.fonts.ready) {
-            document.fonts.ready.then(scheduleDashboardFit);
-        }
-
-        if (window.ResizeObserver) {
-            const dashboardResizeObserver = new ResizeObserver(() => {
-                scheduleDashboardFit();
-            });
-
-            if (dashboardStage) dashboardResizeObserver.observe(dashboardStage);
-            if (dashboardFrame) dashboardResizeObserver.observe(dashboardFrame);
-        }
 
         // --- Canvas Animated Background (Neural Network) ---
         const canvas = document.getElementById('bgCanvas');

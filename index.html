@@ -150,7 +150,7 @@
             display: flex;
             align-items: center;
             gap: 0.45rem;
-            padding: 0;
+            padding-left: 0.35rem;
             border: none;
             background: transparent;
             color: var(--soft-text-color);
@@ -201,7 +201,7 @@
 
     <!-- TopAppBar -->
     <header
-        class="h-[72px] flex-shrink-0 w-full border-b border-[var(--border-color)] bg-[var(--card-bg)] backdrop-blur-xl sticky top-0 z-50 flex justify-between items-center px-4 md:px-[25px]">
+        class="h-[72px] flex-shrink-0 w-full border-b border-[var(--border-color)] bg-[var(--card-bg)] backdrop-blur-xl sticky top-0 z-50 flex justify-between items-center pl-5 pr-4 md:px-[25px]">
         <div class="flex items-center gap-3">
             <img class="w-10 h-10 rounded-full object-cover border border-[var(--primary-color)] p-0.5 bg-[var(--bg-start)]"
                 src="./assets/images/KPIM-Duc-Nguyen.png" />
@@ -276,7 +276,7 @@
     </header>
 
     <main id="dashboard-stage"
-        class="md:flex-grow w-full px-4 md:px-[25px] pt-4 md:pt-[20px] pb-24 md:pb-[20px] md:overflow-hidden flex flex-col items-center min-h-0">
+        class="md:flex-grow w-full pl-5 pr-4 md:px-[25px] pt-4 md:pt-[20px] pb-24 md:pb-[20px] md:overflow-hidden flex flex-col items-center min-h-0">
         <div id="dashboard-frame"
             class="grid grid-cols-1 md:grid-cols-12 gap-5 w-full max-w-[1600px] md:h-full md:flex-grow md:overflow-hidden min-h-0">
 
@@ -548,7 +548,7 @@
                     </h3>
                     <div class="grid grid-cols-3 gap-2.5">
                         <div
-                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2.5 pr-2.5 pl-8 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
+                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2 pr-2 pl-7 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
                             <div class="flex items-center gap-1.5 mb-1">
                                 <span
                                     class="material-symbols-outlined text-[18px] text-[var(--primary-color)]">database</span>
@@ -560,7 +560,7 @@
                                 data-vi="Năm kinh nghiệm ngành dữ liệu">Năm kinh nghiệm ngành dữ liệu</p>
                         </div>
                         <div
-                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2.5 pr-2.5 pl-8 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
+                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2 pr-2 pl-7 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
                             <div class="flex items-center gap-1.5 mb-1">
                                 <span
                                     class="material-symbols-outlined text-[18px] text-[var(--primary-color)]">school</span>
@@ -572,7 +572,7 @@
                                 data-vi="Năm kinh nghiệm đào tạo">Năm kinh nghiệm đào tạo</p>
                         </div>
                         <div
-                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2.5 pr-2.5 pl-8 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
+                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2 pr-2 pl-7 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
                             <div class="flex items-center gap-1.5 mb-1">
                                 <span
                                     class="material-symbols-outlined text-[18px] text-[var(--primary-color)]">account_tree</span>
@@ -584,7 +584,7 @@
                                 data-vi="Năm kinh nghiệm quản lý dự án">Năm kinh nghiệm quản lý dự án</p>
                         </div>
                         <div
-                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2.5 pr-2.5 pl-8 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
+                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2 pr-2 pl-7 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
                             <div class="flex items-center gap-1.5 mb-1">
                                 <span
                                     class="material-symbols-outlined text-[18px] text-[var(--primary-color)]">groups</span>
@@ -596,7 +596,7 @@
                                 data-en="Learners trained" data-vi="Học viên đào tạo">Học viên đào tạo</p>
                         </div>
                         <div
-                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2.5 pr-2.5 pl-8 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
+                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2 pr-2 pl-7 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
                             <div class="flex items-center gap-1.5 mb-1">
                                 <span
                                     class="material-symbols-outlined text-[18px] text-[var(--primary-color)]">menu_book</span>
@@ -607,7 +607,7 @@
                                 data-en="Courses delivered" data-vi="Khóa học triển khai">Khóa học triển khai</p>
                         </div>
                         <div
-                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2.5 pr-2.5 pl-8 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
+                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2 pr-2 pl-7 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
                             <div class="flex items-center gap-1.5 mb-1">
                                 <span
                                     class="material-symbols-outlined text-[18px] text-[var(--primary-color)]">workspaces</span>
@@ -1181,7 +1181,14 @@
         function applyTranslation(lang) {
             document.querySelectorAll('.t-lang').forEach(el => {
                 const translation = el.getAttribute(`data-${lang}`);
-                if (translation) el.innerHTML = translation;
+                if (!translation) return;
+
+                const preservedIcons = Array.from(el.children)
+                    .filter(child => child.matches('.material-symbols-outlined, img, svg'))
+                    .map(child => child.outerHTML)
+                    .join('');
+
+                el.innerHTML = preservedIcons ? `${preservedIcons} ${translation}` : translation;
             });
             scheduleDashboardFit();
         }

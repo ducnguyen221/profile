@@ -213,23 +213,28 @@
         </div>
 
         <!-- Desktop Top Navigation Buttons -->
-        <nav class="hidden md:flex items-center gap-6 lg:gap-10 absolute left-1/2 transform -translate-x-1/2 h-full">
+        <nav class="hidden md:flex items-center gap-5 lg:gap-8 absolute left-1/2 transform -translate-x-1/2 h-full">
             <a href="#"
                 class="flex items-center gap-1.5 text-[var(--accent-color)] font-bold transition-all border-b-2 border-[var(--accent-color)] h-full">
                 <span class="material-symbols-outlined text-[1.2rem]">person</span>
                 <span class="text-sm t-lang" data-en="My Profile" data-vi="Hồ sơ">My Profile</span>
             </a>
-            <a href="#"
+            <a href="/experience"
                 class="flex items-center gap-1.5 text-[var(--soft-text-color)] hover:text-[var(--primary-light)] font-medium transition-all h-full border-b-2 border-transparent">
                 <span class="material-symbols-outlined text-[1.2rem]">work</span>
                 <span class="text-sm t-lang" data-en="Experience" data-vi="Kinh nghiệm">Experience</span>
             </a>
-            <a href="https://compaclass.com" target="_blank"
+            <a href="/projects"
+                class="flex items-center gap-1.5 text-[var(--soft-text-color)] hover:text-[var(--primary-light)] font-medium transition-all h-full border-b-2 border-transparent">
+                <span class="material-symbols-outlined text-[1.2rem]">workspaces</span>
+                <span class="text-sm t-lang" data-en="Projects" data-vi="D&#7921; &#225;n">Projects</span>
+            </a>
+            <a href="/courses"
                 class="flex items-center gap-1.5 text-[var(--soft-text-color)] hover:text-[var(--primary-light)] font-medium transition-all h-full border-b-2 border-transparent">
                 <span class="material-symbols-outlined text-[1.2rem]">school</span>
                 <span class="text-sm t-lang" data-en="LMS" data-vi="Học tập">LMS</span>
             </a>
-            <a href="https://www.youtube.com/@PowerBIHeroVn" target="_blank"
+            <a href="/socials"
                 class="flex items-center gap-1.5 text-[var(--soft-text-color)] hover:text-[var(--primary-light)] font-medium transition-all h-full border-b-2 border-transparent">
                 <span class="material-symbols-outlined text-[1.2rem]">subscriptions</span>
                 <span class="text-sm t-lang" data-en="Social" data-vi="Xã hội">Social</span>
@@ -540,12 +545,17 @@
 
                 <!-- Experience & Achievements -->
                 <section class="glass-panel p-5 rounded-[1.25rem] relative flex-shrink-0">
-                    <h3 class="text-[15px] font-semibold text-[var(--accent-color)] flex items-center gap-2 mb-4 t-lang"
+                    <div class="flex items-center justify-between gap-3 mb-4">
+                    <h3 class="text-[15px] font-semibold text-[var(--accent-color)] flex items-center gap-2 mb-0 t-lang"
                         data-en="Experience &amp; Achievements" data-vi="Kinh nghiệm &amp; Thành tích">
                         <span class="material-symbols-outlined text-[var(--accent-color)]"
                             style="font-variation-settings: 'FILL' 1;">emoji_events</span>
                         Experience &amp; Achievements
                     </h3>
+                    <a href="/experience"
+                        class="text-[9px] text-[var(--accent-color)] font-bold tracking-widest uppercase hover:text-[var(--accent-hover-color)] transition-colors cursor-pointer whitespace-nowrap t-lang"
+                        data-en="View All" data-vi="Xem t&#7845;t c&#7843;">View All</a>
+                    </div>
                     <div class="grid grid-cols-3 gap-2.5">
                         <div
                             class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2 pr-2 pl-7 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
@@ -629,6 +639,9 @@
                             <span class="t-lang" data-en="Core Competencies" data-vi="Năng lực Cốt lõi">Core
                                 Competencies</span>
                         </div>
+                        <a href="/projects"
+                            class="text-[9px] text-[var(--accent-color)] font-bold tracking-widest uppercase hover:text-[var(--accent-hover-color)] transition-colors cursor-pointer whitespace-nowrap t-lang"
+                            data-en="View Projects" data-vi="Xem d&#7921; &#225;n">View Projects</a>
                     </div>
                     <div class="px-4 py-4">
                         <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-x-3 gap-y-3 text-[10px] leading-tight">
@@ -738,8 +751,9 @@
                                 data-en="Curated videos from my social channels"
                                 data-vi="Video nổi bật từ các kênh của tôi">Curated videos from my social channels</p>
                         </div>
-                        <span
-                            class="px-2 py-0.5 bg-[var(--primary-color)]/20 text-[var(--primary-color)] text-[10px] font-bold rounded">VIDEO</span>
+                        <a href="/socials"
+                            class="text-[9px] text-[var(--accent-color)] font-bold tracking-widest uppercase hover:text-[var(--accent-hover-color)] transition-colors cursor-pointer whitespace-nowrap mt-0.5 t-lang"
+                            data-en="View All" data-vi="Xem t&#7845;t c&#7843;">View All</a>
                     </div>
                     <div id="spotlight-gallery"
                         class="aspect-video rounded-lg overflow-hidden bg-black mb-1 border border-[var(--border-color)] relative">
@@ -771,11 +785,16 @@
 
                 <!-- Career Timeline swapped to right column -->
                 <section class="glass-panel p-5 rounded-[1.25rem] flex flex-col gap-5 relative flex-shrink-0">
+                    <div class="flex items-center justify-between gap-3">
                     <h3 class="text-[15px] font-semibold text-[var(--accent-color)] flex items-center gap-2 mb-0">
                         <span class="material-symbols-outlined text-[var(--accent-color)]">work_history</span>
                         <span class="t-lang" data-en="Career Timeline" data-vi="Hành trình Sự nghiệp">Career
                             Timeline</span>
                     </h3>
+                    <a href="/experience"
+                        class="text-[9px] text-[var(--accent-color)] font-bold tracking-widest uppercase hover:text-[var(--accent-hover-color)] transition-colors cursor-pointer whitespace-nowrap t-lang"
+                        data-en="View All" data-vi="Xem t&#7845;t c&#7843;">View All</a>
+                    </div>
 
                     <div class="grid grid-cols-2 gap-4">
                         <!-- First column (existing 4) -->
@@ -922,8 +941,11 @@
                             <span class="t-lang" data-en="My Training Program" data-vi="Chương trình Đào tạo">My
                                 Training Program</span>
                         </h3>
+                        <a href="/courses"
+                            class="text-[9px] text-[var(--accent-color)] font-bold tracking-widest uppercase hover:text-[var(--accent-hover-color)] transition-colors cursor-pointer whitespace-nowrap t-lang"
+                            data-en="View All" data-vi="Xem t&#7845;t c&#7843;">View All</a>
                         <span
-                            class="text-[9px] text-[var(--accent-color)] font-bold tracking-widest uppercase hover:text-[var(--accent-hover-color)] transition-colors cursor-pointer t-lang"
+                            class="hidden text-[9px] text-[var(--accent-color)] font-bold tracking-widest uppercase hover:text-[var(--accent-hover-color)] transition-colors cursor-pointer t-lang"
                             data-en="View All" data-vi="Xem tất cả">View All</span>
                     </div>
                     <div class="flex flex-col gap-2 mt-2">
@@ -939,7 +961,7 @@
                                     BI Cơ Bản</span>
                                 <div class="flex items-center gap-3 mt-0.5 text-[var(--soft-text-color)]">
                                     <span class="text-[9px] flex items-center gap-1"><span
-                                            class="material-symbols-outlined text-[10px]">schedule</span> 12h &bull;
+                                            class="material-symbols-outlined text-[10px]">schedule</span> 18h &bull;
                                         <span class="t-lang" data-en="Basic" data-vi="Cơ bản">Cơ bản</span></span>
                                 </div>
                             </div>
@@ -958,7 +980,7 @@
                                     Analytics Fundamental</span>
                                 <div class="flex items-center gap-3 mt-0.5 text-[var(--soft-text-color)]">
                                     <span class="text-[9px] flex items-center gap-1"><span
-                                            class="material-symbols-outlined text-[10px]">schedule</span> 18h &bull;
+                                            class="material-symbols-outlined text-[10px]">schedule</span> 24h &bull;
                                         <span class="t-lang" data-en="Beginner" data-vi="Nhập môn">Nhập
                                             môn</span></span>
                                 </div>
@@ -978,7 +1000,7 @@
                                     dụng AI trong Phân tích Dữ liệu</span>
                                 <div class="flex items-center gap-3 mt-0.5 text-[var(--soft-text-color)]">
                                     <span class="text-[9px] flex items-center gap-1"><span
-                                            class="material-symbols-outlined text-[10px]">schedule</span> 4h &bull;
+                                            class="material-symbols-outlined text-[10px]">schedule</span> 24h &bull;
                                         <span class="t-lang" data-en="Intermediate" data-vi="Trung cấp">Trung
                                             cấp</span></span>
                                 </div>
@@ -997,7 +1019,7 @@
                                     tích dữ liệu nhân sự (HR Analytics)</span>
                                 <div class="flex items-center gap-3 mt-0.5 text-[var(--soft-text-color)]">
                                     <span class="text-[9px] flex items-center gap-1"><span
-                                            class="material-symbols-outlined text-[10px]">schedule</span> 8h &bull;
+                                            class="material-symbols-outlined text-[10px]">schedule</span> 24h &bull;
                                         <span class="t-lang" data-en="Advanced" data-vi="Chuyên sâu">Chuyên
                                             sâu</span></span>
                                 </div>
@@ -1017,7 +1039,7 @@
                                     dụng AI & Automation HR</span>
                                 <div class="flex items-center gap-3 mt-0.5 text-[var(--soft-text-color)]">
                                     <span class="text-[9px] flex items-center gap-1"><span
-                                            class="material-symbols-outlined text-[10px]">schedule</span> 6h &bull;
+                                            class="material-symbols-outlined text-[10px]">schedule</span> 12h &bull;
                                         <span class="t-lang" data-en="Advanced" data-vi="Chuyên sâu">Chuyên
                                             sâu</span></span>
                                 </div>
@@ -1037,7 +1059,7 @@
                                     Fabric Cơ Bản</span>
                                 <div class="flex items-center gap-3 mt-0.5 text-[var(--soft-text-color)]">
                                     <span class="text-[9px] flex items-center gap-1"><span
-                                            class="material-symbols-outlined text-[10px]">schedule</span> 14h &bull;
+                                            class="material-symbols-outlined text-[10px]">schedule</span> 24h &bull;
                                         <span class="t-lang" data-en="Intermediate" data-vi="Trung cấp">Trung
                                             cấp</span></span>
                                 </div>
@@ -1057,7 +1079,7 @@
                                     tích dữ liệu với Excel</span>
                                 <div class="flex items-center gap-3 mt-0.5 text-[var(--soft-text-color)]">
                                     <span class="text-[9px] flex items-center gap-1"><span
-                                            class="material-symbols-outlined text-[10px]">schedule</span> 12h &bull;
+                                            class="material-symbols-outlined text-[10px]">schedule</span> 18h &bull;
                                         <span class="t-lang" data-en="Basic" data-vi="Cơ bản">Cơ bản</span></span>
                                 </div>
                             </div>
@@ -1073,13 +1095,13 @@
     <nav
         class="md:hidden fixed bottom-0 left-0 w-full z-100 bg-[var(--card-bg)] backdrop-blur-xl border-t border-[var(--border-color)] flex justify-around items-center px-4 pb-6 pt-3 shadow-[0_-8px_32px_var(--shadow-color)]">
         <a class="flex flex-col items-center justify-center text-[var(--soft-text-color)] hover:text-[var(--primary-color)] transition-all"
-            href="#">
+            href="/experience">
             <span class="material-symbols-outlined">work</span>
             <span class="text-[10px] font-semibold uppercase tracking-widest font-['Inter'] mt-1 t-lang"
                 data-en="Experience" data-vi="Kinh nghiệm">Experience</span>
         </a>
         <a class="flex flex-col items-center justify-center text-[var(--soft-text-color)] hover:text-[var(--primary-color)] transition-all"
-            href="https://compaclass.com" target="_blank">
+            href="/courses">
             <span class="material-symbols-outlined">school</span>
             <span class="text-[10px] font-semibold uppercase tracking-widest font-['Inter'] mt-1 t-lang" data-en="LMS"
                 data-vi="Học tập">LMS</span>
@@ -1091,7 +1113,7 @@
                 data-en="Profile" data-vi="Hồ sơ">Profile</span>
         </a>
         <a class="flex flex-col items-center justify-center text-[var(--soft-text-color)] hover:text-[var(--primary-color)] transition-all"
-            href="https://www.youtube.com/@PowerBIHeroVn" target="_blank">
+            href="/socials">
             <span class="material-symbols-outlined">subscriptions</span>
             <span class="text-[10px] font-semibold uppercase tracking-widest font-['Inter'] mt-1 t-lang"
                 data-en="Social" data-vi="Mạng XH">Social</span>
@@ -1178,6 +1200,14 @@
         const langToggleBtn = document.getElementById('lang-toggle-btn');
         let currentLang = 'vi'; // Default language
 
+        function normalizeNavigationLabels() {
+            document.querySelectorAll('.t-lang[data-en="LMS"]').forEach(el => {
+                el.setAttribute('data-en', 'Courses');
+                el.setAttribute('data-vi', 'Kh&#243;a h&#7885;c');
+                el.innerHTML = 'Courses';
+            });
+        }
+
         function applyTranslation(lang) {
             document.querySelectorAll('.t-lang').forEach(el => {
                 const translation = el.getAttribute(`data-${lang}`);
@@ -1194,6 +1224,7 @@
         }
 
         // Apply default language immediately on load
+        normalizeNavigationLabels();
         applyTranslation(currentLang);
 
         langToggleBtn.addEventListener('click', () => {

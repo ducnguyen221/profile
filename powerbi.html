@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>PowerBI Demo | Nguyen Quang Duc</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="./assets/css/subpage-shell.css" rel="stylesheet" />
+</head>
+
+<body data-page="powerbi">
+    <canvas id="bgCanvas" class="shell-canvas"></canvas>
+
+    <div class="site-shell">
+        <header class="site-header">
+            <a class="brand" href="./index.html">
+                <img alt="Nguyen Quang Duc" src="./assets/images/KPIM-Duc-Nguyen.png" />
+                <span class="brand-title t-lang" data-en="E-Profile" data-vi="Hồ sơ điện tử">E-Profile</span>
+            </a>
+            <nav class="top-nav">
+                <a class="nav-link" data-page-link="profile" href="./index.html"><span
+                        class="material-symbols-outlined">person</span><span class="t-lang" data-en="Profile"
+                        data-vi="Hồ sơ">Profile</span></a>
+                <a class="nav-link" data-page-link="experience" href="./experience.html"><span
+                        class="material-symbols-outlined">work_history</span><span class="t-lang" data-en="Experience"
+                        data-vi="Kinh nghiệm">Experience</span></a>
+                <a class="nav-link" data-page-link="projects" href="./projects.html"><span
+                        class="material-symbols-outlined">workspaces</span><span class="t-lang" data-en="Projects"
+                        data-vi="Dự án">Projects</span></a>
+                <a class="nav-link" data-page-link="courses" href="./courses.html"><span
+                        class="material-symbols-outlined">school</span><span class="t-lang" data-en="Courses"
+                        data-vi="Khóa học">Courses</span></a>
+                <a class="nav-link" data-page-link="socials" href="./socials.html"><span
+                        class="material-symbols-outlined">subscriptions</span><span class="t-lang" data-en="Socials"
+                        data-vi="Xã hội">Socials</span></a>
+                <a class="nav-link" data-page-link="solutions" href="./solutions.html"><span
+                        class="material-symbols-outlined">widgets</span><span class="t-lang" data-en="Solutions"
+                        data-vi="Giải pháp">Solutions</span></a>
+                <a class="nav-link" data-page-link="powerbi" href="./powerbi.html"><span
+                        class="material-symbols-outlined">bar_chart</span><span class="t-lang"
+                        data-en="PowerBI Demo" data-vi="PowerBI Demo">PowerBI Demo</span></a>
+            </nav>
+            <div class="header-actions">
+                <button class="header-icon-btn" id="lang-toggle-btn" type="button">VI</button>
+                <button class="header-icon-btn material-symbols-outlined" id="theme-toggle-btn"
+                    type="button">dark_mode</button>
+            </div>
+        </header>
+
+        <main class="shell-main">
+            <section class="glass-panel hero-panel">
+                <div class="hero-grid">
+                    <div class="hero-copy">
+                        <span class="hero-kicker"><span class="material-symbols-outlined">bar_chart</span><span
+                                class="t-lang" data-en="Report Gallery" data-vi="Thư viện báo cáo">Report
+                                Gallery</span></span>
+                        <h1 class="t-lang"
+                            data-en="A dedicated screen for Power BI demos, live portfolio links, and future report drops."
+                            data-vi="Một màn riêng cho Power BI demo, portfolio live và các report sẽ bổ sung sau.">
+                            A dedicated screen for Power BI demos, live portfolio links, and future report drops.
+                        </h1>
+                        <p class="t-lang"
+                            data-en="This page is intentionally gallery-like: each block is a report entry point with a cover, a short explanation, and a CTA. The first cards already point to live assets, while the rest are prepared as placeholders for additional reports."
+                            data-vi="Trang này được thiết kế như một gallery: mỗi block là một điểm vào báo cáo với cover, mô tả ngắn và CTA. Các card đầu đã trỏ tới tài sản live, phần còn lại được chuẩn bị như placeholder cho report sẽ bổ sung sau.">
+                            This page is intentionally gallery-like: each block is a report entry point with a cover,
+                            a short explanation, and a CTA. The first cards already point to live assets, while the
+                            rest are prepared as placeholders for additional reports.
+                        </p>
+                    </div>
+                    <div class="meta-grid">
+                        <div class="meta-card"><strong>Live today</strong><span class="t-lang"
+                                data-en="Profile and portfolio links are already available"
+                                data-vi="Đã có sẵn link profile và portfolio">Profile and portfolio links are already
+                                available</span></div>
+                        <div class="meta-card"><strong>Extensible</strong><span class="t-lang"
+                                data-en="More report cards can be appended without changing the shell"
+                                data-vi="Có thể nối thêm card report mà không đổi shell">More report cards can be
+                                appended without changing the shell</span></div>
+                        <div class="meta-card"><strong>Gallery model</strong><span class="t-lang"
+                                data-en="Card list with image, summary, and CTA"
+                                data-vi="Danh sách card có ảnh, tóm tắt và CTA">Card list with image, summary, and
+                                CTA</span></div>
+                        <div class="meta-card"><strong>Static-safe</strong><span class="t-lang"
+                                data-en="All demo entries remain usable on GitHub Pages"
+                                data-vi="Toàn bộ demo entry dùng ổn trên GitHub Pages">All demo entries remain usable
+                                on GitHub Pages</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="glass-panel hero-panel">
+                <div class="section-head">
+                    <div>
+                        <h2 class="section-title"><span class="material-symbols-outlined">dashboard_customize</span><span
+                                class="t-lang" data-en="Demo Reports" data-vi="Các báo cáo demo">Demo Reports</span>
+                        </h2>
+                        <p class="section-subtitle t-lang"
+                            data-en="Open current live reports now, and use the remaining cards as placeholders for future demos."
+                            data-vi="Mở ngay các báo cáo live hiện tại, và dùng các card còn lại như placeholder cho demo tương lai.">
+                            Open current live reports now, and use the remaining cards as placeholders for future
+                            demos.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="demo-grid">
+                    <article class="demo-card">
+                        <img alt="PowerBI Profile" src="./assets/images/powerbi-logo.svg" />
+                        <h3>PowerBI Profile</h3>
+                        <p class="muted t-lang"
+                            data-en="Direct route to the live Power BI profile page currently referenced in the dashboard CTA."
+                            data-vi="Đường dẫn trực tiếp tới trang Power BI profile live đang được dùng trong CTA của dashboard.">
+                            Direct route to the live Power BI profile page currently referenced in the dashboard CTA.
+                        </p>
+                        <div class="chip-list">
+                            <span class="chip">Live</span>
+                            <span class="chip">Power BI</span>
+                            <span class="chip">Profile</span>
+                        </div>
+                        <a class="button-link primary"
+                            href="https://app.powerbi.com/view?r=eyJrIjoiNTE5NTQyNzUtM2ZjMy00N2MwLTgyOGEtYTc1NzMwYTAzNzVlIiwidCI6IjQxYWI0MmE5LTM4MWItNDhjZi04YTg1LTcyMDQ2NDkyMjk3NiIsImMiOjEwfQ%3D%3D"
+                            rel="noreferrer" target="_blank">
+                            <span class="material-symbols-outlined">open_in_new</span>
+                            Open Report
+                        </a>
+                    </article>
+
+                    <article class="demo-card">
+                        <img alt="PowerBI Portfolio" src="./assets/images/power-bi-icon.png" />
+                        <h3>PowerBI Portfolio</h3>
+                        <p class="muted t-lang"
+                            data-en="Direct route to the currently available portfolio view with report samples."
+                            data-vi="Đường dẫn trực tiếp tới portfolio đang có với các mẫu báo cáo hiện hành.">
+                            Direct route to the currently available portfolio view with report samples.
+                        </p>
+                        <div class="chip-list">
+                            <span class="chip">Live</span>
+                            <span class="chip">Portfolio</span>
+                            <span class="chip">Showcase</span>
+                        </div>
+                        <a class="button-link primary"
+                            href="https://app.powerbi.com/view?r=eyJrIjoiYmY4ODMyOWMtOTRkNC00MDEwLWEyYzItYzEzYmI5NWM4ZmVkIiwidCI6IjQxYWI0MmE5LTM4MWItNDhjZi04YTg1LTcyMDQ2NDkyMjk3NiIsImMiOjEwfQ%3D%3D"
+                            rel="noreferrer" target="_blank">
+                            <span class="material-symbols-outlined">open_in_new</span>
+                            Open Report
+                        </a>
+                    </article>
+
+                    <article class="demo-card">
+                        <img alt="Retail dashboard placeholder" src="./assets/images/asset_001.png" />
+                        <h3 class="t-lang" data-en="Retail Performance Demo" data-vi="Demo hiệu suất bán lẻ">Retail
+                            Performance Demo</h3>
+                        <p class="muted t-lang"
+                            data-en="Reserved for a future retail reporting sample with KPI, branch, and trend views."
+                            data-vi="Dành chỗ cho một mẫu báo cáo retail trong tương lai với KPI, chi nhánh và xu hướng.">
+                            Reserved for a future retail reporting sample with KPI, branch, and trend views.
+                        </p>
+                        <div class="chip-list"><span class="chip">Placeholder</span><span class="chip">Retail</span></div>
+                    </article>
+
+                    <article class="demo-card">
+                        <img alt="HR analytics placeholder" src="./assets/images/hr-analytics.webp" />
+                        <h3 class="t-lang" data-en="HR Analytics Demo" data-vi="Demo HR Analytics">HR Analytics Demo</h3>
+                        <p class="muted t-lang"
+                            data-en="Reserved for a future people analytics sample focused on hiring, churn, and workforce review."
+                            data-vi="Dành chỗ cho một mẫu people analytics trong tương lai tập trung vào tuyển dụng, churn và workforce review.">
+                            Reserved for a future people analytics sample focused on hiring, churn, and workforce
+                            review.
+                        </p>
+                        <div class="chip-list"><span class="chip">Placeholder</span><span class="chip">HR</span></div>
+                    </article>
+
+                    <article class="demo-card">
+                        <img alt="Finance dashboard placeholder" src="./assets/images/asset_010.png" />
+                        <h3 class="t-lang" data-en="Finance Dashboard Demo" data-vi="Demo dashboard tài chính">Finance
+                            Dashboard Demo</h3>
+                        <p class="muted t-lang"
+                            data-en="Reserved for a future finance sample focused on revenue, margin, and cash flow storytelling."
+                            data-vi="Dành chỗ cho một mẫu tài chính trong tương lai tập trung vào doanh thu, biên lợi nhuận và dòng tiền.">
+                            Reserved for a future finance sample focused on revenue, margin, and cash flow
+                            storytelling.
+                        </p>
+                        <div class="chip-list"><span class="chip">Placeholder</span><span class="chip">Finance</span></div>
+                    </article>
+
+                    <article class="demo-card">
+                        <img alt="Operations dashboard placeholder" src="./assets/images/asset_014.png" />
+                        <h3 class="t-lang" data-en="Operations Control Tower" data-vi="Demo điều hành vận hành">
+                            Operations Control Tower</h3>
+                        <p class="muted t-lang"
+                            data-en="Reserved for a future operations sample with throughput, backlog, and service-level signals."
+                            data-vi="Dành chỗ cho một mẫu vận hành trong tương lai với throughput, backlog và tín hiệu service level.">
+                            Reserved for a future operations sample with throughput, backlog, and service-level
+                            signals.
+                        </p>
+                        <div class="chip-list"><span class="chip">Placeholder</span><span class="chip">Ops</span></div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <nav class="bottom-nav">
+            <a class="bottom-link" data-page-link="profile" href="./index.html"><span
+                    class="material-symbols-outlined">person</span><span class="t-lang" data-en="Profile"
+                    data-vi="Hồ sơ">Profile</span></a>
+            <a class="bottom-link" data-page-link="experience" href="./experience.html"><span
+                    class="material-symbols-outlined">work_history</span><span class="t-lang" data-en="Exp"
+                    data-vi="KN">Exp</span></a>
+            <a class="bottom-link" data-page-link="projects" href="./projects.html"><span
+                    class="material-symbols-outlined">workspaces</span><span class="t-lang" data-en="Projects"
+                    data-vi="Dự án">Projects</span></a>
+            <a class="bottom-link" data-page-link="courses" href="./courses.html"><span
+                    class="material-symbols-outlined">school</span><span class="t-lang" data-en="Courses"
+                    data-vi="Khóa học">Courses</span></a>
+            <a class="bottom-link" data-page-link="socials" href="./socials.html"><span
+                    class="material-symbols-outlined">subscriptions</span><span class="t-lang" data-en="Social"
+                    data-vi="XH">Social</span></a>
+            <a class="bottom-link" data-page-link="solutions" href="./solutions.html"><span
+                    class="material-symbols-outlined">widgets</span><span class="t-lang" data-en="Solutions"
+                    data-vi="Giải pháp">Solutions</span></a>
+            <a class="bottom-link" data-page-link="powerbi" href="./powerbi.html"><span
+                    class="material-symbols-outlined">bar_chart</span><span class="t-lang" data-en="PowerBI"
+                    data-vi="PowerBI">PowerBI</span></a>
+        </nav>
+    </div>
+
+    <script src="./assets/js/subpage-shell.js"></script>
+</body>
+
+</html>

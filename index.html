@@ -239,9 +239,14 @@
                 <span class="material-symbols-outlined text-[1.2rem]">subscriptions</span>
                 <span class="text-sm t-lang" data-en="Social" data-vi="Xã hội">Social</span>
             </a>
-            <a href="https://forms.office.com/r/UfYJgH2f2W" target="_blank"
+            <a href="/profile/solutions"
                 class="flex items-center gap-1.5 text-[var(--soft-text-color)] hover:text-[var(--primary-light)] font-medium transition-all h-full border-b-2 border-transparent">
-                <span class="material-symbols-outlined text-[1.2rem]">bolt</span>
+                <span class="material-symbols-outlined text-[1.2rem]">widgets</span>
+                <span class="text-sm t-lang" data-en="Solutions" data-vi="Gi&#7843;i ph&#225;p">Solutions</span>
+            </a>
+            <a href="/profile/powerbi"
+                class="flex items-center gap-1.5 text-[var(--soft-text-color)] hover:text-[var(--primary-light)] font-medium transition-all h-full border-b-2 border-transparent">
+                <span class="material-symbols-outlined text-[1.2rem]">bar_chart</span>
                 <span class="text-sm t-lang" data-en="Actions" data-vi="Tương tác">Actions</span>
             </a>
         </nav>
@@ -1119,8 +1124,14 @@
                 data-en="Social" data-vi="Mạng XH">Social</span>
         </a>
         <a class="flex flex-col items-center justify-center text-[var(--soft-text-color)] hover:text-[var(--primary-color)] transition-all"
-            href="https://forms.office.com/r/UfYJgH2f2W" target="_blank">
-            <span class="material-symbols-outlined">bolt</span>
+            href="/profile/solutions">
+            <span class="material-symbols-outlined">widgets</span>
+            <span class="text-[10px] font-semibold uppercase tracking-widest font-['Inter'] mt-1 t-lang"
+                data-en="Solutions" data-vi="Gi&#7843;i ph&#225;p">Solutions</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-[var(--soft-text-color)] hover:text-[var(--primary-color)] transition-all"
+            href="/profile/powerbi">
+            <span class="material-symbols-outlined">bar_chart</span>
             <span class="text-[10px] font-semibold uppercase tracking-widest font-['Inter'] mt-1 t-lang"
                 data-en="Actions" data-vi="Tương tác">Actions</span>
         </a>
@@ -1205,6 +1216,12 @@
                 el.setAttribute('data-en', 'Courses');
                 el.setAttribute('data-vi', 'Kh&#243;a h&#7885;c');
                 el.innerHTML = 'Courses';
+            });
+
+            document.querySelectorAll('.t-lang[data-en="Actions"]').forEach(el => {
+                el.setAttribute('data-en', 'PowerBI Demo');
+                el.setAttribute('data-vi', 'PowerBI Demo');
+                el.innerHTML = 'PowerBI Demo';
             });
         }
 

@@ -170,6 +170,50 @@
             flex-shrink: 0;
         }
 
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 18;
+            display: flex;
+            justify-content: space-between;
+            gap: 0.25rem;
+            padding: 0.7rem 0.55rem 1rem;
+            border-top: 1px solid var(--border-color);
+            background: var(--card-bg);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        .bottom-link {
+            flex: 1 1 0;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2rem;
+            color: var(--soft-text-color);
+            font-size: 0.56rem;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: color 0.2s ease;
+        }
+
+        .bottom-link .material-symbols-outlined {
+            font-size: 1.12rem;
+        }
+
+        .bottom-link.active {
+            color: var(--accent-color);
+        }
+
+        #legacy-bottom-nav {
+            display: none;
+        }
+
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
@@ -193,6 +237,12 @@
                 transform: translateY(0);
             }
         }
+
+        @media (min-width: 768px) {
+            .bottom-nav {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -206,7 +256,7 @@
             <img class="w-10 h-10 rounded-full object-cover border border-[var(--primary-color)] p-0.5 bg-[var(--bg-start)]"
                 src="./assets/images/KPIM-Duc-Nguyen.png" />
             <span
-                class="text-xl font-bold tracking-tight text-[var(--text-color)] hidden xl:flex items-center gap-2 font-['Inter'] t-lang"
+                class="inline-flex md:hidden xl:flex items-center gap-2 text-[0.95rem] sm:text-base xl:text-xl font-bold tracking-tight text-[var(--text-color)] whitespace-nowrap font-['Inter'] t-lang"
                 data-en="E-Profile" data-vi="Hồ sơ Điện tử">
                 E-Profile
             </span>
@@ -561,9 +611,9 @@
                         class="text-[9px] text-[var(--accent-color)] font-bold tracking-widest uppercase hover:text-[var(--accent-hover-color)] transition-colors cursor-pointer whitespace-nowrap t-lang"
                         data-en="View All" data-vi="Xem t&#7845;t c&#7843;">View All</a>
                     </div>
-                    <div class="grid grid-cols-3 gap-2.5">
+                    <div class="grid grid-cols-3 gap-2 sm:gap-2.5">
                         <div
-                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2 pr-2 pl-7 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
+                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2 px-2.5 sm:pr-2 sm:pl-7 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
                             <div class="flex items-center gap-1.5 mb-1">
                                 <span
                                     class="material-symbols-outlined text-[18px] text-[var(--primary-color)]">database</span>
@@ -575,7 +625,7 @@
                                 data-vi="Năm kinh nghiệm ngành dữ liệu">Năm kinh nghiệm ngành dữ liệu</p>
                         </div>
                         <div
-                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2 pr-2 pl-7 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
+                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2 px-2.5 sm:pr-2 sm:pl-7 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
                             <div class="flex items-center gap-1.5 mb-1">
                                 <span
                                     class="material-symbols-outlined text-[18px] text-[var(--primary-color)]">school</span>
@@ -587,7 +637,7 @@
                                 data-vi="Năm kinh nghiệm đào tạo">Năm kinh nghiệm đào tạo</p>
                         </div>
                         <div
-                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2 pr-2 pl-7 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
+                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2 px-2.5 sm:pr-2 sm:pl-7 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
                             <div class="flex items-center gap-1.5 mb-1">
                                 <span
                                     class="material-symbols-outlined text-[18px] text-[var(--primary-color)]">account_tree</span>
@@ -599,7 +649,7 @@
                                 data-vi="Năm kinh nghiệm quản lý dự án">Năm kinh nghiệm quản lý dự án</p>
                         </div>
                         <div
-                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2 pr-2 pl-7 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
+                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2 px-2.5 sm:pr-2 sm:pl-7 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
                             <div class="flex items-center gap-1.5 mb-1">
                                 <span
                                     class="material-symbols-outlined text-[18px] text-[var(--primary-color)]">groups</span>
@@ -611,7 +661,7 @@
                                 data-en="Learners trained" data-vi="Học viên đào tạo">Học viên đào tạo</p>
                         </div>
                         <div
-                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2 pr-2 pl-7 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
+                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2 px-2.5 sm:pr-2 sm:pl-7 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
                             <div class="flex items-center gap-1.5 mb-1">
                                 <span
                                     class="material-symbols-outlined text-[18px] text-[var(--primary-color)]">menu_book</span>
@@ -622,7 +672,7 @@
                                 data-en="Courses delivered" data-vi="Khóa học triển khai">Khóa học triển khai</p>
                         </div>
                         <div
-                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2 pr-2 pl-7 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
+                            class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded py-2 px-2.5 sm:pr-2 sm:pl-7 hover:border-[var(--accent-color)]/40 hover:-translate-y-0.5 transition-all">
                             <div class="flex items-center gap-1.5 mb-1">
                                 <span
                                     class="material-symbols-outlined text-[18px] text-[var(--primary-color)]">workspaces</span>
@@ -744,8 +794,9 @@
                 </section>
 
                 <!-- Social Media Highlights -->
-                <section class="glass-panel p-5 rounded-[1.25rem] relative overflow-hidden group flex-shrink-0">
-                    <div class="flex justify-between items-start mb-3">
+                <section
+                    class="glass-panel p-5 rounded-[1.25rem] relative overflow-hidden group flex flex-col flex-shrink-0 md:flex-1 md:min-h-[22rem] lg:min-h-[25rem] md:mb-1">
+                    <div class="flex justify-between items-start mb-3 flex-shrink-0">
                         <div>
                             <h3 class="text-[15px] font-semibold text-[var(--accent-color)] flex items-center gap-2 t-lang"
                                 data-en="Social Media Highlights" data-vi="Tiêu điểm mạng xã hội">
@@ -761,7 +812,7 @@
                             data-en="View All" data-vi="Xem t&#7845;t c&#7843;">View All</a>
                     </div>
                     <div id="spotlight-gallery"
-                        class="aspect-video rounded-lg overflow-hidden bg-black mb-1 border border-[var(--border-color)] relative">
+                        class="aspect-video md:aspect-auto md:flex-1 md:min-h-[18.5rem] rounded-lg overflow-hidden bg-black mb-1 border border-[var(--border-color)] relative">
                         <iframe id="spotlight-iframe" class="w-full h-full"
                             src="https://www.youtube-nocookie.com/embed/Xb43L_vJsHw?rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
                             title="Social Media Highlights"
@@ -1097,12 +1148,11 @@
     </main>
 
     <!-- BottomNavBar for Mobile -->
-    <nav
-        class="md:hidden fixed bottom-0 left-0 w-full z-100 bg-[var(--card-bg)] backdrop-blur-xl border-t border-[var(--border-color)] flex justify-around items-center px-4 pb-6 pt-3 shadow-[0_-8px_32px_var(--shadow-color)]">
-        <a class="flex flex-col items-center justify-center text-[var(--soft-text-color)] hover:text-[var(--primary-color)] transition-all"
-            href="./experience.html">
-            <span class="material-symbols-outlined">work</span>
-            <span class="text-[10px] font-semibold uppercase tracking-widest font-['Inter'] mt-1 t-lang"
+    <nav id="legacy-bottom-nav" class="bottom-nav">
+        <a class="bottom-link active"
+            href="./index.html">
+            <span class="material-symbols-outlined">person</span>
+            <span class="t-lang"
                 data-en="Experience" data-vi="Kinh nghiệm">Experience</span>
         </a>
         <a class="flex flex-col items-center justify-center text-[var(--soft-text-color)] hover:text-[var(--primary-color)] transition-all"
@@ -1134,6 +1184,37 @@
             <span class="material-symbols-outlined">bar_chart</span>
             <span class="text-[10px] font-semibold uppercase tracking-widest font-['Inter'] mt-1 t-lang"
                 data-en="Actions" data-vi="Tương tác">Actions</span>
+        </a>
+    </nav>
+
+    <nav class="bottom-nav">
+        <a class="bottom-link active" data-page-link="profile" href="./index.html">
+            <span class="material-symbols-outlined">person</span>
+            <span class="t-lang" data-en="Profile" data-vi="H&#7891; s&#417;">Profile</span>
+        </a>
+        <a class="bottom-link" data-page-link="experience" href="./experience.html">
+            <span class="material-symbols-outlined">work_history</span>
+            <span class="t-lang" data-en="Exp" data-vi="KN">Exp</span>
+        </a>
+        <a class="bottom-link" data-page-link="projects" href="./projects.html">
+            <span class="material-symbols-outlined">workspaces</span>
+            <span class="t-lang" data-en="Projects" data-vi="D&#7921; &#225;n">Projects</span>
+        </a>
+        <a class="bottom-link" data-page-link="courses" href="./courses.html">
+            <span class="material-symbols-outlined">school</span>
+            <span class="t-lang" data-en="Courses" data-vi="Kh&#243;a h&#7885;c">Courses</span>
+        </a>
+        <a class="bottom-link" data-page-link="socials" href="./socials.html">
+            <span class="material-symbols-outlined">subscriptions</span>
+            <span class="t-lang" data-en="Social" data-vi="XH">Social</span>
+        </a>
+        <a class="bottom-link" data-page-link="solutions" href="./solutions.html">
+            <span class="material-symbols-outlined">widgets</span>
+            <span class="t-lang" data-en="Solutions" data-vi="Gi&#7843;i ph&#225;p">Solutions</span>
+        </a>
+        <a class="bottom-link" data-page-link="powerbi" href="./powerbi.html">
+            <span class="material-symbols-outlined">bar_chart</span>
+            <span class="t-lang" data-en="PowerBI" data-vi="PowerBI">PowerBI</span>
         </a>
     </nav>
 

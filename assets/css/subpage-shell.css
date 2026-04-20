@@ -157,6 +157,10 @@ select {
     gap: 0.9rem;
 }
 
+.header-menu-container {
+    position: relative;
+}
+
 .header-icon-btn {
     border: 0;
     background: transparent;
@@ -168,6 +172,292 @@ select {
 
 .header-icon-btn:hover {
     color: var(--accent-color);
+}
+
+.header-menu {
+    position: absolute;
+    top: calc(100% + 0.9rem);
+    right: 0;
+    width: 14rem;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    background: rgba(248, 250, 252, 0.97);
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.22);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 35;
+}
+
+.dark .header-menu {
+    background: rgba(30, 41, 59, 0.97);
+}
+
+.header-menu.open {
+    display: flex;
+}
+
+.menu-action {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: 0;
+    border-bottom: 1px solid var(--border-color);
+    background: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+    text-align: left;
+    padding: 0.9rem 1rem;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.menu-action:last-child {
+    border-bottom: 0;
+}
+
+.menu-action:hover {
+    background: var(--card-hover-bg);
+}
+
+.menu-action .material-symbols-outlined {
+    font-size: 1.1rem;
+}
+
+.menu-action-label {
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.app-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    background: rgba(15, 23, 42, 0.62);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.24s ease, visibility 0.24s ease;
+}
+
+.app-modal.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.modal-panel {
+    width: min(92vw, 820px);
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: translateY(10px) scale(0.97);
+    transition: transform 0.24s ease;
+}
+
+.app-modal.open .modal-panel {
+    transform: translateY(0) scale(1);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-title {
+    margin: 0;
+    color: var(--accent-color);
+    font-size: 1.05rem;
+    font-weight: 800;
+}
+
+.modal-body {
+    padding: 1.25rem 1.25rem 1.4rem;
+    overflow: auto;
+}
+
+.modal-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.modal-icon {
+    font-size: 4rem;
+    color: var(--accent-color);
+    font-variation-settings: "FILL" 1;
+}
+
+.modal-copy {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.modal-link-box {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.modal-link-box .material-symbols-outlined {
+    margin-top: 0.05rem;
+    font-size: 1rem;
+    color: var(--soft-text-color);
+}
+
+.modal-link-box span:last-child {
+    color: var(--soft-text-color);
+    font-size: 0.82rem;
+    line-height: 1.65;
+    word-break: break-all;
+}
+
+.modal-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.modal-action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-height: 44px;
+    padding: 0.7rem 1rem;
+    border: 0;
+    border-radius: 0.9rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.modal-action-btn:hover {
+    transform: translateY(-1px);
+}
+
+.modal-action-btn.primary {
+    background: var(--primary-color);
+}
+
+.modal-action-btn.primary:hover {
+    background: var(--primary-hover-color);
+}
+
+.modal-action-btn.accent {
+    background: var(--accent-color);
+}
+
+.modal-action-btn.accent:hover {
+    background: var(--accent-hover-color);
+}
+
+.modal-share-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.modal-share-label {
+    margin: 0;
+    color: var(--soft-text-color);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.social-share-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.social-share-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 0.95rem;
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.social-share-link:hover {
+    background: var(--card-hover-bg);
+    transform: translateY(-1px);
+}
+
+.social-share-badge {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.social-share-text {
+    color: var(--text-color);
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.qr-image {
+    width: min(380px, 100%);
+    aspect-ratio: 1;
+    object-fit: contain;
+    border-radius: 1rem;
+    background: #fff;
+    padding: 0.8rem;
+    box-shadow: 0 18px 35px rgba(15, 23, 42, 0.18);
+}
+
+.business-card-frame {
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    background: var(--bg-end);
+}
+
+.business-card-frame img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
 .shell-main {
@@ -777,6 +1067,22 @@ select {
 }
 
 @media (max-width: 767px) {
+    .header-menu {
+        width: min(15rem, calc(100vw - 2rem));
+    }
+
+    .modal-panel {
+        width: min(100%, 92vw);
+    }
+
+    .modal-body {
+        padding: 1rem;
+    }
+
+    .social-share-grid {
+        grid-template-columns: 1fr;
+    }
+
     .shell-main {
         padding-bottom: 0;
     }

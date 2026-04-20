@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html class="dark" lang="vi">
 
 <head>
     <meta charset="utf-8" />
@@ -1307,6 +1307,7 @@
         }
 
         function applyTranslation(lang) {
+            document.documentElement.lang = lang;
             document.querySelectorAll('.t-lang').forEach(el => {
                 const translation = el.getAttribute(`data-${lang}`);
                 if (!translation) return;

@@ -40,6 +40,7 @@
     }
 
     function applyTranslation(lang) {
+        document.documentElement.lang = lang;
         document.querySelectorAll(".t-lang").forEach((el) => {
             const translation = el.getAttribute(`data-${lang}`);
             if (translation) {

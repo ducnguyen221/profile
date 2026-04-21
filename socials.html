@@ -54,76 +54,78 @@
 
         <main class="shell-main">
             <section class="glass-panel hero-panel">
-                <div class="hero-grid">
-                    <div class="hero-copy">
-                        <span class="hero-kicker"><span class="material-symbols-outlined">smart_display</span><span
-                                class="t-lang" data-en="Social Layer" data-vi="Lớp xã hội">Social Layer</span></span>
-                        <h1 class="t-lang"
-                            data-en="A public-facing layer for content, embeds, and reference channels."
-                            data-vi="Một lớp hiển thị công khai cho nội dung, embed và các kênh tham khảo.">
-                            A public-facing layer for content, embeds, and reference channels.
-                        </h1>
-                        <p class="t-lang"
-                            data-en="The screen blends public social embeds where possible and graceful fallbacks where platforms are restrictive. The result is a page that still works as a curated content hub instead of depending on one embed source."
-                            data-vi="Màn này kết hợp social embed công khai khi có thể và fallback mềm khi nền tảng hạn chế. Kết quả là một content hub được curate rõ ràng thay vì phụ thuộc vào duy nhất một kiểu embed.">
-                            The screen blends public social embeds where possible and graceful fallbacks where
-                            platforms are restrictive. The result is a page that still works as a curated content hub
-                            instead of depending on one embed source.
-                        </p>
-                    </div>
-                    <div class="meta-grid">
-                        <div class="meta-card"><strong>Facebook</strong><span class="t-lang"
-                                data-en="Public embed first, manual card fallback second"
-                                data-vi="Ưu tiên public embed, fallback bằng card thủ công">Public embed first, manual
-                                card fallback second</span></div>
-                        <div class="meta-card"><strong>YouTube</strong><span class="t-lang"
-                                data-en="Channel references and watch-next suggestions"
-                                data-vi="Danh sách kênh và gợi ý xem tiếp">Channel references and watch-next
-                                suggestions</span></div>
-                        <div class="meta-card"><strong>Curated</strong><span class="t-lang"
-                                data-en="Not a feed clone, but a designed social landing page"
-                                data-vi="Không sao chép feed, mà là landing page social được thiết kế">Not a feed clone,
-                                but a designed social landing page</span></div>
-                        <div class="meta-card"><strong>Fallback-safe</strong><span class="t-lang"
-                                data-en="Still readable when remote embeds fail"
-                                data-vi="Vẫn đọc được khi embed từ nền tảng ngoài thất bại">Still readable when remote
-                                embeds fail</span></div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="glass-panel hero-panel">
                 <div class="section-head">
                     <div>
                         <h2 class="section-title"><span class="material-symbols-outlined">public</span><span class="t-lang"
-                                data-en="Facebook Public Embed" data-vi="Facebook Public Embed">Facebook Public
-                                Embed</span></h2>
+                                data-en="Facebook Embedded" data-vi="Facebook Embedded">Facebook Embedded</span></h2>
                         <p class="section-subtitle t-lang"
-                            data-en="When the page plugin is allowed, it provides a native public window into the Facebook presence."
-                            data-vi="Khi page plugin được phép hiển thị, nó tạo ra một cửa sổ native công khai vào hiện diện Facebook.">
-                            When the page plugin is allowed, it provides a native public window into the Facebook
-                            presence.
+                            data-en="Split view for the personal account on the left and the public Tobi page on the right."
+                            data-vi="Bố cục tách đôi: account cá nhân bên trái và page Tobi công khai bên phải.">
+                            Split view for the personal account on the left and the public Tobi page on the right.
                         </p>
                     </div>
-                    <a class="button-link" href="https://www.facebook.com/TobiNguyenData/" rel="noreferrer"
-                        target="_blank">
-                        <span class="material-symbols-outlined">open_in_new</span>
-                        <span class="t-lang" data-en="Open Page" data-vi="Mở trang">Open Page</span>
-                    </a>
                 </div>
 
-                <div class="embed-panel glass-panel" style="padding: 0.5rem; min-height: 620px;">
-                    <iframe
-                        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTobiNguyenData%2F&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
-                        title="Facebook Page Embed"></iframe>
+                <div class="facebook-embed-layout">
+                    <article class="facebook-account-card">
+                        <div class="facebook-account-head">
+                            <span class="facebook-account-kicker t-lang" data-en="Account" data-vi="Account">Account</span>
+                            <h3>Tobi Nguyen</h3>
+                            <p class="muted t-lang"
+                                data-en="Direct route to the personal Facebook account used for profile-level updates and public presence."
+                                data-vi="Điểm vào trực tiếp tới tài khoản Facebook cá nhân dùng cho cập nhật và hiện diện công khai ở cấp profile.">
+                                Direct route to the personal Facebook account used for profile-level updates and public
+                                presence.
+                            </p>
+                        </div>
+
+                        <a class="facebook-account-link" href="https://www.facebook.com/tobinguyen221" rel="noreferrer"
+                            target="_blank">
+                            <span class="material-symbols-outlined">account_circle</span>
+                            <span>facebook.com/tobinguyen221</span>
+                        </a>
+
+                        <div class="facebook-account-actions">
+                            <a class="button-link primary" href="https://www.facebook.com/tobinguyen221" rel="noreferrer"
+                                target="_blank">
+                                <span class="material-symbols-outlined">open_in_new</span>
+                                <span class="t-lang" data-en="Open Account" data-vi="Mở account">Open Account</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="facebook-page-panel">
+                        <div class="section-head section-head--compact">
+                            <div>
+                                <h3 class="facebook-panel-title t-lang" data-en="Tobi Public Page" data-vi="Page Tobi công khai">
+                                    Tobi Public Page</h3>
+                                <p class="section-subtitle t-lang"
+                                    data-en="Native public window into the Tobi page when Facebook plugin rendering is allowed."
+                                    data-vi="Cửa sổ public native vào page Tobi khi plugin Facebook được phép hiển thị.">
+                                    Native public window into the Tobi page when Facebook plugin rendering is allowed.
+                                </p>
+                            </div>
+                            <a class="button-link" href="https://www.facebook.com/TobiNguyenData/" rel="noreferrer"
+                                target="_blank">
+                                <span class="material-symbols-outlined">open_in_new</span>
+                                <span class="t-lang" data-en="Open Page" data-vi="Mở page">Open Page</span>
+                            </a>
+                        </div>
+
+                        <div class="embed-panel facebook-page-embed">
+                            <iframe
+                                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTobiNguyenData%2F&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                                title="Facebook Page Embed"></iframe>
+                        </div>
+                    </article>
                 </div>
 
                 <div class="spec-note" style="margin-top: 1rem;">
                     <span class="t-lang"
-                        data-en="If the plugin does not render in a browser or environment, the fallback cards below still keep the page useful and click-through friendly."
-                        data-vi="Nếu plugin không render trong trình duyệt hay môi trường hiện tại, các card fallback bên dưới vẫn giúp trang hữu ích và dễ click-through.">
-                        If the plugin does not render in a browser or environment, the fallback cards below still keep
-                        the page useful and click-through friendly.
+                        data-en="If the page plugin does not render in your browser or environment, the direct account and page links above still keep this section useful."
+                        data-vi="Nếu page plugin không render trong trình duyệt hay môi trường hiện tại, các link account và page phía trên vẫn giữ khối này hữu ích.">
+                        If the page plugin does not render in your browser or environment, the direct account and page
+                        links above still keep this section useful.
                     </span>
                 </div>
             </section>

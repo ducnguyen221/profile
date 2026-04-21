@@ -62,8 +62,58 @@
         </header>
 
         <main class="shell-main">
-            <section class="glass-panel hero-panel">
-                <div class="hero-grid">
+            <section class="glass-panel hero-panel project-summary-panel">
+                <div class="project-summary-grid">
+                    <div class="project-metric-stack">
+                        <article class="project-metric-card">
+                            <span class="project-metric-label t-lang" data-en="Projects" data-vi="Dự án">Projects</span>
+                            <strong id="project-count">9</strong>
+                            <p class="t-lang" data-en="records in the current filtered view"
+                                data-vi="bản ghi trong bộ lọc hiện tại">records in the current filtered view</p>
+                        </article>
+                        <article class="project-metric-card">
+                            <span class="project-metric-label t-lang" data-en="Companies" data-vi="Công ty">Companies</span>
+                            <strong id="company-count">9</strong>
+                            <p class="t-lang" data-en="unique client companies represented"
+                                data-vi="số công ty khách hàng xuất hiện">unique client companies represented</p>
+                        </article>
+                    </div>
+
+                    <div class="project-insight-grid">
+                        <article class="project-visual-card">
+                            <div class="project-card-head">
+                                <div>
+                                    <span class="project-card-kicker t-lang" data-en="Role Mix" data-vi="Cơ cấu role">Role
+                                        Mix</span>
+                                    <h2 class="project-card-title t-lang" data-en="Projects by Role"
+                                        data-vi="Dự án theo role">Projects by Role</h2>
+                                </div>
+                            </div>
+                            <div class="project-role-layout">
+                                <div class="project-role-chart" id="roleChart" role="img"
+                                    aria-label="Project distribution by role">
+                                    <div class="project-role-chart-center">
+                                        <strong id="roleChartTotal">9</strong>
+                                        <span class="t-lang" data-en="Projects" data-vi="Dự án">Projects</span>
+                                    </div>
+                                    <div class="project-role-labels" id="roleLabels"></div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-visual-card">
+                            <div class="project-card-head">
+                                <div>
+                                    <span class="project-card-kicker t-lang" data-en="Clients" data-vi="Khách hàng">Clients</span>
+                                    <h2 class="project-card-title t-lang" data-en="Company List"
+                                        data-vi="Danh sách khách hàng">Company List</h2>
+                                </div>
+                                <span class="project-client-badge" id="clientCountBadge">9</span>
+                            </div>
+                            <div class="project-client-directory" id="clientDirectory"></div>
+                        </article>
+                    </div>
+
                     <div class="hero-copy">
                         <span class="hero-kicker">
                             <span class="material-symbols-outlined">table_chart</span>
@@ -84,7 +134,7 @@
                     </div>
                     <div class="meta-grid">
                         <div class="meta-card">
-                            <strong id="project-count">9</strong>
+                            <strong id="project-count-legacy">9</strong>
                             <span class="t-lang" data-en="project records seeded from KPIM CV"
                                 data-vi="bản ghi dự án seed từ CV KPIM">project records seeded from KPIM CV</span>
                         </div>
@@ -116,11 +166,6 @@
                             <span class="t-lang" data-en="Search &amp; Filter" data-vi="Tìm kiếm &amp; Lọc">Search &amp;
                                 Filter</span>
                         </h2>
-                        <p class="section-subtitle t-lang"
-                            data-en="Use free-text search or narrow the list using one or more control groups."
-                            data-vi="Tìm theo từ khóa tự do hoặc thu hẹp danh sách bằng một hay nhiều nhóm điều khiển.">
-                            Use free-text search or narrow the list using one or more control groups.
-                        </p>
                     </div>
                 </div>
 
@@ -147,14 +192,6 @@
                     </div>
                 </div>
 
-                <div class="spec-note">
-                    <span class="t-lang"
-                        data-en="Desktop supports sticky-header column sorting. Mobile switches to stacked cards but keeps the same filter logic."
-                        data-vi="Desktop hỗ trợ sort theo cột với header cố định. Mobile chuyển sang card xếp dọc nhưng vẫn giữ cùng logic tìm kiếm và lọc.">
-                        Desktop supports sticky-header column sorting. Mobile switches to stacked cards but keeps the
-                        same filter logic.
-                    </span>
-                </div>
             </section>
 
             <section class="glass-panel hero-panel">
@@ -396,10 +433,35 @@
         const techFilter = document.getElementById("techFilter");
         const searchInput = document.getElementById("searchInput");
         const countEl = document.getElementById("project-count");
+        const companyCountEl = document.getElementById("company-count");
+        const roleChartEl = document.getElementById("roleChart");
+        const roleChartTotalEl = document.getElementById("roleChartTotal");
+        const roleLabelsEl = document.getElementById("roleLabels");
+        const clientDirectoryEl = document.getElementById("clientDirectory");
+        const clientCountBadgeEl = document.getElementById("clientCountBadge");
+
+        const rolePalette = ["#c69749", "#2a9d8f", "#f97316", "#3b82f6", "#84cc16", "#ef4444"];
 
         function monthLabel(value) {
             const [year, month] = value.split("-");
             return `${month}/${year}`;
+        }
+
+        function currentLang() {
+            return document.documentElement.lang === "vi" ? "vi" : "en";
+        }
+
+        function summaryText(en, vi) {
+            return currentLang() === "vi" ? vi : en;
+        }
+
+        function escapeHtml(value) {
+            return String(value)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#39;");
         }
 
         function uniqueValues(getter) {
@@ -472,6 +534,105 @@
             return `<div class="logo-pill">${logo}<span>${project.clientName}</span></div>`;
         }
 
+        function summarizeRows(rows) {
+            const roleMap = new Map();
+            const clientMap = new Map();
+
+            rows.forEach((project) => {
+                roleMap.set(project.role, (roleMap.get(project.role) || 0) + 1);
+
+                if (clientMap.has(project.clientName)) {
+                    clientMap.get(project.clientName).count += 1;
+                } else {
+                    clientMap.set(project.clientName, {
+                        name: project.clientName,
+                        logo: project.clientLogo,
+                        count: 1
+                    });
+                }
+            });
+
+            const roles = [...roleMap.entries()]
+                .map(([role, count]) => ({ role, count }))
+                .sort((a, b) => b.count - a.count || a.role.localeCompare(b.role));
+
+            const clients = [...clientMap.values()]
+                .sort((a, b) => a.name.localeCompare(b.name));
+
+            return {
+                projectCount: rows.length,
+                companyCount: clients.length,
+                roles,
+                clients
+            };
+        }
+
+        function clientDirectoryMarkup(client) {
+            const logo = client.logo
+                ? `<img alt="${escapeHtml(client.name)}" src="${escapeHtml(client.logo)}" />`
+                : `<span class="project-client-fallback">${escapeHtml(client.name.slice(0, 2).toUpperCase())}</span>`;
+            return `
+                <div class="project-client-item">
+                    ${logo}
+                    <strong>${escapeHtml(client.name)}</strong>
+                </div>
+            `;
+        }
+
+        function renderSummary(rows) {
+            const summary = summarizeRows(rows);
+
+            countEl.textContent = summary.projectCount;
+            companyCountEl.textContent = summary.companyCount;
+            roleChartTotalEl.textContent = summary.projectCount;
+            clientCountBadgeEl.textContent = summary.companyCount;
+            roleChartEl.setAttribute("aria-label", summaryText("Project distribution by role", "Phân bổ dự án theo role"));
+
+            if (!summary.projectCount) {
+                roleChartEl.style.background = "conic-gradient(rgba(255,255,255,0.08) 0 100%)";
+                roleLabelsEl.innerHTML = "";
+                clientDirectoryEl.innerHTML = `<div class="project-empty">${summaryText("No clients match the current filters.", "Không có khách hàng phù hợp với bộ lọc hiện tại.")}</div>`;
+                return;
+            }
+
+            let cursor = 0;
+            const segments = summary.roles.map((item, index) => {
+                const color = rolePalette[index % rolePalette.length];
+                const next = cursor + (item.count / summary.projectCount) * 100;
+                const segment = `${color} ${cursor.toFixed(2)}% ${next.toFixed(2)}%`;
+                const midAngle = ((cursor + next) / 2 / 100) * Math.PI * 2 - Math.PI / 2;
+                cursor = next;
+                return {
+                    color,
+                    segment,
+                    midAngle,
+                    role: item.role,
+                    count: item.count
+                };
+            });
+
+            roleChartEl.style.background = `conic-gradient(${segments.map((item) => item.segment).join(", ")})`;
+
+            roleLabelsEl.innerHTML = segments.map((item) => {
+                const xVector = Math.cos(item.midAngle);
+                const yVector = Math.sin(item.midAngle);
+                const x = Math.min(92, Math.max(8, 50 + xVector * 46));
+                const y = Math.min(88, Math.max(12, 50 + yVector * 46));
+                const anchor = xVector > 0.22 ? "right" : xVector < -0.22 ? "left" : "center";
+                const countLabel = currentLang() === "vi"
+                    ? `${item.count} dự án`
+                    : `${item.count} projects`;
+                return `
+                    <div class="project-role-label project-role-label--${anchor}" style="left:${x.toFixed(2)}%; top:${y.toFixed(2)}%; --label-color:${item.color};">
+                        <span>${escapeHtml(item.role)}</span>
+                        <strong>${countLabel}</strong>
+                    </div>
+                `;
+            }).join("");
+
+            clientDirectoryEl.innerHTML = summary.clients.map(clientDirectoryMarkup).join("");
+        }
+
         function renderHead() {
             const isLight = !document.documentElement.classList.contains("dark");
             headEl.innerHTML = `<tr>${columns.map((column) => {
@@ -498,7 +659,7 @@
 
         function render() {
             const rows = filteredProjects();
-            countEl.textContent = rows.length;
+            renderSummary(rows);
 
             bodyEl.innerHTML = rows.map((project) => `
                 <tr>
@@ -536,6 +697,13 @@
             el.addEventListener("input", render);
             el.addEventListener("change", render);
         });
+
+        const langToggleBtn = document.getElementById("lang-toggle-btn");
+        if (langToggleBtn) {
+            langToggleBtn.addEventListener("click", () => {
+                window.requestAnimationFrame(render);
+            });
+        }
 
         document.addEventListener("DOMContentLoaded", () => {
             initFilters();

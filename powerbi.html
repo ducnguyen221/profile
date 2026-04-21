@@ -53,153 +53,211 @@
         </header>
 
         <main class="shell-main">
-            <section class="glass-panel hero-panel">
-                <div class="hero-grid">
-                    <div class="hero-copy">
-                        <span class="hero-kicker"><span class="material-symbols-outlined">bar_chart</span><span
-                                class="t-lang" data-en="Report Gallery" data-vi="Thư viện báo cáo">Report
-                                Gallery</span></span>
-                        <h1 class="t-lang"
-                            data-en="A dedicated screen for Power BI demos, live portfolio links, and future report drops."
-                            data-vi="Một màn riêng cho Power BI demo, portfolio live và các report sẽ bổ sung sau.">
-                            A dedicated screen for Power BI demos, live portfolio links, and future report drops.
-                        </h1>
-                        <p class="t-lang"
-                            data-en="This page is intentionally gallery-like: each block is a report entry point with a cover, a short explanation, and a CTA. The first cards already point to live assets, while the rest are prepared as placeholders for additional reports."
-                            data-vi="Trang này được thiết kế như một gallery: mỗi block là một điểm vào báo cáo với cover, mô tả ngắn và CTA. Các card đầu đã trỏ tới tài sản live, phần còn lại được chuẩn bị như placeholder cho report sẽ bổ sung sau.">
-                            This page is intentionally gallery-like: each block is a report entry point with a cover,
-                            a short explanation, and a CTA. The first cards already point to live assets, while the
-                            rest are prepared as placeholders for additional reports.
-                        </p>
-                    </div>
-                    <div class="meta-grid">
-                        <div class="meta-card"><strong>Live today</strong><span class="t-lang"
-                                data-en="Profile and portfolio links are already available"
-                                data-vi="Đã có sẵn link profile và portfolio">Profile and portfolio links are already
-                                available</span></div>
-                        <div class="meta-card"><strong>Extensible</strong><span class="t-lang"
-                                data-en="More report cards can be appended without changing the shell"
-                                data-vi="Có thể nối thêm card report mà không đổi shell">More report cards can be
-                                appended without changing the shell</span></div>
-                        <div class="meta-card"><strong>Gallery model</strong><span class="t-lang"
-                                data-en="Card list with image, summary, and CTA"
-                                data-vi="Danh sách card có ảnh, tóm tắt và CTA">Card list with image, summary, and
-                                CTA</span></div>
-                        <div class="meta-card"><strong>Static-safe</strong><span class="t-lang"
-                                data-en="All demo entries remain usable on GitHub Pages"
-                                data-vi="Toàn bộ demo entry dùng ổn trên GitHub Pages">All demo entries remain usable
-                                on GitHub Pages</span></div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="glass-panel hero-panel">
-                <div class="section-head">
-                    <div>
-                        <h2 class="section-title"><span class="material-symbols-outlined">dashboard_customize</span><span
-                                class="t-lang" data-en="Demo Reports" data-vi="Các báo cáo demo">Demo Reports</span>
-                        </h2>
-                        <p class="section-subtitle t-lang"
-                            data-en="Open current live reports now, and use the remaining cards as placeholders for future demos."
-                            data-vi="Mở ngay các báo cáo live hiện tại, và dùng các card còn lại như placeholder cho demo tương lai.">
-                            Open current live reports now, and use the remaining cards as placeholders for future
-                            demos.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="demo-grid">
-                    <article class="demo-card">
-                        <img alt="PowerBI Profile" src="./assets/images/powerbi-logo.svg" />
-                        <h3>PowerBI Profile</h3>
-                        <p class="muted t-lang"
-                            data-en="Direct route to the live Power BI profile page currently referenced in the dashboard CTA."
-                            data-vi="Đường dẫn trực tiếp tới trang Power BI profile live đang được dùng trong CTA của dashboard.">
-                            Direct route to the live Power BI profile page currently referenced in the dashboard CTA.
-                        </p>
-                        <div class="chip-list">
-                            <span class="chip">Live</span>
-                            <span class="chip">Power BI</span>
-                            <span class="chip">Profile</span>
+            <section class="glass-panel hero-panel powerbi-gallery-panel">
+                <div class="powerbi-gallery-shell">
+                    <section class="powerbi-group">
+                        <div class="powerbi-group-head">
+                            <div class="powerbi-group-title-wrap">
+                                <h2 class="powerbi-group-title">Population &amp; Geography</h2>
+                                <span class="powerbi-group-count">4</span>
+                            </div>
+                            <a class="powerbi-group-link t-lang"
+                                href="https://app.powerbi.com/view?r=eyJrIjoiYmY4ODMyOWMtOTRkNC00MDEwLWEyYzItYzEzYmI5NWM4ZmVkIiwidCI6IjQxYWI0MmE5LTM4MWItNDhjZi04YTg1LTcyMDQ2NDkyMjk3NiIsImMiOjEwfQ%3D%3D"
+                                rel="noreferrer" target="_blank" data-en="View all" data-vi="Xem tất cả">View all</a>
                         </div>
-                        <a class="button-link primary"
-                            href="https://app.powerbi.com/view?r=eyJrIjoiNTE5NTQyNzUtM2ZjMy00N2MwLTgyOGEtYTc1NzMwYTAzNzVlIiwidCI6IjQxYWI0MmE5LTM4MWItNDhjZi04YTg1LTcyMDQ2NDkyMjk3NiIsImMiOjEwfQ%3D%3D"
-                            rel="noreferrer" target="_blank">
-                            <span class="material-symbols-outlined">open_in_new</span>
-                            Open Report
-                        </a>
-                    </article>
 
-                    <article class="demo-card">
-                        <img alt="PowerBI Portfolio" src="./assets/images/power-bi-icon.png" />
-                        <h3>PowerBI Portfolio</h3>
-                        <p class="muted t-lang"
-                            data-en="Direct route to the currently available portfolio view with report samples."
-                            data-vi="Đường dẫn trực tiếp tới portfolio đang có với các mẫu báo cáo hiện hành.">
-                            Direct route to the currently available portfolio view with report samples.
-                        </p>
-                        <div class="chip-list">
-                            <span class="chip">Live</span>
-                            <span class="chip">Portfolio</span>
-                            <span class="chip">Showcase</span>
+                        <div class="powerbi-report-grid">
+                            <a class="powerbi-report-card"
+                                href="https://app.powerbi.com/view?r=eyJrIjoiNTE5NTQyNzUtM2ZjMy00N2MwLTgyOGEtYTc1NzMwYTAzNzVlIiwidCI6IjQxYWI0MmE5LTM4MWItNDhjZi04YTg1LTcyMDQ2NDkyMjk3NiIsImMiOjEwfQ%3D%3D"
+                                rel="noreferrer" target="_blank">
+                                <div class="powerbi-report-thumb">
+                                    <img alt="Store Sales" src="./assets/images/asset_013.png" />
+                                </div>
+                                <h3 class="powerbi-report-title">1. Store Sales</h3>
+                                <div class="powerbi-report-meta">
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">calendar_today</span><time>18/08/2021
+                                            10:01:13</time></span>
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">visibility</span>68</span>
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">thumb_up</span>0</span>
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">thumb_down</span>0</span>
+                                    <span class="powerbi-report-meta-item powerbi-report-meta-item--accent"><span
+                                            class="material-symbols-outlined">star</span>0</span>
+                                </div>
+                            </a>
+
+                            <a class="powerbi-report-card"
+                                href="https://app.powerbi.com/view?r=eyJrIjoiYmY4ODMyOWMtOTRkNC00MDEwLWEyYzItYzEzYmI5NWM4ZmVkIiwidCI6IjQxYWI0MmE5LTM4MWItNDhjZi04YTg1LTcyMDQ2NDkyMjk3NiIsImMiOjEwfQ%3D%3D"
+                                rel="noreferrer" target="_blank">
+                                <div class="powerbi-report-thumb">
+                                    <img alt="Tinh hinh COVID-19" src="./assets/images/asset_017.png" />
+                                </div>
+                                <h3 class="powerbi-report-title">2. Tình hình COVID-19</h3>
+                                <div class="powerbi-report-meta">
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">calendar_today</span><time>20/04/2026
+                                            21:53:25</time></span>
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">visibility</span>57</span>
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">thumb_up</span>1</span>
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">thumb_down</span>0</span>
+                                    <span class="powerbi-report-meta-item powerbi-report-meta-item--accent"><span
+                                            class="material-symbols-outlined">star</span>0</span>
+                                </div>
+                            </a>
+
+                            <a class="powerbi-report-card"
+                                href="https://app.powerbi.com/view?r=eyJrIjoiYmY4ODMyOWMtOTRkNC00MDEwLWEyYzItYzEzYmI5NWM4ZmVkIiwidCI6IjQxYWI0MmE5LTM4MWItNDhjZi04YTg1LTcyMDQ2NDkyMjk3NiIsImMiOjEwfQ%3D%3D"
+                                rel="noreferrer" target="_blank">
+                                <div class="powerbi-report-thumb">
+                                    <img alt="Cac tinh Viet Nam" src="./assets/images/image.png" />
+                                </div>
+                                <h3 class="powerbi-report-title">3. Các tỉnh Việt Nam</h3>
+                                <div class="powerbi-report-meta">
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">calendar_today</span><time>18/08/2021
+                                            14:20:54</time></span>
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">visibility</span>36</span>
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">thumb_up</span>0</span>
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">thumb_down</span>0</span>
+                                    <span class="powerbi-report-meta-item powerbi-report-meta-item--accent"><span
+                                            class="material-symbols-outlined">star</span>0</span>
+                                </div>
+                            </a>
+
+                            <a class="powerbi-report-card"
+                                href="https://app.powerbi.com/view?r=eyJrIjoiNTE5NTQyNzUtM2ZjMy00N2MwLTgyOGEtYTc1NzMwYTAzNzVlIiwidCI6IjQxYWI0MmE5LTM4MWItNDhjZi04YTg1LTcyMDQ2NDkyMjk3NiIsImMiOjEwfQ%3D%3D"
+                                rel="noreferrer" target="_blank">
+                                <div class="powerbi-report-thumb">
+                                    <img alt="VietNam Map" src="./assets/images/images.png" />
+                                </div>
+                                <h3 class="powerbi-report-title">4. VietNam Map</h3>
+                                <div class="powerbi-report-meta">
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">calendar_today</span><time>17/08/2021
+                                            10:53:34</time></span>
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">visibility</span>32</span>
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">thumb_up</span>0</span>
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">thumb_down</span>0</span>
+                                    <span class="powerbi-report-meta-item powerbi-report-meta-item--accent"><span
+                                            class="material-symbols-outlined">star</span>0</span>
+                                </div>
+                            </a>
                         </div>
-                        <a class="button-link primary"
-                            href="https://app.powerbi.com/view?r=eyJrIjoiYmY4ODMyOWMtOTRkNC00MDEwLWEyYzItYzEzYmI5NWM4ZmVkIiwidCI6IjQxYWI0MmE5LTM4MWItNDhjZi04YTg1LTcyMDQ2NDkyMjk3NiIsImMiOjEwfQ%3D%3D"
-                            rel="noreferrer" target="_blank">
-                            <span class="material-symbols-outlined">open_in_new</span>
-                            Open Report
-                        </a>
-                    </article>
+                    </section>
 
-                    <article class="demo-card">
-                        <img alt="Retail dashboard placeholder" src="./assets/images/asset_001.png" />
-                        <h3 class="t-lang" data-en="Retail Performance Demo" data-vi="Demo hiệu suất bán lẻ">Retail
-                            Performance Demo</h3>
-                        <p class="muted t-lang"
-                            data-en="Reserved for a future retail reporting sample with KPI, branch, and trend views."
-                            data-vi="Dành chỗ cho một mẫu báo cáo retail trong tương lai với KPI, chi nhánh và xu hướng.">
-                            Reserved for a future retail reporting sample with KPI, branch, and trend views.
-                        </p>
-                        <div class="chip-list"><span class="chip">Placeholder</span><span class="chip">Retail</span></div>
-                    </article>
+                    <section class="powerbi-group">
+                        <div class="powerbi-group-head">
+                            <div class="powerbi-group-title-wrap">
+                                <h2 class="powerbi-group-title">01. Accounting &amp; Finance</h2>
+                                <span class="powerbi-group-count">4</span>
+                            </div>
+                            <a class="powerbi-group-link t-lang"
+                                href="https://app.powerbi.com/view?r=eyJrIjoiYmY4ODMyOWMtOTRkNC00MDEwLWEyYzItYzEzYmI5NWM4ZmVkIiwidCI6IjQxYWI0MmE5LTM4MWItNDhjZi04YTg1LTcyMDQ2NDkyMjk3NiIsImMiOjEwfQ%3D%3D"
+                                rel="noreferrer" target="_blank" data-en="View all" data-vi="Xem tất cả">View all</a>
+                        </div>
 
-                    <article class="demo-card">
-                        <img alt="HR analytics placeholder" src="./assets/images/hr-analytics.webp" />
-                        <h3 class="t-lang" data-en="HR Analytics Demo" data-vi="Demo HR Analytics">HR Analytics Demo</h3>
-                        <p class="muted t-lang"
-                            data-en="Reserved for a future people analytics sample focused on hiring, churn, and workforce review."
-                            data-vi="Dành chỗ cho một mẫu people analytics trong tương lai tập trung vào tuyển dụng, churn và workforce review.">
-                            Reserved for a future people analytics sample focused on hiring, churn, and workforce
-                            review.
-                        </p>
-                        <div class="chip-list"><span class="chip">Placeholder</span><span class="chip">HR</span></div>
-                    </article>
+                        <div class="powerbi-report-grid">
+                            <a class="powerbi-report-card"
+                                href="https://app.powerbi.com/view?r=eyJrIjoiYmY4ODMyOWMtOTRkNC00MDEwLWEyYzItYzEzYmI5NWM4ZmVkIiwidCI6IjQxYWI0MmE5LTM4MWItNDhjZi04YTg1LTcyMDQ2NDkyMjk3NiIsImMiOjEwfQ%3D%3D"
+                                rel="noreferrer" target="_blank">
+                                <div class="powerbi-report-thumb">
+                                    <img alt="Finance Forecast" src="./assets/images/asset_010.png" />
+                                </div>
+                                <h3 class="powerbi-report-title">1. Finance Forecast</h3>
+                                <div class="powerbi-report-meta">
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">calendar_today</span><time>14/09/2022
+                                            09:41:21</time></span>
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">visibility</span>74</span>
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">thumb_up</span>2</span>
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">thumb_down</span>0</span>
+                                    <span class="powerbi-report-meta-item powerbi-report-meta-item--accent"><span
+                                            class="material-symbols-outlined">star</span>1</span>
+                                </div>
+                            </a>
 
-                    <article class="demo-card">
-                        <img alt="Finance dashboard placeholder" src="./assets/images/asset_010.png" />
-                        <h3 class="t-lang" data-en="Finance Dashboard Demo" data-vi="Demo dashboard tài chính">Finance
-                            Dashboard Demo</h3>
-                        <p class="muted t-lang"
-                            data-en="Reserved for a future finance sample focused on revenue, margin, and cash flow storytelling."
-                            data-vi="Dành chỗ cho một mẫu tài chính trong tương lai tập trung vào doanh thu, biên lợi nhuận và dòng tiền.">
-                            Reserved for a future finance sample focused on revenue, margin, and cash flow
-                            storytelling.
-                        </p>
-                        <div class="chip-list"><span class="chip">Placeholder</span><span class="chip">Finance</span></div>
-                    </article>
+                            <a class="powerbi-report-card"
+                                href="https://app.powerbi.com/view?r=eyJrIjoiNTE5NTQyNzUtM2ZjMy00N2MwLTgyOGEtYTc1NzMwYTAzNzVlIiwidCI6IjQxYWI0MmE5LTM4MWItNDhjZi04YTg1LTcyMDQ2NDkyMjk3NiIsImMiOjEwfQ%3D%3D"
+                                rel="noreferrer" target="_blank">
+                                <div class="powerbi-report-thumb">
+                                    <img alt="Accounts Receivable Report" src="./assets/images/asset_014.png" />
+                                </div>
+                                <h3 class="powerbi-report-title">2. Accounts Receivable Report</h3>
+                                <div class="powerbi-report-meta">
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">calendar_today</span><time>07/02/2023
+                                            11:25:40</time></span>
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">visibility</span>61</span>
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">thumb_up</span>1</span>
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">thumb_down</span>0</span>
+                                    <span class="powerbi-report-meta-item powerbi-report-meta-item--accent"><span
+                                            class="material-symbols-outlined">star</span>0</span>
+                                </div>
+                            </a>
 
-                    <article class="demo-card">
-                        <img alt="Operations dashboard placeholder" src="./assets/images/asset_014.png" />
-                        <h3 class="t-lang" data-en="Operations Control Tower" data-vi="Demo điều hành vận hành">
-                            Operations Control Tower</h3>
-                        <p class="muted t-lang"
-                            data-en="Reserved for a future operations sample with throughput, backlog, and service-level signals."
-                            data-vi="Dành chỗ cho một mẫu vận hành trong tương lai với throughput, backlog và tín hiệu service level.">
-                            Reserved for a future operations sample with throughput, backlog, and service-level
-                            signals.
-                        </p>
-                        <div class="chip-list"><span class="chip">Placeholder</span><span class="chip">Ops</span></div>
-                    </article>
+                            <a class="powerbi-report-card"
+                                href="https://app.powerbi.com/view?r=eyJrIjoiYmY4ODMyOWMtOTRkNC00MDEwLWEyYzItYzEzYmI5NWM4ZmVkIiwidCI6IjQxYWI0MmE5LTM4MWItNDhjZi04YTg1LTcyMDQ2NDkyMjk3NiIsImMiOjEwfQ%3D%3D"
+                                rel="noreferrer" target="_blank">
+                                <div class="powerbi-report-thumb">
+                                    <img alt="Income Statement Report" src="./assets/images/asset_016.png" />
+                                </div>
+                                <h3 class="powerbi-report-title">3. Income Statement Report</h3>
+                                <div class="powerbi-report-meta">
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">calendar_today</span><time>24/06/2023
+                                            13:18:09</time></span>
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">visibility</span>49</span>
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">thumb_up</span>0</span>
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">thumb_down</span>0</span>
+                                    <span class="powerbi-report-meta-item powerbi-report-meta-item--accent"><span
+                                            class="material-symbols-outlined">star</span>0</span>
+                                </div>
+                            </a>
+
+                            <a class="powerbi-report-card"
+                                href="https://app.powerbi.com/view?r=eyJrIjoiNTE5NTQyNzUtM2ZjMy00N2MwLTgyOGEtYTc1NzMwYTAzNzVlIiwidCI6IjQxYWI0MmE5LTM4MWItNDhjZi04YTg1LTcyMDQ2NDkyMjk3NiIsImMiOjEwfQ%3D%3D"
+                                rel="noreferrer" target="_blank">
+                                <div class="powerbi-report-thumb">
+                                    <img alt="Bank Loan Report" src="./assets/images/asset_011.png" />
+                                </div>
+                                <h3 class="powerbi-report-title">4. Bank Loan Report</h3>
+                                <div class="powerbi-report-meta">
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">calendar_today</span><time>09/11/2023
+                                            08:44:17</time></span>
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">visibility</span>53</span>
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">thumb_up</span>1</span>
+                                    <span class="powerbi-report-meta-item"><span
+                                            class="material-symbols-outlined">thumb_down</span>0</span>
+                                    <span class="powerbi-report-meta-item powerbi-report-meta-item--accent"><span
+                                            class="material-symbols-outlined">star</span>1</span>
+                                </div>
+                            </a>
+                        </div>
+                    </section>
                 </div>
             </section>
         </main>

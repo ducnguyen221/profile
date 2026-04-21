@@ -55,72 +55,25 @@
         </header>
 
         <main class="shell-main">
-            <section class="glass-panel hero-panel">
-                <div class="hero-grid">
-                    <div class="hero-copy">
-                        <span class="hero-kicker"><span class="material-symbols-outlined">school</span><span
-                                class="t-lang" data-en="Learning Hub" data-vi="Không gian học tập">Learning
-                                Hub</span></span>
-                        <h1 class="t-lang"
-                            data-en="A dedicated screen for COMPA Class discovery, course browsing, and fallback access."
-                            data-vi="Một màn riêng cho discovery của COMPA Class, duyệt khóa học và truy cập fallback.">
-                            A dedicated screen for COMPA Class discovery, course browsing, and fallback access.
-                        </h1>
-                        <p class="t-lang"
-                            data-en="This page attempts to embed the discovery experience directly. When cross-site policies block embedding, the page still preserves a clear route with preview content and a direct CTA."
-                            data-vi="Trang này ưu tiên nhúng trực tiếp trải nghiệm discovery. Khi chính sách cross-site chặn iframe, trang vẫn giữ đường dẫn rõ ràng bằng preview content và CTA mở trực tiếp.">
-                            This page attempts to embed the discovery experience directly. When cross-site policies
-                            block embedding, the page still preserves a clear route with preview content and a direct
-                            CTA.
-                        </p>
-                        <div class="hero-actions">
-                            <a class="button-link primary" href="https://compaclass.com/discovery" rel="noreferrer"
-                                target="_blank">
-                                <span class="material-symbols-outlined">open_in_new</span>
-                                <span class="t-lang" data-en="Open Discovery" data-vi="Mở Discovery">Open
-                                    Discovery</span>
-                            </a>
-                            <a class="button-link" href="./index.html">
-                                <span class="material-symbols-outlined">west</span>
-                                <span class="t-lang" data-en="Back to Profile" data-vi="Về Hồ sơ">Back to
-                                    Profile</span>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="meta-grid">
-                        <div class="meta-card"><strong>Embed-first</strong><span class="t-lang"
-                                data-en="Primary state is live iframe discovery"
-                                data-vi="Trạng thái chính là iframe discovery trực tiếp">Primary state is live iframe
-                                discovery</span></div>
-                        <div class="meta-card"><strong>Fallback-ready</strong><span class="t-lang"
-                                data-en="Always keeps a direct route in case iframe fails"
-                                data-vi="Luôn có đường dẫn trực tiếp nếu iframe lỗi">Always keeps a direct route in
-                                case iframe fails</span></div>
-                        <div class="meta-card"><strong>Local-safe</strong><span class="t-lang"
-                                data-en="Still usable when previewing the repo locally"
-                                data-vi="Vẫn dùng được khi preview local repo">Still usable when previewing the repo
-                                locally</span></div>
-                        <div class="meta-card"><strong>Same visual DNA</strong><span class="t-lang"
-                                data-en="Uses the same shell, tokens, and navigation"
-                                data-vi="Dùng cùng shell, token và điều hướng">Uses the same shell, tokens, and
-                                navigation</span></div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="glass-panel hero-panel">
+            <section class="glass-panel hero-panel course-embed-shell">
                 <div class="section-head">
                     <div>
                         <h2 class="section-title"><span class="material-symbols-outlined">web</span><span class="t-lang"
-                                data-en="Discovery Embed" data-vi="Discovery Embed">Discovery Embed</span></h2>
+                                data-en="COMPA CLASS Discovery" data-vi="COMPA CLASS Discovery">COMPA CLASS
+                                Discovery</span></h2>
                         <p class="section-subtitle" id="embedStatus"><span class="t-lang"
-                                data-en="Trying to load the discovery page inside the current screen."
-                                data-vi="Đang thử tải trang discovery trực tiếp trong màn hình hiện tại.">Trying to load
-                                the discovery page inside the current screen.</span></p>
+                                data-en="Trying to load the discovery page directly inside this screen."
+                                data-vi="Đang thử tải trực tiếp trang discovery trong màn hình này.">Trying to load the
+                                discovery page directly inside this screen.</span></p>
                     </div>
+                    <a class="button-link primary" href="https://compaclass.com/discovery" rel="noreferrer"
+                        target="_blank">
+                        <span class="material-symbols-outlined">open_in_new</span>
+                        <span class="t-lang" data-en="Open Discovery" data-vi="Mở Discovery">Open Discovery</span>
+                    </a>
                 </div>
 
-                <div class="embed-panel glass-panel" style="padding: 0.5rem;">
+                <div class="embed-panel course-embed-panel">
                     <iframe id="discoveryFrame" loading="lazy" src="https://compaclass.com/discovery"
                         title="COMPA Discovery"></iframe>
                 </div>
@@ -128,10 +81,10 @@
                 <div class="embed-fallback" id="embedFallback" style="margin-top: 1rem;">
                     <strong class="t-lang" data-en="Fallback route:" data-vi="Đường fallback:">Fallback route:</strong>
                     <span class="t-lang"
-                        data-en="if the iframe cannot be used in your browser, continue through the direct discovery link above. This page intentionally keeps both paths available."
-                        data-vi="nếu iframe không dùng được trong trình duyệt của bạn, hãy tiếp tục bằng nút mở discovery ở trên. Trang này chủ động giữ sẵn cả hai đường đi.">
-                        if the iframe cannot be used in your browser, continue through the direct discovery link above.
-                        This page intentionally keeps both paths available.
+                        data-en="if the iframe cannot be used in your browser, continue through the Open Discovery button in this section. This page intentionally keeps both paths available."
+                        data-vi="nếu iframe không dùng được trong trình duyệt của bạn, hãy tiếp tục bằng nút Open Discovery trong chính khối này. Trang giữ sẵn cả hai đường đi.">
+                        if the iframe cannot be used in your browser, continue through the Open Discovery button in
+                        this section. This page intentionally keeps both paths available.
                     </span>
                 </div>
             </section>
@@ -226,14 +179,12 @@
 
             frame.addEventListener("load", () => {
                 marked = true;
-                status.innerHTML = document.documentElement.classList.contains("dark")
-                    ? "Discovery iframe loaded. If content is blocked by cross-site policy, use the direct CTA above."
-                    : "Discovery iframe loaded. If content is blocked by cross-site policy, use the direct CTA above.";
+                status.textContent = "Discovery iframe loaded. If content is blocked by cross-site policy, use the Open Discovery button in this section.";
             });
 
             setTimeout(() => {
                 if (marked) return;
-                status.innerHTML = "Embed may be blocked in this browser or by remote page policy. Use the direct discovery link above.";
+                status.textContent = "Embed may be blocked in this browser or by remote page policy. Use the Open Discovery button in this section.";
             }, 4500);
         });
     </script>

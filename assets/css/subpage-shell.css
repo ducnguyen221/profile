@@ -782,38 +782,47 @@ select {
 .chapter {
     position: relative;
     display: grid;
-    gap: 1rem;
-    padding: 1.25rem 1.25rem 1.25rem 4.25rem;
+    gap: 1.5rem;
+    padding: 3.5rem 1.75rem 2rem 4.5rem;
     border: 1px solid var(--border-color);
-    border-radius: 1.4rem;
+    border-radius: 1.6rem;
     background: var(--card-bg);
+    min-height: 360px;
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chapter:hover {
+    border-color: rgba(198, 151, 73, 0.45);
+    box-shadow: 0 20px 60px -24px rgba(198, 151, 73, 0.25);
 }
 
 .chapter::before {
     content: "";
     position: absolute;
     left: 15px;
-    top: 1.45rem;
+    top: 1.15rem;
     width: 18px;
     height: 18px;
     border-radius: 999px;
     border: 2px solid var(--accent-color);
     background: var(--bg-start);
     box-shadow: 0 0 0 6px rgba(198, 151, 73, 0.12);
+    z-index: 2;
 }
 
 .chapter-head {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.9rem 1rem;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .chapter-org {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.85rem;
+    flex-wrap: wrap;
 }
 
 .chapter-org img {
@@ -827,28 +836,40 @@ select {
 
 .chapter-org h2 {
     margin: 0;
-    font-size: 1.35rem;
+    font-size: 1.5rem;
     letter-spacing: -0.03em;
 }
 
 .chapter-role {
-    margin: 0.2rem 0 0;
+    margin: 0.25rem 0 0;
     color: var(--accent-color);
     font-size: 0.95rem;
     font-weight: 700;
 }
 
 .chapter-time {
-    color: var(--soft-text-color);
-    font-size: 0.84rem;
+    position: absolute;
+    top: 0.9rem;
+    left: 2.85rem;
+    margin: 0;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    background: rgba(198, 151, 73, 0.14);
+    border: 1px solid rgba(198, 151, 73, 0.45);
+    color: var(--accent-color);
+    font-size: 0.72rem;
     font-weight: 700;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    white-space: nowrap;
+    z-index: 2;
+    box-shadow: 0 0 0 4px rgba(198, 151, 73, 0.06);
 }
 
 .chapter-copy {
     color: var(--soft-text-color);
-    line-height: 1.75;
+    line-height: 1.8;
+    font-size: 1rem;
 }
 
 .chapter-copy p {
@@ -856,27 +877,69 @@ select {
 }
 
 .photo-book {
+    position: relative;
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.7rem;
+    gap: 0.9rem;
+    padding: 0.5rem;
+    min-height: 260px;
 }
 
 .photo-book img {
     width: 100%;
-    height: 160px;
+    height: 100%;
     object-fit: cover;
-    border-radius: 1rem;
+    border-radius: 1.1rem;
     border: 1px solid var(--border-color);
+    box-shadow: 0 14px 32px -18px rgba(0, 0, 0, 0.55),
+        0 0 0 6px rgba(255, 255, 255, 0.02);
+    transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+        box-shadow 0.45s ease, z-index 0s linear 0.45s;
+    will-change: transform;
 }
 
-.photo-book img:nth-child(1),
-.photo-book img:nth-child(4) {
-    transform: rotate(-2deg);
+.photo-book img:hover {
+    transform: rotate(0deg) scale(1.04) translateY(-4px) !important;
+    box-shadow: 0 24px 44px -16px rgba(198, 151, 73, 0.4),
+        0 0 0 6px rgba(198, 151, 73, 0.08);
+    z-index: 3;
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+        box-shadow 0.35s ease, z-index 0s;
 }
 
-.photo-book img:nth-child(2),
-.photo-book img:nth-child(3) {
+.photo-book--2 {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.9fr);
+    grid-auto-rows: 260px;
+}
+
+.photo-book--2 img:nth-child(1) {
+    transform: rotate(-2.2deg);
+}
+
+.photo-book--2 img:nth-child(2) {
+    transform: rotate(2.4deg) translateY(1.2rem);
+}
+
+.photo-book--3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, 160px);
+    grid-template-areas:
+        "a b"
+        "a c";
+}
+
+.photo-book--3 img:nth-child(1) {
+    grid-area: a;
+    transform: rotate(-2.5deg);
+}
+
+.photo-book--3 img:nth-child(2) {
+    grid-area: b;
     transform: rotate(2deg);
+}
+
+.photo-book--3 img:nth-child(3) {
+    grid-area: c;
+    transform: rotate(-1.5deg) translateY(0.4rem);
 }
 
 .embed-panel {
@@ -1025,27 +1088,69 @@ select {
     }
 
     .chapter {
-        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-        padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        padding: 3.4rem 2.2rem 2.4rem 2.2rem;
+        gap: 2.4rem;
+        align-items: center;
+        min-height: 420px;
     }
 
     .chapter::before {
         left: calc(50% - 9px);
-        top: 1.6rem;
+        top: 1.05rem;
     }
 
-    .chapter-text {
-        padding-right: 2.2rem;
+    .chapter-time {
+        top: 0.85rem;
+        left: calc(50% + 22px);
+    }
+
+    .chapter--alt .chapter-time {
+        left: auto;
+        right: calc(50% + 22px);
+    }
+
+    .chapter:not(.chapter--alt) .chapter-text {
+        text-align: right;
+    }
+
+    .chapter:not(.chapter--alt) .chapter-head,
+    .chapter:not(.chapter--alt) .chapter-org {
+        justify-content: flex-end;
+    }
+
+    .chapter:not(.chapter--alt) .chapter-org {
+        flex-direction: row-reverse;
     }
 
     .chapter--alt .chapter-text {
         order: 2;
-        padding-right: 0;
-        padding-left: 2.2rem;
+        text-align: left;
+    }
+
+    .chapter--alt .chapter-head,
+    .chapter--alt .chapter-org {
+        justify-content: flex-start;
     }
 
     .chapter--alt .photo-book {
         order: 1;
+    }
+
+    .chapter-text {
+        padding-right: 0;
+    }
+
+    .photo-book {
+        min-height: 340px;
+    }
+
+    .photo-book--2 {
+        grid-auto-rows: 320px;
+    }
+
+    .photo-book--3 {
+        grid-template-rows: repeat(2, 180px);
     }
 
     .channel-grid,
@@ -1091,11 +1196,27 @@ select {
         display: none;
     }
 
-    .photo-book {
+    .photo-book,
+    .photo-book--2,
+    .photo-book--3 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: auto;
+        grid-template-areas: none;
+        grid-auto-rows: 150px;
+        min-height: 0;
     }
 
-    .photo-book img {
-        height: 140px;
+    .photo-book--3 img:nth-child(1),
+    .photo-book--3 img:nth-child(2),
+    .photo-book--3 img:nth-child(3),
+    .photo-book--2 img:nth-child(1),
+    .photo-book--2 img:nth-child(2) {
+        grid-area: auto;
+        transform: rotate(0);
+    }
+
+    .photo-book--3 img:nth-child(1) {
+        grid-column: span 2;
+        height: 170px;
     }
 }
